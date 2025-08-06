@@ -6,9 +6,9 @@ import ImpactSection from "@/components/home/ImpactSection";
 import RecognitionSection from "@/components/home/RecognitionSection";
 import ProjectsSection from "@/components/shared/ProjectsSection";
 
-export default function Home() {
+export default function ArabicHome() {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir="rtl">
       <HeroSection />
       <SurvivalStorySection />
       <MissionSection />
@@ -16,8 +16,6 @@ export default function Home() {
       <ImpactSection />
       <RecognitionSection />
       <ProjectsSection />
-
-      {/* Additional sections will be added here */}
     </div>
   );
 }

@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "volunteer": "Volunteer",
+    "contactUs": "Contact Us",
+    "blog": "Blog",
+    "ourProjects": "Our Projects",
+    "ourImpact": "Our Impact",
+    "donate": "Donate"
+  },
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "arabic": "العربية",
+    "learnMore": "Learn More",
+    "getInvolved": "Get Involved",
+    "makeADifference": "Make a Difference"
+  },
+  "home": {
+    "hero": {
+      "title": "Al-Rahmah Wells",
+      "subtitle": "Bringing Clean Water to Communities in Need",
+      "description": "We are dedicated to providing sustainable access to clean water through well construction and water infrastructure projects."
+    }
+  }
+}

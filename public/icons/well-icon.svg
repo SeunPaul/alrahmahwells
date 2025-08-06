@@ -1,0 +1,18 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Well structure -->
+  <rect x="16" y="20" width="16" height="20" rx="2" fill="#1A3F22" stroke="#58761B" stroke-width="1"/>
+  
+  <!-- Well opening -->
+  <circle cx="24" cy="28" r="4" fill="#58761B"/>
+  
+  <!-- Water surface -->
+  <ellipse cx="24" cy="32" rx="6" ry="2" fill="#D99201" opacity="0.8"/>
+  
+  <!-- Water drops -->
+  <path d="M20 36 C20 36 22 38 20 40 C18 38 20 36 20 36 Z" fill="#D99201"/>
+  <path d="M28 36 C28 36 30 38 28 40 C26 38 28 36 28 36 Z" fill="#D99201"/>
+  
+  <!-- Rope/pulley -->
+  <line x1="20" y1="18" x2="28" y2="18" stroke="#905A01" stroke-width="2"/>
+  <circle cx="24" cy="18" r="1" fill="#905A01"/>
+</svg> 

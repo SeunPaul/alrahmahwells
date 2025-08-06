@@ -1,0 +1,27 @@
+{
+  "navigation": {
+    "home": "الرئيسية",
+    "aboutUs": "من نحن",
+    "volunteer": "تطوع",
+    "contactUs": "اتصل بنا",
+    "blog": "المدونة",
+    "ourProjects": "مشاريعنا",
+    "ourImpact": "تأثيرنا",
+    "donate": "تبرع"
+  },
+  "common": {
+    "language": "اللغة",
+    "english": "English",
+    "arabic": "العربية",
+    "learnMore": "اعرف المزيد",
+    "getInvolved": "انضم إلينا",
+    "makeADifference": "اصنع فرقاً"
+  },
+  "home": {
+    "hero": {
+      "title": "آبار الرحمة",
+      "subtitle": "نحمل المياه النظيفة للمجتمعات المحتاجة",
+      "description": "نحن متخصصون في توفير وصول مستدام للمياه النظيفة من خلال بناء الآبار ومشاريع البنية التحتية للمياه."
+    }
+  }
+}

@@ -1,11 +1,11 @@
 "use client";
 
 import { useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function OurImpact() {
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <div className="min-h-screen bg-gray-50" dir={isRTL ? "rtl" : "ltr"}>

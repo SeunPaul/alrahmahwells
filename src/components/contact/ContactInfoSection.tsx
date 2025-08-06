@@ -1,16 +1,16 @@
 "use client";
 
-import { useTranslations, getLocaleFromPathname } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { getLocaleFromPathname } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
 import { HiLocationMarker, HiPhone, HiMail } from "react-icons/hi";
 import { HiHandRaised, HiBookOpen } from "react-icons/hi2";
 
 export default function ContactInfoSection() {
   const pathname = usePathname();
-  const t = useTranslations();
+  
   const locale = getLocaleFromPathname(pathname);
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section

@@ -1,12 +1,12 @@
 "use client";
 
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function RecognitionSection() {
-  const t = useTranslations();
+  
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   const recognitions = [
     {

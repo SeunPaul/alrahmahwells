@@ -1,13 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function ProjectsSection() {
-  const t = useTranslations();
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
   const [currentStory, setCurrentStory] = useState(0);
 
   const stories = [

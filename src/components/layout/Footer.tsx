@@ -1,17 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function Footer() {
-  const t = useTranslations();
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
-  const getLocalizedPath = (path: string) => {
-    if (locale === "en") return path as any;
-    return `/${locale}${path}` as any;
+  const getLocalizedPath = (path: string): string => {
+    if (locale === "en") return path;
+    return `/${locale}${path}`;
   };
 
   const currentYear = new Date().getFullYear();
@@ -31,7 +30,7 @@ export default function Footer() {
             <p className="text-gray-200 mb-6 leading-relaxed">
               {locale === "ar"
                 ? "كل مشروع هو شهادة أمل، دليل على أن الله رحيم بالفعل بالمحرومين، ونحن سعداء أن نكون أدوات رحمته لهم. امشِ معنا ونحن نشارك القصص المؤثرة وراء كل معجزة جعلها كل تبرع ممكنة."
-                : "Every project is a testimony of hope, a proof that Allah is indeed merciful to the less privileged, and we're happy to be instruments of His Mercy to them. Walk with us as we share the touching stories behind every Miracle each donation made possible."}
+                : "Every project is a testimony of hope, a proof that Allah is indeed merciful to the less privileged, and we&apos;re happy to be instruments of His Mercy to them. Walk with us as we share the touching stories behind every Miracle each donation made possible."}
             </p>
             <div className="flex gap-3">
               <input
@@ -50,12 +49,12 @@ export default function Footer() {
             <h3 className="text-2xl font-bold text-white mb-4">
               {locale === "ar"
                 ? "تحمل عبئاً لا تستطيع مشاركته؟ دعنا نصلي من أجلك"
-                : "Carrying a burden you can't share? Let us pray for you"}
+                : "Carrying a burden you can&apos;t share? Let us pray for you"}
             </h3>
             <p className="text-gray-200 mb-6 leading-relaxed">
               {locale === "ar"
                 ? "يمكن أن تشعر الحياة بالغموض - عدم اليقين، الألم، أو الصراعات الصامتة التي لا تستطيع شرحها لأي شخص. في آبار الرحمة، نؤمن أنه لا يجب أن يعاني أي روح وحده. أرسل لنا طلبك بخصوصية، سنرفع حاجتك إلى الله في الصلاة، وستحصل على الإجابات التي تبحث عنها خلال 48 ساعة إن شاء الله."
-                : "Life can feel overwhelming - uncertainty, pain, or silent struggles you can't explain to anyone. At Al-Rahmah Wells, we believe no soul should suffer alone. Send us your request privately, we'll raise your need to Allah in prayer, and you'll get the answers you seek within 48 hours Inshā' Allāh."}
+                : "Life can feel overwhelming - uncertainty, pain, or silent struggles you can&apos;t explain to anyone. At Al-Rahmah Wells, we believe no soul should suffer alone. Send us your request privately, we&apos;ll raise your need to Allah in prayer, and you&apos;ll get the answers you seek within 48 hours Inshā' Allāh."}
             </p>
             <button className="px-6 py-3 bg-[#58761b] hover:bg-[#4a6218] text-white rounded-lg font-semibold transition-colors">
               {locale === "ar" ? "أرسل رسالة الآن" : "Send a message now"}
@@ -111,13 +110,13 @@ export default function Footer() {
             {/* Call-to-Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href={getLocalizedPath("/donate")}
+                href={getLocalizedPath("/donate") as any}
                 className="px-8 py-4 bg-secondary-light hover:bg-secondary-dark text-white rounded-lg font-semibold text-lg transition-colors"
               >
                 {locale === "ar" ? "تبرع الآن" : "Donate Now"}
               </Link>
               <Link
-                href={getLocalizedPath("/our-impact")}
+                href={getLocalizedPath("/our-impact") as any}
                 className="px-8 py-4 bg-white text-primary-dark border-2 border-white rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors"
               >
                 {locale === "ar" ? "شاهد تأثيرنا" : "See Our Impact"}
@@ -154,31 +153,31 @@ export default function Footer() {
             {/* Navigation Links */}
             <div className="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
               <Link
-                href={getLocalizedPath("/about-us")}
+                href={getLocalizedPath("/about-us") as any}
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 {locale === "ar" ? "من نحن" : "About us"}
               </Link>
               <Link
-                href={getLocalizedPath("/volunteer")}
+                href={getLocalizedPath("/volunteer") as any}
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 {locale === "ar" ? "تطوع" : "Volunteer"}
               </Link>
               <Link
-                href={getLocalizedPath("/contact-us")}
+                href={getLocalizedPath("/contact-us") as any}
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 {locale === "ar" ? "اتصل بنا" : "Contact us"}
               </Link>
               <Link
-                href={getLocalizedPath("/blog")}
+                href={getLocalizedPath("/blog") as any}
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 {locale === "ar" ? "المدونة" : "Blog"}
               </Link>
               <Link
-                href={getLocalizedPath("/our-projects")}
+                href={getLocalizedPath("/our-projects") as any}
                 className="text-gray-300 hover:text-white transition-colors"
               >
                 {locale === "ar" ? "مشاريعنا" : "Our Projects"}

@@ -1,5 +1,4 @@
-import { createTranslator, createFormatter } from "next-intl";
-import { defaultLocale, locales } from "./config";
+import { defaultLocale, locales, type Locale } from "./config";
 
 // Simple locale detection
 export function getLocale(): string {
@@ -8,7 +7,7 @@ export function getLocale(): string {
     const segments = pathname.split("/");
     const locale = segments[1];
 
-    if (locales.includes(locale as any)) {
+    if (locales.includes(locale as Locale)) {
       return locale;
     }
   }
@@ -75,7 +74,7 @@ export function getLocaleFromPathname(pathname: string): string {
   const segments = pathname.split("/");
   const locale = segments[1];
 
-  if (locales.includes(locale as any)) {
+  if (locales.includes(locale as Locale)) {
     return locale;
   }
 
@@ -86,7 +85,7 @@ export function removeLocaleFromPathname(pathname: string): string {
   const segments = pathname.split("/");
   const locale = segments[1];
 
-  if (locales.includes(locale as any)) {
+  if (locales.includes(locale as Locale)) {
     return "/" + segments.slice(2).join("/");
   }
 

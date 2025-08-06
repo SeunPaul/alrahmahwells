@@ -1,13 +1,12 @@
 "use client";
 
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 import React from "react";
 
 export default function SurvivalStorySection() {
-  const t = useTranslations();
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
@@ -53,7 +52,7 @@ export default function SurvivalStorySection() {
                   but to chase survival
                 </span>
                 . They walk long miles on bare feet, hoping to find even a
-                puddle of dirty water. They'd rather live with the pain of
+                puddle of dirty water. They&apos;d rather live with the pain of
                 water-borne diseases than die of thirst.
               </>
             )}

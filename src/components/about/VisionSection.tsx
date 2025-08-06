@@ -1,14 +1,14 @@
 "use client";
 
-import { useTranslations, getLocaleFromPathname } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { getLocaleFromPathname } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
 
 export default function VisionSection() {
   const pathname = usePathname();
-  const t = useTranslations();
+
   const locale = getLocaleFromPathname(pathname);
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
@@ -100,16 +100,16 @@ export default function VisionSection() {
               <blockquote className="text-xl text-gray-700 leading-relaxed mb-6">
                 {locale === "ar" ? (
                   <>
-                    "يُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا
-                    وَأَسِيرًا، إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا
-                    نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا"
+                    &ldquo;يُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا
+                    وَيَتِيمًا وَأَسِيرًا، إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ
+                    اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا&rdquo;
                   </>
                 ) : (
                   <>
-                    "They give food, out of love for Him, to the poor, the
-                    orphan, and the captive, [saying] 'We feed you for the sake
-                    of Allah alone. We seek from you neither reward nor
-                    thanks.'"
+                    &ldquo;They give food, out of love for Him, to the poor, the
+                    orphan, and the captive, [saying] &apos;We feed you for the
+                    sake of Allah alone. We seek from you neither reward nor
+                    thanks.&apos;&rdquo;
                   </>
                 )}
               </blockquote>
@@ -135,13 +135,13 @@ export default function VisionSection() {
               <blockquote className="text-xl text-gray-700 leading-relaxed mb-6">
                 {locale === "ar" ? (
                   <>
-                    "مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا
-                    فَيُضْعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً"
+                    &ldquo;مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا
+                    فَيُضْعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً&rdquo;
                   </>
                 ) : (
                   <>
-                    "Who is it that will lend to Allah a good loan which He will
-                    multiply for him many times over?"
+                    &ldquo;Who is it that will lend to Allah a good loan which
+                    He will multiply for him many times over?&rdquo;
                   </>
                 )}
               </blockquote>

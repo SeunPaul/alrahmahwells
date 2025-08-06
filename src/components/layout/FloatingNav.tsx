@@ -3,12 +3,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  useTranslations,
-  useLocale,
-  getLocaleFromPathname,
-} from "@/i18n/utils";
-import { locales, rtlLocales } from "@/i18n/config";
+import { useTranslations, getLocaleFromPathname } from "@/i18n/utils";
+import { locales, rtlLocales, type Locale } from "@/i18n/config";
 import { ASSETS } from "@/constants/assets";
 import { HiOutlineGlobeAlt } from "react-icons/hi2";
 import { IoChevronDown } from "react-icons/io5";
@@ -19,16 +15,11 @@ export default function FloatingNav() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
   const t = useTranslations();
 
   const locale = getLocaleFromPathname(pathname);
-  const isRTL = rtlLocales.includes(locale as any);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,8 +62,8 @@ export default function FloatingNav() {
 
   const getLocalizedPath = (path: string) => {
     const currentLocale = getLocaleFromPathname(pathname);
-    if (currentLocale === "en") return path as any;
-    return `/${currentLocale}${path}` as any;
+    if (currentLocale === "en") return path;
+    return `/${currentLocale}${path}`;
   };
 
   const navLinks = [
@@ -111,7 +102,10 @@ export default function FloatingNav() {
         <div className="px-6 py-3">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link href={getLocalizedPath("/")} className="flex items-center">
+            <Link
+              href={getLocalizedPath("/") as any}
+              className="flex items-center"
+            >
               <div className="flex items-center space-x-3">
                 <img
                   src={ASSETS.LOGOS.PRIMARY}
@@ -130,7 +124,7 @@ export default function FloatingNav() {
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
-                  href={getLocalizedPath(link.href)}
+                  href={getLocalizedPath(link.href) as any}
                   className="text-primary-light font-semibold"
                 >
                   {link.label}
@@ -142,13 +136,13 @@ export default function FloatingNav() {
             <div className="flex items-center gap-4">
               <div className="items-center gap-4 hidden md:flex">
                 <Link
-                  href={getLocalizedPath("/our-impact")}
+                  href={getLocalizedPath("/our-impact") as any}
                   className="px-4 py-2 bg-primary-light text-sm text-white rounded-3xl hover:bg-primary-dark transition-colors font-bold"
                 >
                   {t("navigation.ourImpact")}
                 </Link>
                 <Link
-                  href={getLocalizedPath("/donate")}
+                  href={getLocalizedPath("/donate") as any}
                   className="px-4 py-2 bg-secondary-light text-sm text-white rounded-3xl hover:bg-secondary-dark transition-colors font-bold"
                 >
                   {t("navigation.donate")}
@@ -218,7 +212,7 @@ export default function FloatingNav() {
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
-                    href={getLocalizedPath(link.href)}
+                    href={getLocalizedPath(link.href) as any}
                     className="text-primary-light transition-colors font-semibold"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -227,14 +221,14 @@ export default function FloatingNav() {
                 ))}
                 <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
                   <Link
-                    href={getLocalizedPath("/our-impact")}
+                    href={getLocalizedPath("/our-impact") as any}
                     className="px-4 py-2 bg-primary-light text-white rounded-3xl hover:bg-primary-dark transition-colors font-medium text-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {t("navigation.ourImpact")}
                   </Link>
                   <Link
-                    href={getLocalizedPath("/donate")}
+                    href={getLocalizedPath("/donate") as any}
                     className="px-4 py-2 bg-secondary-light text-white rounded-3xl hover:bg-secondary-dark transition-colors font-medium text-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

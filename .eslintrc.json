@@ -1,0 +1,28 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@typescript-eslint/no-explicit-any": [
+      "error",
+      {
+        "ignoreRestArgs": true,
+        "fixToUnknown": false,
+        "ignoreProperties": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-explicit-any": [
+          "warn",
+          {
+            "ignoreRestArgs": true,
+            "fixToUnknown": false,
+            "ignoreProperties": true
+          }
+        ]
+      }
+    }
+  ]
+}

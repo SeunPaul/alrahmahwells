@@ -1,12 +1,11 @@
 "use client";
 
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function PartnershipSection() {
-  const t = useTranslations();
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
@@ -125,7 +124,7 @@ export default function PartnershipSection() {
             <p className="text-white/90 text-lg leading-relaxed">
               {locale === "ar"
                 ? "تخيل الجيلين القادمين ينمون بصحة جيدة بسبب عمل رحمة واحد قمت به اليوم، هذا هو مدى تأثير صدقتك."
-                : "Imagine the next two generations growing up healthy because of a single act of Mercy you made today, that's how far the impact of your Sadaqah can go."}
+                : "Imagine the next two generations growing up healthy because of a single act of Mercy you made today, that&apos;s how far the impact of your Sadaqah can go."}
             </p>
           </div>
 

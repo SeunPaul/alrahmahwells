@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function MissionSection() {
-  const t = useTranslations();
+  
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   const getLocalizedPath = (path: string) => {
-    if (locale === "en") return path as any;
-    return `/${locale}${path}` as any;
+    if (locale === "en") return path;
+    return `/${locale}${path}`;
   };
 
   return (
@@ -77,14 +77,14 @@ export default function MissionSection() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <Link
-                href={getLocalizedPath("/volunteer")}
+                href={getLocalizedPath("/volunteer") as any}
                 className="px-8 py-3 bg-primary-dark text-white rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center"
               >
                 {locale === "ar" ? "انضم إلى الحركة" : "Join The Movement"}
               </Link>
 
               <Link
-                href={getLocalizedPath("/our-impact")}
+                href={getLocalizedPath("/our-impact") as any}
                 className="px-8 py-3 bg-primary-light text-white rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center"
               >
                 {locale === "ar" ? "شاهد تأثيرنا" : "See Our Impact"}

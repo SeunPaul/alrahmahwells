@@ -1,15 +1,15 @@
 "use client";
 
-import { useTranslations, getLocaleFromPathname } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { getLocaleFromPathname } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
 import { ASSETS } from "@/constants/assets";
 
 export default function ContactHeroSection() {
   const pathname = usePathname();
-  const t = useTranslations();
+
   const locale = getLocaleFromPathname(pathname);
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
@@ -74,8 +74,8 @@ export default function ContactHeroSection() {
             ) : (
               <>
                 Whether you have a question, a partnership idea, a prayer, or a
-                pledge – we'd love to hear from you. Your voice matters to us
-                because every act of mercy begins with a human heart.
+                pledge – we&apos;d love to hear from you. Your voice matters to
+                us because every act of mercy begins with a human heart.
               </>
             )}
           </p>

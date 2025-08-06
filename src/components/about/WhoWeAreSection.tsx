@@ -1,15 +1,14 @@
 "use client";
 
-import { useTranslations, getLocaleFromPathname } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { getLocaleFromPathname } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
 import { ASSETS } from "@/constants/assets";
 
 export default function WhoWeAreSection() {
   const pathname = usePathname();
-  const t = useTranslations();
   const locale = getLocaleFromPathname(pathname);
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
@@ -71,9 +70,9 @@ export default function WhoWeAreSection() {
                     <span className="font-semibold text-primary-dark">
                       تتوقف الحضارة ويبدأ البقاء
                     </span>
-                    ، ولدت "مؤسسة آبار الرحمة" بعد أن شهدت مباشرة العطش
-                    والمعاناة التي لا يمكن تصورها لأولئك الذين نسيهم العالم ولم
-                    تلمسهم الرحمة.
+                    ، ولدت &ldquo;مؤسسة آبار الرحمة&rdquo; بعد أن شهدت مباشرة
+                    العطش والمعاناة التي لا يمكن تصورها لأولئك الذين نسيهم
+                    العالم ولم تلمسهم الرحمة.
                   </>
                 ) : (
                   <>
@@ -82,9 +81,9 @@ export default function WhoWeAreSection() {
                     <span className="font-semibold text-primary-dark">
                       civilization stops and survival begins
                     </span>
-                    , 'Al-Rahmah Wells Foundation' was birthed after witnessing
-                    first-hand the unimaginable thirst and suffering of those
-                    forgotten by the world and untouched by mercy.
+                    , &apos;Al-Rahmah Wells Foundation&apos; was birthed after
+                    witnessing first-hand the unimaginable thirst and suffering
+                    of those forgotten by the world and untouched by mercy.
                   </>
                 )}
               </p>

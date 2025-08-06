@@ -1,12 +1,11 @@
 "use client";
 
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function ImpactSection() {
-  const t = useTranslations();
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
@@ -48,7 +47,7 @@ export default function ImpactSection() {
           >
             {locale === "ar"
               ? "كل رقم تراه هنا ليس مجرد إحصائية - إنه دعاء مستجاب، مجتمع محفوظ."
-              : "Every number you see here is not just a statistic - it's a Du'a answered, a community saved."}
+              : "Every number you see here is not just a statistic - it&apos;s a Du&apos;a answered, a community saved."}
           </p>
         </div>
 

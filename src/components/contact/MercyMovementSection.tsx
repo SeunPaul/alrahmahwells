@@ -1,14 +1,14 @@
 "use client";
 
-import { useTranslations, getLocaleFromPathname } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { getLocaleFromPathname } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
 
 export default function MercyMovementSection() {
   const pathname = usePathname();
-  const t = useTranslations();
+
   const locale = getLocaleFromPathname(pathname);
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
@@ -116,11 +116,11 @@ export default function MercyMovementSection() {
           >
             <blockquote className="text-xl md:text-2xl text-white italic leading-relaxed">
               {locale === "ar" ? (
-                <>"ومن أحيا نفساً فكأنما أحيا الناس جميعاً"</>
+                <>&ldquo;ومن أحيا نفساً فكأنما أحيا الناس جميعاً&rdquo;</>
               ) : (
                 <>
-                  "And whoever saves one life, it is as if he had saved mankind
-                  entirely."
+                  &ldquo;And whoever saves one life, it is as if he had saved
+                  mankind entirely.&rdquo;
                 </>
               )}
             </blockquote>

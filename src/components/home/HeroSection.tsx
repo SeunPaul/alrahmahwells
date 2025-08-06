@@ -1,17 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations, useLocale } from "@/i18n/utils";
-import { rtlLocales } from "@/i18n/config";
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function HeroSection() {
-  const t = useTranslations();
   const locale = useLocale();
-  const isRTL = rtlLocales.includes(locale as any);
+  const isRTL = rtlLocales.includes(locale as Locale);
 
   const getLocalizedPath = (path: string) => {
-    if (locale === "en") return path as any;
-    return `/${locale}${path}` as any;
+    if (locale === "en") return path;
+    return `/${locale}${path}`;
   };
 
   return (
@@ -59,7 +58,7 @@ export default function HeroSection() {
           className="flex justify-center items-center"
         >
           <Link
-            href={getLocalizedPath("/donate")}
+            href={getLocalizedPath("/donate") as any}
             className="px-24 py-4 bg-[#DCE5C8] text-primary-light rounded-full text-lg font-semibold hover:bg-[#e8e8d0] transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             {locale === "ar" ? "تبرع الآن" : "Donate Now"}

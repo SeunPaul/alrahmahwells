@@ -2,10 +2,89 @@
 
 import { useLocale } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
+import { useState, useEffect, useRef } from "react";
+
+// Custom hook for counting animation with intersection observer
+function useCountUp(end: number, duration: number = 2000, delay: number = 0) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasStarted) {
+            setHasStarted(true);
+
+            const timer = setTimeout(() => {
+              const startTime = Date.now();
+              const startValue = 0;
+
+              const updateCount = () => {
+                const currentTime = Date.now();
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentCount = Math.floor(
+                  startValue + (end - startValue) * easeOutQuart
+                );
+
+                setCount(currentCount);
+
+                if (progress < 1) {
+                  requestAnimationFrame(updateCount);
+                } else {
+                  setCount(end);
+                }
+              };
+
+              requestAnimationFrame(updateCount);
+            }, delay);
+
+            return () => clearTimeout(timer);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: "0px 0px -100px 0px", // Start slightly before the element comes into view
+      }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, [end, duration, delay, hasStarted]);
+
+  return { count, elementRef };
+}
 
 export default function ImpactSection() {
   const locale = useLocale();
   const isRTL = rtlLocales.includes(locale as Locale);
+
+  // Initialize counters with different delays
+  const { count: wellsCount, elementRef: wellsRef } = useCountUp(87, 2000, 400);
+  const { count: communitiesCount, elementRef: communitiesRef } = useCountUp(
+    73,
+    2000,
+    500
+  );
+  const { count: livesCount, elementRef: livesRef } = useCountUp(
+    92000,
+    2000,
+    600
+  );
+  const { count: tripsCount, elementRef: tripsRef } = useCountUp(46, 2000, 700);
 
   return (
     <section
@@ -71,13 +150,13 @@ export default function ImpactSection() {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 z-10">
               {/* Stat 1: Solar Powered Wells */}
-              <div className="text-center">
+              <div className="text-center" ref={wellsRef}>
                 <div
                   data-aos="zoom-in"
                   data-aos-delay="400"
                   className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-light mb-2"
                 >
-                  87
+                  {wellsCount}
                 </div>
                 <div className="text-sm md:text-base text-gray-600 font-semibold">
                   {locale === "ar"
@@ -87,13 +166,13 @@ export default function ImpactSection() {
               </div>
 
               {/* Stat 2: Communities */}
-              <div className="text-center">
+              <div className="text-center" ref={communitiesRef}>
                 <div
                   data-aos="zoom-in"
                   data-aos-delay="500"
                   className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-light mb-2"
                 >
-                  73
+                  {communitiesCount}
                 </div>
                 <div className="text-sm md:text-base text-gray-600 font-semibold">
                   {locale === "ar"
@@ -103,13 +182,13 @@ export default function ImpactSection() {
               </div>
 
               {/* Stat 3: Lives Touched */}
-              <div className="text-center">
+              <div className="text-center" ref={livesRef}>
                 <div
                   data-aos="zoom-in"
                   data-aos-delay="600"
                   className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-light mb-2"
                 >
-                  92,000+
+                  {livesCount.toLocaleString()}+
                 </div>
                 <div className="text-sm md:text-base text-gray-600 font-semibold">
                   {locale === "ar" ? "حياة تم لمسها" : "Lives touched"}
@@ -117,13 +196,13 @@ export default function ImpactSection() {
               </div>
 
               {/* Stat 4: Umrah/Hajj Trips */}
-              <div className="text-center">
+              <div className="text-center" ref={tripsRef}>
                 <div
                   data-aos="zoom-in"
                   data-aos-delay="700"
                   className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary-light mb-2"
                 >
-                  46
+                  {tripsCount}
                 </div>
                 <div className="text-sm md:text-base text-gray-600 font-semibold">
                   {locale === "ar"
@@ -139,11 +218,11 @@ export default function ImpactSection() {
         <div
           data-aos="fade-up"
           data-aos-delay="400"
-          className="relative overflow-hidden rounded-2xl shadow-lg"
+          className="relative overflow-hidden rounded-2xl shadow-lg  max-h-96"
         >
           <div className="aspect-[16/9]">
             <img
-              src="/images/home-hero.jpg"
+              src="/images/impact.jpg"
               alt={
                 locale === "ar"
                   ? "مجتمع ريفي يشاهد عملية حفر البئر"

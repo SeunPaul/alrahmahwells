@@ -17,6 +17,7 @@
   --color-primary-light: #58761b;
   --color-secondary-light: #d99201;
   --color-secondary-dark: #905a01;
+  --color-rahmah-black: #0d2f2b;
 }
 
 @media (prefers-color-scheme: dark) {

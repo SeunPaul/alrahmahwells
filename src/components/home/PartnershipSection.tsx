@@ -9,7 +9,7 @@ export default function PartnershipSection() {
 
   return (
     <section
-      className="pt-10 pb-60 bg-primary-dark relative"
+      className="pt-10 pb-20 lg:pb-50 bg-primary-dark relative"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background Pattern */}
@@ -72,10 +72,10 @@ export default function PartnershipSection() {
               alt="Penny badge"
               className="w-16 mb-8"
             />
-            <h3 className="text-3xl lg:text-4xl font-bold text-[#0D2F2B] mb-3 max-w-80">
+            <h3 className="text-3xl lg:text-4xl font-bold text-rahmah-black mb-3 max-w-80">
               {locale === "ar" ? "كل فلس محسوب" : "Every Penny Accounted For"}
             </h3>
-            <p className="text-[#0D2F2B] leading-relaxed font-medium lg:text-lg">
+            <p className="text-rahmah-black leading-relaxed font-medium lg:text-lg">
               {locale === "ar"
                 ? "نحن نكرم ثقتك. احصل على تقارير واضحة ومفصلة تظهر بالضبط كيف يتم إنفاق تبرعك - لأنك تستحق أن ترى المعجزات التي تصنعها."
                 : "We honor your trust. Receive clear, detailed reports showing exactly how your donation is spent - because you deserve to see the miracles you're making happen."}
@@ -145,9 +145,9 @@ export default function PartnershipSection() {
       </div>
 
       {/* Image Strip - Bottom Section */}
-      <div className="grid grid-cols-3 gap-4 absolute -bottom-30 z-20">
+      <div className="grid sm:grid-cols-3 gap-2 lg:gap-4 absolute inset-x-5 lg:inset-x-10 -bottom-40 sm:-bottom-10 md:-bottom-30 z-20">
         {/* Image 1: Young girl drinking water */}
-        <div className="relative overflow-hidden rounded-2xl shadow-lg">
+        <div className="relative hidden sm:block overflow-hidden rounded-2xl shadow-lg">
           <div className="aspect-[4/3]">
             <img
               src="/images/home-5.jpg"
@@ -177,7 +177,7 @@ export default function PartnershipSection() {
         </div>
 
         {/* Image 3: Boy drinking from cupped hands */}
-        <div className="relative overflow-hidden rounded-2xl shadow-lg">
+        <div className="relative hidden sm:block overflow-hidden rounded-2xl shadow-lg">
           <div className="aspect-[4/3]">
             <img
               src="/images/home-7.jpg"

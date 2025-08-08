@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useLocale } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export default function ProjectsSection() {
   const locale = useLocale();
@@ -56,54 +57,71 @@ export default function ProjectsSection() {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#fafafa] relative overflow-hidden"
+      className="pb-20 md:pt-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background Pattern - Subtle Dots */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-2 h-2 bg-primary-light rounded-full"></div>
-        <div className="absolute top-20 left-20 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-32 left-32 w-2 h-2 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-2 h-2 bg-primary-light rounded-full"></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content Block */}
-          <div>
-            {/* Section Title */}
-            <div data-aos="fade-right" className="mb-8">
-              <div className="w-16 h-1 bg-secondary-light mb-4"></div>
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary-dark mb-2">
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Top Section - Headings and Description */}
+        <div className="grid md:grid-cols-[5fr_6fr] md:gap-18 items-start mb-16">
+          {/* Left Side - Main Headings */}
+          <div className="mb-8">
+            <div data-aos="fade-right">
+              <div className="w-34 h-1 bg-secondary-light mb-8" />
+              <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-secondary-dark mb-2">
                 {locale === "ar" ? "مشاريعنا؛" : "OUR PROJECTS;"}
               </h2>
-              <h3 className="text-xl md:text-2xl font-semibold text-primary-dark">
+              <h3 className="text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-bold text-primary-light">
                 {locale === "ar"
                   ? "قصص ألهمت مشاريعنا الحديثة"
                   : "Stories that inspired our recent projects"}
               </h3>
             </div>
+          </div>
+          {/* Right Side - Description */}
+          <div data-aos="fade-left" className="flex flex-col justify-center">
+            <h4 className="text-lg md:text-xl font-semibold text-secondary-dark mb-2 md:mb-8">
+              <span className="text-secondary-dark">
+                {locale === "ar"
+                  ? "قصص حقيقية من الميدان"
+                  : "Real stories from the field"}
+              </span>{" "}
+              <span className="text-secondary-dark">
+                {locale === "ar"
+                  ? "حيث غيرت رحمتك الأرواح"
+                  : "- Where Your Mercy Changed lives"}
+              </span>
+            </h4>
+            <p className="text-gray-700 leading-relaxed text-lg md:text-xl font-semibold">
+              {locale === "ar"
+                ? "كل بئر نثبته هو أكثر من مصدر ماء - إنه إحياء للأمل والإيمان والكرامة. هذه قصص حقيقية من المجتمعات التي وصلت إليها سخاؤك. كل مشروع يمثل شهادة حية لما يمكن أن تفعله الرحمة المستوحاة من الله."
+                : "Every Well we install is more than a water source - it is a revival of hope, faith, and dignity. These are real stories from the communities your generosity reached. Each project stands as a living testimony to what mercy, inspired by Allah, can do."}
+            </p>
+          </div>
+        </div>
 
-            {/* Story Preview Box */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="bg-[#f5f5dc] rounded-2xl p-8 shadow-lg"
-            >
-              <h4 className="text-2xl md:text-3xl font-bold text-primary-dark mb-2">
+        {/* Bottom Section - Story Card and Image */}
+        <div className="flex flex-col-reverse md:flex-row gap-4 md:gap-6 relative">
+          {/* Left Side - Story Card */}
+          <div data-aos="fade-up" data-aos-delay="200" className="md:w-3/5">
+            <div className="bg-[#E4EFD7] rounded-2xl p-8">
+              <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
                 {stories[currentStory].headline}
               </h4>
-              <p className="text-lg text-gray-600 mb-4 italic">
+              <p className="text-lg text-gray-600 mb-4">
                 {stories[currentStory].subtitle}
               </p>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                {stories[currentStory].text}
-              </p>
+              <div className="space-y-4 mb-6">
+                <p className="text-gray-700 leading-relaxed">
+                  {stories[currentStory].text.split(". ")[0]}.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  {stories[currentStory].text.split(". ").slice(1).join(". ")}.
+                </p>
+              </div>
 
               {/* Call-to-Action and Navigation */}
               <div className="flex items-center justify-between">
-                <button className="px-6 py-3 bg-primary-dark text-white rounded-full font-semibold hover:bg-primary-light transition-colors">
+                <button className="px-10 py-3 bg-primary-light text-white rounded-full font-semibold hover:bg-primary-light transition-colors cursor-pointer">
                   {locale === "ar" ? "اقرأ المزيد" : "Read More"}
                 </button>
 
@@ -111,39 +129,37 @@ export default function ProjectsSection() {
                 <div className="flex gap-2">
                   <button
                     onClick={prevStory}
-                    className="w-10 h-10 border-2 border-[#f5f5dc] rounded-full flex items-center justify-center hover:bg-[#f5f5dc] transition-colors"
+                    className="w-10 h-10 cursor-pointer border-2 border-secondary-dark rounded-full flex items-center justify-center transition-colors"
                   >
-                    <span className="text-[#f5f5dc] hover:text-primary-dark">
-                      ‹
-                    </span>
+                    <FaChevronLeft className="text-secondary-dark" />
                   </button>
                   <button
                     onClick={nextStory}
-                    className="w-10 h-10 border-2 border-[#f5f5dc] rounded-full flex items-center justify-center hover:bg-[#f5f5dc] transition-colors"
+                    className="w-10 h-10 cursor-pointer border-2 border-secondary-dark rounded-full flex items-center justify-center transition-colors"
                   >
-                    <span className="text-[#f5f5dc] hover:text-primary-dark">
-                      ›
-                    </span>
+                    <FaChevronRight className="text-secondary-dark" />
                   </button>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Image Block */}
-          <div data-aos="fade-left" data-aos-delay="400">
-            <div className="relative overflow-hidden rounded-2xl shadow-lg">
-              <div className="aspect-[4/3]">
-                <img
-                  src="/images/home-6.jpg"
-                  alt={
-                    locale === "ar"
-                      ? "أطفال يشربون من بركة موحلة"
-                      : "Children drinking from muddy puddle"
-                  }
-                  className="w-full h-full object-cover"
-                />
-              </div>
+          {/* Right Side - Image */}
+          <div
+            data-aos="fade-left"
+            data-aos-delay="400"
+            className="md:w-2/5 h-50 md:h-90"
+          >
+            <div className="relative overflow-hidden rounded-2xl shadow-lg h-full">
+              <img
+                src="/images/survival-1.png"
+                alt={
+                  locale === "ar"
+                    ? "أطفال يشربون من بركة موحلة"
+                    : "Children drinking from muddy puddle"
+                }
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>

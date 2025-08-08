@@ -100,7 +100,7 @@ export default function FloatingNav() {
         dir={isRTL ? "rtl" : "ltr"}
       >
         <div className="px-6 py-3">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center gap-6">
             {/* Logo */}
             <Link
               href={getLocalizedPath("/") as any}
@@ -120,16 +120,24 @@ export default function FloatingNav() {
 
             {/* Desktop Navigation */}
             {/* Navigation Links */}
-            <div className="hidden lg:flex items-center gap-6">
+            <div
+              className="hidden lg:flex items-center gap-6 overflow-x-scroll scrollbar-hide"
+              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            >
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={getLocalizedPath(link.href) as any}
-                  className="text-primary-light font-semibold"
+                  className="text-primary-light font-semibold whitespace-nowrap"
                 >
                   {link.label}
                 </Link>
               ))}
+              <style jsx>{`
+                .scrollbar-hide::-webkit-scrollbar {
+                  display: none;
+                }
+              `}</style>
             </div>
 
             {/* CTA Buttons */}
@@ -137,13 +145,13 @@ export default function FloatingNav() {
               <div className="items-center gap-4 hidden md:flex">
                 <Link
                   href={getLocalizedPath("/our-impact") as any}
-                  className="px-4 py-2 bg-primary-light text-sm text-white rounded-3xl hover:bg-primary-dark transition-colors font-bold"
+                  className="px-4 py-2 bg-primary-light text-sm text-white rounded-3xl hover:bg-primary-dark transition-colors font-bold whitespace-nowrap"
                 >
                   {t("navigation.ourImpact")}
                 </Link>
                 <Link
                   href={getLocalizedPath("/donate") as any}
-                  className="px-4 py-2 bg-secondary-light text-sm text-white rounded-3xl hover:bg-secondary-dark transition-colors font-bold"
+                  className="px-4 py-2 bg-secondary-light text-sm text-white rounded-3xl hover:bg-secondary-dark transition-colors font-bold whitespace-nowrap"
                 >
                   {t("navigation.donate")}
                 </Link>

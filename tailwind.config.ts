@@ -17,6 +17,9 @@ const config: Config = {
           light: "#D99201",
           dark: "#905A01",
         },
+        rahmah: {
+          black: "#0D2F2B",
+        },
       },
       fontFamily: {
         sans: ["Gilroy", "system-ui", "sans-serif"],

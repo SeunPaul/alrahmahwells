@@ -1,24 +1,65 @@
 "use client";
 
+import { useLocale } from "@/i18n/utils";
+import { rtlLocales, type Locale } from "@/i18n/config";
+import { blogPosts } from "@/data/blogPosts";
+import BlogCard from "@/components/blog/BlogCard";
+
 export default function ArabicBlog() {
+  const locale = useLocale();
+  const isRTL = rtlLocales.includes(locale as Locale);
+
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
-      <section className="bg-gradient-to-r from-primary-dark to-primary-light text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">المدونة</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            أخبار وتحديثات من مشاريعنا
+    <div className="min-h-screen bg-white" dir={isRTL ? "rtl" : "ltr"}>
+      {/* Hero Section */}
+      <section className="pt-32 md:pt-48 pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1
+            data-aos="fade-up"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+          >
+            <span className="text-secondary-dark">
+              {locale === "ar" ? "اطلع على آخر" : "Check out our latest"}
+            </span>
+            <br />
+            <span className="text-primary-light">
+              {locale === "ar" ? "الأخبار والتحديثات" : "news and updates"}
+            </span>
+          </h1>
+
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
+          >
+            {locale === "ar"
+              ? "من قصص النجاح الملهمة إلى التقارير التفصيلية من الميدان، اكتشف كيف يدعمك يحول الأرواح - قرية واحدة، بئر واحد، دعاء مستجاب واحد في كل مرة. ابق متصلاً بالتأثير الذي تصنعه، برحمة الله."
+              : "From inspiring success stories to detailed field reports, discover how your support is transforming lives – one village, one borehole, one answered prayer at a time. Stay connected to the impact you're making, by Allah's mercy."}
           </p>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white p-12 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">
-              محتوى الصفحة قيد التطوير
-            </h2>
-            <p className="text-gray-600">سيتم إضافة محتوى هذه الصفحة قريباً</p>
+      {/* Blog Posts Grid Section */}
+      <section className="pb-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {blogPosts.map((post, index) => (
+              <div
+                key={post.id}
+                data-aos="fade-up"
+                data-aos-delay={400 + index * 100}
+              >
+                <BlogCard
+                  post={post}
+                  locale={locale as "en" | "ar"}
+                  dir={isRTL ? "rtl" : "ltr"}
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>

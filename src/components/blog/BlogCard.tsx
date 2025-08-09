@@ -28,7 +28,9 @@ export default function BlogCard({ post, locale, dir = "ltr" }: BlogCardProps) {
         </h3>
 
         <Link
-          href={`/blog/${post.slug}` as any}
+          href={
+            locale === "ar" ? `/ar/blog/${post.slug}` : `/blog/${post.slug}`
+          }
           className="inline-flex items-center text-primary-light hover:text-primary-dark font-semibold transition-colors duration-200 underline"
         >
           {locale === "ar" ? "اقرأ المزيد" : "Read More"}

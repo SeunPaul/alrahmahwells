@@ -1,27 +1,41 @@
 "use client";
 
+import VolunteerHero from "@/components/volunteer/VolunteerHero";
+import WhyJoinUs from "@/components/volunteer/WhyJoinUs";
+import VolunteerForm from "@/components/volunteer/VolunteerForm";
+import VersesStrip from "@/components/volunteer/VersesStrip";
+import ProjectsSection from "@/components/shared/ProjectsSection";
+
 export default function ArabicVolunteer() {
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
-      <section className="bg-gradient-to-r from-primary-dark to-primary-light text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">تطوع معنا</h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
-            انضم إلينا في مهمتنا لتوفير المياه النظيفة للمجتمعات المحتاجة
-          </p>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white p-12 rounded-lg shadow-lg">
-            <h2 className="text-2xl font-bold text-primary-dark mb-4">
-              محتوى الصفحة قيد التطوير
-            </h2>
-            <p className="text-gray-600">سيتم إضافة محتوى هذه الصفحة قريباً</p>
+    <div className="min-h-screen bg-[#f7f9f2]" dir="rtl">
+      <VolunteerHero />
+      <section className="pb-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            <img
+              src="/illustrations/mecca.png"
+              alt="رسم للكعبة"
+              className="w-full h-full object-contain"
+            />
+            <div className="text-gray-700 text-lg leading-relaxed">
+              <p>
+                كل بئرٍ نبنيه، وكل طفلٍ ننقذه من العطش والمرض، وكل دعاء شكرٍ
+                يهمس — يبدأ بشخصٍ مثلك اختار أن يخدم.
+              </p>
+              <p className="mt-6">
+                <strong>مؤسسة آبار الرحمة</strong> ليست مجرد عملٍ خيري؛ إنها
+                حركة من المؤمنين يلبّون نداءً إلهياً لاستعادة الكرامة والإيمان
+                في الأراضي المنسية. والآن ندعوك لتكون جزءاً من ذلك النداء.
+              </p>
+            </div>
           </div>
         </div>
       </section>
+      <WhyJoinUs />
+      <VolunteerForm />
+      <VersesStrip />
+      <ProjectsSection />
     </div>
   );
 }

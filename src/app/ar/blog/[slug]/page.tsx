@@ -1,6 +1,6 @@
 import { blogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
-import Link from "next/link";
+import BlogCard from "@/components/blog/BlogCard";
 
 export default async function ArabicBlogPostPage({
   params,
@@ -17,6 +17,9 @@ export default async function ArabicBlogPostPage({
     notFound();
   }
 
+  // Prepare related posts (exclude current)
+  const relatedPosts = blogPosts.filter((p) => p.slug !== slug).slice(0, 4);
+
   return (
     <div className="min-h-screen bg-white" dir={isRTL ? "rtl" : "ltr"}>
       <section className="pt-32 md:pt-48 pb-16 px-4 sm:px-6 lg:px-8">
@@ -24,7 +27,7 @@ export default async function ArabicBlogPostPage({
           {/* Title */}
           <h1
             data-aos="fade-up"
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-rahmah-black mb-8"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-rahmah-black mb-8 max-w-3xl leading-relaxed"
           >
             {post.title[locale] || post.title.en}
           </h1>
@@ -102,17 +105,27 @@ export default async function ArabicBlogPostPage({
         </div>
       </section>
 
-      {/* (Optional) Related section can be added mirroring English page */}
-
-      <div className="mt-12 pt-8 border-t border-gray-200 mx-4 sm:mx-6 lg:mx-8">
-        <Link
-          href="/ar/blog"
-          className="inline-flex items-center text-primary-light hover:text-primary-dark font-semibold transition-colors duration-200"
-        >
-          <span className="ml-2">←</span>
-          العودة إلى المدونة
-        </Link>
-      </div>
+      {/* Related Posts */}
+      <section className="pb-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5]">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-8">
+            <div className="w-34 h-1 bg-secondary-light mb-8" />
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-light max-w-sm leading-tight">
+              More news and updates from us
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {relatedPosts.map((p) => (
+              <BlogCard
+                key={p.id}
+                post={p}
+                locale={locale}
+                dir={isRTL ? "rtl" : "ltr"}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import { blogPosts } from "@/data/blogPosts";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import BlogCard from "@/components/blog/BlogCard";
 
 export default async function BlogPostPage({
@@ -28,7 +27,7 @@ export default async function BlogPostPage({
           {/* Title */}
           <h1
             data-aos="fade-up"
-            className="text-2xl md:text-3xl lg:text-4xl font-bold text-rahmah-black mb-8 max-w-2xl leading-relaxed"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold text-rahmah-black mb-8 max-w-3xl leading-relaxed"
           >
             {post.title[locale]}
           </h1>
@@ -107,11 +106,11 @@ export default async function BlogPostPage({
       </section>
 
       {/* Related Posts */}
-      <section className="pb-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5]">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5]">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8">
-            <div className="w-16 h-1 bg-secondary-light mb-4"></div>
-            <h2 className="text-3xl md:text-4xl font-bold text-secondary-dark">
+            <div className="w-34 h-1 bg-secondary-light mb-8" />
+            <h2 className="text-4xl md:text-5xl font-bold text-primary-light max-w-sm leading-tight">
               More news and updates from us
             </h2>
           </div>

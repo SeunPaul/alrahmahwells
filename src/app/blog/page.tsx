@@ -4,6 +4,7 @@ import { useLocale } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { blogPosts } from "@/data/blogPosts";
 import BlogCard from "@/components/blog/BlogCard";
+import ProjectsSection from "@/components/shared/ProjectsSection";
 
 export default function Blog() {
   const locale = useLocale();
@@ -63,6 +64,8 @@ export default function Blog() {
           </div>
         </div>
       </section>
+
+      <ProjectsSection />
     </div>
   );
 }

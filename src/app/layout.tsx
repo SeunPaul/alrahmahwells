@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import FloatingNav from "@/components/layout/FloatingNav";
+import Footer from "@/components/layout/Footer";
 import AOSProvider from "@/components/providers/AOSProvider";
 
 import localFont from "next/font/local";

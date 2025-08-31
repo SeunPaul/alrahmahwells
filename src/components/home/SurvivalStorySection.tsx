@@ -10,17 +10,25 @@ export default function SurvivalStorySection() {
 
   return (
     <section
-      className="pt-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5]"
+      className="pt-10 sm:pt-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative"
       dir={isRTL ? "rtl" : "ltr"}
     >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+
       <div className="max-w-6xl mx-auto overflow-hidden pb-1">
         {/* Title */}
-        <div className="text-center mb-10">
+        <div className="text-center mb-6 sm:mb-10">
           <p
             data-aos="fade-up"
-            className="font-medium leading-4 w-max py-3 px-6 mx-auto bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-4 flex items-center justify-center"
+            className="font-semibold leading-4 text-lg md:text-xl w-max py-4 px-6 mx-auto bg-[#EAEDE6] text-[#0E1534] rounded-lg flex items-center justify-center space-x-3"
           >
-            <span className="w-3 h-3 bg-primary-light rounded-full mr-3"></span>
+            <span className="w-3 h-3 sm:w-4 sm:h-4 bg-primary-light rounded-full"></span>
             <span>
               {locale === "ar"
                 ? "قصة حزينة عن البقاء"
@@ -30,11 +38,11 @@ export default function SurvivalStorySection() {
         </div>
 
         {/* Descriptive Text */}
-        <div className="max-w-4xl mx-auto mb-16">
+        <div className="max-w-5xl mx-auto mb-16">
           <p
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-lg md:text-2xl text-gray-700 leading-relaxed text-center font-medium"
+            className="text-xl md:text-3xl text-gray-700 leading-relaxed text-center font-medium"
           >
             {locale === "ar" ? (
               <>

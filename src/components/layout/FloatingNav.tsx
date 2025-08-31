@@ -13,6 +13,8 @@ import { IoClose } from "react-icons/io5";
 
 export default function FloatingNav() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -23,12 +25,26 @@ export default function FloatingNav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+
+      // Check if scrolled past threshold
+      setIsScrolled(currentScrollY > 50);
+
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down - hide nav
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show nav
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -92,7 +108,11 @@ export default function FloatingNav() {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 p-4">
+    <div
+      className={`fixed top-0 left-0 right-0 z-50 p-4 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <nav
         className={`max-w-7xl mx-auto bg-white/95 backdrop-blur-md rounded-[56px] shadow-lg border border-white/20 transition-all duration-300 ${
           isScrolled ? "shadow-xl" : "shadow-lg"
@@ -104,15 +124,15 @@ export default function FloatingNav() {
             {/* Logo */}
             <Link
               href={getLocalizedPath("/") as any}
-              className="flex items-center"
+              className="flex items-center lg:w-84"
             >
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 <img
                   src={ASSETS.LOGOS.PRIMARY}
                   alt={locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}
                   className="w-13 h-13"
                 />
-                <div className="text-xl font-bold text-primary-dark leading-5">
+                <div className="text-lg sm:text-xl font-bold text-primary-dark leading-5 text-nowrap">
                   {locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}
                 </div>
               </div>
@@ -141,7 +161,7 @@ export default function FloatingNav() {
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 md:gap-4">
               <div className="items-center gap-4 hidden md:flex">
                 <Link
                   href={getLocalizedPath("/our-impact") as any}

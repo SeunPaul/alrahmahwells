@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useLocale } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 
@@ -12,19 +13,17 @@ export default function PartnershipSection() {
       className="pt-10 pb-20 lg:pb-50 bg-primary-dark relative"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background Pattern */}
-      <img
-        src="/illustrations/eid-transparent.png"
-        alt="Partnership Section Background"
-        className="absolute w-50 md:w-100 top-0 right-0"
-      />
-
       <div className="max-w-[1440px] mx-auto relative z-10">
+        <img
+          src="/illustrations/eid-transparent.png"
+          alt="Partnership Section Background"
+          className="absolute w-50 md:w-100 top-0 right-0"
+        />
         {/* Title */}
         <div className="flex md:justify-center px-15">
           <h2
             data-aos="fade-up"
-            className="text-[44px] md:text-6xl font-bold text-[#C8F4D1] leading-tight mb-4"
+            className="text-[44px] md:text-6xl lg:text-7xl font-bold text-[#C8F4D1] leading-tight mb-4"
           >
             {locale === "ar" ? (
               "لماذا تتعاون معنا؟"
@@ -51,7 +50,7 @@ export default function PartnershipSection() {
               alt="Halal Certified"
               className="w-20 mb-8"
             />
-            <h3 className="md:text-4xl lg:text-5xl font-bold text-white mb-3">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
               {locale === "ar" ? "١٠٠٪ معتمد حلال" : "100% Halal Certified"}
             </h3>
             <p className="text-white leading-relaxed font-medium lg:text-lg">
@@ -124,7 +123,7 @@ export default function PartnershipSection() {
             <p className="text-white/90 text-lg leading-relaxed">
               {locale === "ar"
                 ? "تخيل الجيلين القادمين ينمون بصحة جيدة بسبب عمل رحمة واحد قمت به اليوم، هذا هو مدى تأثير صدقتك."
-                : "Imagine the next two generations growing up healthy because of a single act of Mercy you made today, that&apos;s how far the impact of your Sadaqah can go."}
+                : "Imagine the next two generations growing up healthy because of a single act of Mercy you made today, that's how far the impact of your Sadaqah can go."}
             </p>
           </div>
 
@@ -145,50 +144,70 @@ export default function PartnershipSection() {
       </div>
 
       {/* Image Strip - Bottom Section */}
-      <div className="grid sm:grid-cols-3 gap-2 lg:gap-4 absolute inset-x-5 lg:inset-x-10 -bottom-40 sm:-bottom-10 md:-bottom-30 z-20">
-        {/* Image 1: Young girl drinking water */}
-        <div className="relative hidden sm:block overflow-hidden rounded-2xl shadow-lg">
-          <div className="aspect-[4/3]">
-            <img
-              src="/images/home-5.jpg"
-              alt={
-                locale === "ar"
-                  ? "طفلة تشرب الماء"
-                  : "Young girl drinking water"
-              }
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
+      <div className="max-w-[1440px] mx-auto relative">
+        <div className="absolute inset-x-5 lg:inset-x-10 -bottom-60 lg:-bottom-100 z-20 overflow-hidden">
+          <div
+            className="flex gap-2 lg:gap-4 items-center max-w-none"
+            style={{
+              animation: "marquee 20s linear infinite",
+              width: "max-content",
+            }}
+          >
+            {/* Repeat images twice for seamless marquee */}
+            {[...Array(2)].map((_, idx) => (
+              <React.Fragment key={idx}>
+                {/* Image 1: Young girl drinking water */}
+                <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                  <img
+                    src="/images/home-5.jpg"
+                    alt={
+                      locale === "ar"
+                        ? "طفلة تشرب الماء"
+                        : "Young girl drinking water"
+                    }
+                    className="w-full h-60 lg:h-full object-cover transition-transform duration-300"
+                  />
+                </div>
 
-        {/* Image 2: Children around water pump */}
-        <div className="relative overflow-hidden rounded-2xl shadow-lg">
-          <div className="aspect-[4/3]">
-            <img
-              src="/images/home-6.jpg"
-              alt={
-                locale === "ar"
-                  ? "أطفال حول مضخة مياه"
-                  : "Children around water pump"
-              }
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
-          </div>
-        </div>
+                {/* Image 2: Children around water pump */}
+                <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                  <img
+                    src="/images/home-6.jpg"
+                    alt={
+                      locale === "ar"
+                        ? "أطفال حول مضخة مياه"
+                        : "Children around water pump"
+                    }
+                    className="w-full h-60 lg:h-full object-cover transition-transform duration-300"
+                  />
+                </div>
 
-        {/* Image 3: Boy drinking from cupped hands */}
-        <div className="relative hidden sm:block overflow-hidden rounded-2xl shadow-lg">
-          <div className="aspect-[4/3]">
-            <img
-              src="/images/home-7.jpg"
-              alt={
-                locale === "ar"
-                  ? "طفل يشرب من يديه"
-                  : "Boy drinking from cupped hands"
-              }
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-            />
+                {/* Image 3: Boy drinking from cupped hands */}
+                <div className="relative overflow-hidden rounded-2xl shadow-lg">
+                  <img
+                    src="/images/home-7.jpg"
+                    alt={
+                      locale === "ar"
+                        ? "طفل يشرب من يديه"
+                        : "Boy drinking from cupped hands"
+                    }
+                    className="w-full h-60 lg:h-full object-cover transition-transform duration-300"
+                  />
+                </div>
+              </React.Fragment>
+            ))}
           </div>
+          {/* Marquee animation keyframes */}
+          <style jsx>{`
+            @keyframes marquee {
+              0% {
+                transform: translateX(0%);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+          `}</style>
         </div>
       </div>
     </section>

@@ -5,7 +5,6 @@ import { useLocale } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function MissionSection() {
-  
   const locale = useLocale();
   const isRTL = rtlLocales.includes(locale as Locale);
 
@@ -16,9 +15,16 @@ export default function MissionSection() {
 
   return (
     <section
-      className="py-18 px-4 sm:px-6 lg:px-8  bg-[#F0F6E5]"
+      className="py-18 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative"
       dir={isRTL ? "rtl" : "ltr"}
     >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
       <div className="max-w-6xl mx-auto">
         <div className="grid md:grid-cols-[3fr_4fr] md:gap-28 items-start">
           {/* Left Column - Title */}
@@ -44,7 +50,7 @@ export default function MissionSection() {
               <p
                 data-aos="fade-up"
                 data-aos-delay="200"
-                className="text-lg md:text-xl lg:text-2xl font-medium text-gray-700 leading-relaxed"
+                className="text-xl lg:text-2xl font-medium text-gray-700 leading-relaxed"
               >
                 {locale === "ar" ? (
                   <>

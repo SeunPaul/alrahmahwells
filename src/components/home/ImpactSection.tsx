@@ -88,15 +88,23 @@ export default function ImpactSection() {
 
   return (
     <section
-      className="pt-60 pb-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
+      className="pt-60 sm:pt-70 pb-10 sm:pb-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Top Section - Title and Slogan */}
         <div className="text-center mb-10">
           <p
             data-aos="fade-up"
-            className="font-medium leading-4 w-max py-3 px-6 mx-auto bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-4 flex items-center justify-center"
+            className="font-semibold leading-4 w-max py-3 px-6 mx-auto bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-4 flex items-center justify-center"
           >
             <span className="w-3 h-3 bg-secondary-light rounded-full mr-3"></span>
             <span>
@@ -108,7 +116,7 @@ export default function ImpactSection() {
           <h2
             data-aos="fade-up"
             data-aos-delay="200"
-            className="font-bold text-primary-dark mb-8"
+            className="font-bold text-primary-dark mb-4 md:mb-8"
           >
             <div className="flex items-center justify-center text-primary-dark text-3xl md:text-5xl lg:text-6xl">
               <span>{locale === "ar" ? "كل قطرة" : "EVERY DROP"}</span>
@@ -126,21 +134,25 @@ export default function ImpactSection() {
           >
             {locale === "ar"
               ? "كل رقم تراه هنا ليس مجرد إحصائية - إنه دعاء مستجاب، مجتمع محفوظ."
-              : "Every number you see here is not just a statistic - it&apos;s a Du&apos;a answered, a community saved."}
+              : "Every number you see here is not just a statistic - it's a Du'a answered, a community saved."}
           </p>
         </div>
 
         {/* Middle Section - Statistics */}
-        <div data-aos="fade-up" data-aos-delay="200" className="mb-16 relative">
+        <div
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="mb-10 sm:mb-16 relative"
+        >
           {/* Tag */}
-          <span className="absolute left-1/2 -translate-x-1/2 -top-5 z-20 border border-primary-light text-primary-light bg-[#f1f5e8] px-8 py-2 rounded-full md:text-xl font-semibold text-nowrap">
+          <span className="absolute left-1/2 -translate-x-1/2 -top-5 z-20 border border-primary-light text-primary-light bg-[#FCFFF8] px-8 py-2 rounded-full md:text-xl font-semibold text-nowrap">
             {locale === "ar"
               ? "أرقام حقيقية، حركة حقيقية"
               : "Real Numbers, Real Movement"}
           </span>
 
           {/* Statistics Box */}
-          <div className="bg-[#f1f5e8] border border-[#C0CFAD] rounded-2xl p-8 pt-12 md:p-12 md:pt-18 relative">
+          <div className="bg-[#FCFFF8] border border-[#C0CFAD] rounded-2xl p-8 pt-12 md:p-12 md:pt-18 relative">
             <div className="absolute top-0 left-0 w-full h-full z-0 opacity-10">
               <img
                 src="/illustrations/numbers-bg.png"

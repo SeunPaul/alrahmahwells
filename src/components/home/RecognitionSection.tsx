@@ -61,6 +61,14 @@ export default function RecognitionSection() {
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+
+      <div
         style={{ backgroundImage: "url('/illustrations/mecca.png')" }}
         className="absolute inset-0 opacity-10 bg-contain bg-no-repeat bg-center"
       />
@@ -85,7 +93,7 @@ export default function RecognitionSection() {
             <p
               data-aos="fade-up"
               data-aos-delay="200"
-              className="text-lg md:text-xl lg:text-2xl font-medium text-gray-700 leading-relaxed"
+              className="text-lg md:text-xl lg:text-2xl font-semibold text-gray-700 leading-relaxed"
             >
               {locale === "ar"
                 ? "بقلب متجذر في الرحمة والخدمة، نحن متواضعون لكوننا معترف بنا من قبل منظمات إنسانية وإسلامية موثوقة عالمياً لتفانينا في الوصول إلى المياه النظيفة والتأثير الدائم."
@@ -94,7 +102,7 @@ export default function RecognitionSection() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="max-w-[1440px] mx-auto">
         {/* Recognition Timeline */}
         <div
           data-aos="fade-up"

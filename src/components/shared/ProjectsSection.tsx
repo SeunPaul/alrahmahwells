@@ -60,6 +60,14 @@ export default function ProjectsSection() {
       className="pb-20 md:pt-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Top Section - Headings and Description */}
         <div className="grid md:grid-cols-[5fr_6fr] md:gap-18 items-start mb-16">
@@ -80,15 +88,15 @@ export default function ProjectsSection() {
           {/* Right Side - Description */}
           <div data-aos="fade-left" className="flex flex-col justify-center">
             <h4 className="text-lg md:text-xl font-semibold text-secondary-dark mb-2 md:mb-8">
-              <span className="text-secondary-dark">
+              <span className="text-gray-700">
                 {locale === "ar"
                   ? "قصص حقيقية من الميدان"
-                  : "Real stories from the field"}
+                  : "Real stories from the field -"}
               </span>{" "}
               <span className="text-secondary-dark">
                 {locale === "ar"
                   ? "حيث غيرت رحمتك الأرواح"
-                  : "- Where Your Mercy Changed lives"}
+                  : "Where Your Mercy Changed lives"}
               </span>
             </h4>
             <p className="text-gray-700 leading-relaxed text-lg md:text-xl font-semibold">

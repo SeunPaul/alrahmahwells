@@ -19,8 +19,8 @@ export default function Footer() {
     <footer className="" dir={isRTL ? "rtl" : "ltr"}>
       {/* Top Section - Two Content Cards */}
       <div className="bg-gradient-to-t from-primary-dark to-primary-light">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-16">
-          <div className="grid lg:grid-cols-[1fr_1px_1fr] gap-8 mb-16 bg-[#F4FAEE] border border-[#D6E0CB] rounded-[20px]">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-16">
+          <div className="grid lg:grid-cols-[1fr_1px_1fr] gap-4 sm:gap-8 bg-[#F4FAEE] border border-[#D6E0CB] rounded-[20px]">
             {/* Left Card: Walk with us */}
             <div className="px-4 py-8 sm:p-8">
               <h3 className="text-2xl md:text-3xl font-bold text-[#0D2F2B] mb-4">
@@ -37,7 +37,7 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="example@alrahmah.com"
-                  className="flex-1 px-4 py-3 rounded-[40px] bg-[#EDF4E5] border border-[#C0CFAD] text-gray-700 placeholder-[#969D8E]"
+                  className="flex-1 px-4 py-3 rounded-[40px] bg-[#EDF4E5] border border-[#C0CFAD] text-gray-700 placeholder-[#969D8E] outline-0"
                 />
                 <button className="px-6 py-3 bg-secondary-light hover:bg-secondary-dark text-white rounded-[40px] font-semibold transition-colors">
                   {locale === "ar" ? "اشترك" : "Subscribe"}
@@ -68,148 +68,153 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Middle Section - Main Mission Statement */}
-      <div className="bg-primary-dark">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center mb-16 relative">
-            {/* Background Pattern */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10">
-              <div className="w-32 h-32 border-2 border-white/30 rounded-full"></div>
-            </div>
+      <div className="relative isolate">
+        <div
+          style={{ backgroundImage: "url('/logos/bg-logo.png')" }}
+          className="absolute -z-10 inset-0 bg-contain opacity-10 bg-no-repeat bg-center"
+        />
 
-            <div className="relative z-10">
-              {/* Logo and Name */}
-              <div className="flex items-center justify-center mb-8">
-                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
-                  <div className="w-8 h-8 bg-white/40 rounded-full"></div>
+        {/* Middle Section - Main Mission Statement */}
+        <div className="bg-primary-dark">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8">
+            <div className="text-center mb-16 relative">
+              <div className="relative z-10">
+                {/* Logo and Name */}
+                <div className="flex items-center justify-center mb-8 gap-2">
+                  <img
+                    src="/logos/logo-white.png"
+                    alt="White badge"
+                    className="w-10"
+                  />
+                  <span className="text-3xl font-bold text-white">
+                    {locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}
+                  </span>
                 </div>
-                <span className="text-xl font-bold text-primary-dark">
-                  {locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}
+
+                {/* Main Heading */}
+                <h2 className="text-3xl md:text-4xl font-bold text-[#C8F4D1] mb-4 leading-tight">
+                  {locale === "ar" ? (
+                    <>
+                      نحن نعيد الحياة إلى المجتمعات المنسية، حيث تخلت الحكومات
+                      عنها - بئر واحد يعمل بالطاقة الشمسية في كل مرة
+                    </>
+                  ) : (
+                    <>
+                      We are bringing life back to forgotten communities, where
+                      governments have abandoned -- one solar-powered well at a
+                      time
+                    </>
+                  )}
+                </h2>
+
+                {/* Sub-heading */}
+                <p className="text-xl text-gray-200 mb-10">
+                  {locale === "ar"
+                    ? "ساعدنا في جعل هذا الحلم حقيقة"
+                    : "Help us make this a dream come true"}
+                </p>
+
+                {/* Call-to-Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link
+                    href={getLocalizedPath("/donate") as any}
+                    className="px-12 py-3 bg-secondary-light hover:bg-secondary-dark text-white rounded-[40px] font-semibold transition-colors"
+                  >
+                    {locale === "ar" ? "تبرع الآن" : "Donate Now"}
+                  </Link>
+                  <Link
+                    href={getLocalizedPath("/our-impact") as any}
+                    className="px-12 py-3 bg-white text-primary-light border-2 border-white rounded-[40px] font-semibold hover:bg-gray-100 transition-colors"
+                  >
+                    {locale === "ar" ? "شاهد تأثيرنا" : "See Our Impact"}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section - Footer */}
+        <div className="bg-primary-dark border-y border-white/20">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              {/* Location */}
+              <div className="flex items-center text-[#C8F4D1] mb-4 md:mb-0">
+                <svg
+                  className="w-5 h-5 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>
+                  {locale === "ar"
+                    ? "جدة، المملكة العربية السعودية"
+                    : "Jeddah, Saudi Arabia"}
                 </span>
               </div>
 
-              {/* Main Heading */}
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-                {locale === "ar" ? (
-                  <>
-                    نحن نعيد الحياة إلى المجتمعات المنسية، حيث تخلت الحكومات
-                    عنها
-                    <span className="text-secondary-light block mt-2">
-                      - بئر واحد يعمل بالطاقة الشمسية في كل مرة
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    We are bringing life back to forgotten communities, where
-                    governments have abandoned
-                    <span className="text-secondary-light block mt-2">
-                      -- one solar-powered well at a time
-                    </span>
-                  </>
-                )}
-              </h2>
-
-              {/* Sub-heading */}
-              <p className="text-xl text-gray-200 mb-8">
-                {locale === "ar"
-                  ? "ساعدنا في جعل هذا الحلم حقيقة"
-                  : "Help us make this a dream come true"}
-              </p>
-
-              {/* Call-to-Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              {/* Navigation Links */}
+              <div className="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
                 <Link
-                  href={getLocalizedPath("/donate") as any}
-                  className="px-8 py-4 bg-secondary-light hover:bg-secondary-dark text-white rounded-[40px] font-semibold text-lg transition-colors"
+                  href={getLocalizedPath("/about-us") as any}
+                  className="text-[#C8F4D1] hover:text-white transition-colors"
                 >
-                  {locale === "ar" ? "تبرع الآن" : "Donate Now"}
+                  {locale === "ar" ? "من نحن" : "About us"}
                 </Link>
                 <Link
-                  href={getLocalizedPath("/our-impact") as any}
-                  className="px-8 py-4 bg-white text-primary-dark border-2 border-white rounded-[40px] font-semibold text-lg hover:bg-gray-100 transition-colors"
+                  href={getLocalizedPath("/volunteer") as any}
+                  className="text-[#C8F4D1] hover:text-white transition-colors"
                 >
-                  {locale === "ar" ? "شاهد تأثيرنا" : "See Our Impact"}
+                  {locale === "ar" ? "تطوع" : "Volunteer"}
+                </Link>
+                <Link
+                  href={getLocalizedPath("/contact-us") as any}
+                  className="text-[#C8F4D1] hover:text-white transition-colors"
+                >
+                  {locale === "ar" ? "اتصل بنا" : "Contact us"}
+                </Link>
+                <Link
+                  href={getLocalizedPath("/blog") as any}
+                  className="text-[#C8F4D1] hover:text-white transition-colors"
+                >
+                  {locale === "ar" ? "المدونة" : "Blog"}
+                </Link>
+                <Link
+                  href={getLocalizedPath("/our-projects") as any}
+                  className="text-[#C8F4D1] hover:text-white transition-colors"
+                >
+                  {locale === "ar" ? "مشاريعنا" : "Our Projects"}
                 </Link>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Section - Footer */}
-      <div className="bg-primary-dark border-t border-white/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            {/* Location */}
-            <div className="flex items-center text-gray-300 mb-4 md:mb-0">
-              <svg
-                className="w-5 h-5 mr-2"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>
+        <div className="bg-primary-dark">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+            {/* Copyright */}
+            <div className="text-center mt-6">
+              <p className="text-[#86A78D] text-xl">
+                © {currentYear}{" "}
+                {locale === "ar" ? "آبار الرحمة" : "AL-Rahmah Wells"}.{" "}
                 {locale === "ar"
-                  ? "جدة، المملكة العربية السعودية"
-                  : "Jeddah, Saudi Arabia"}
-              </span>
+                  ? "جميع الحقوق محفوظة"
+                  : "All rights reserved."}
+              </p>
             </div>
 
-            {/* Navigation Links */}
-            <div className="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
-              <Link
-                href={getLocalizedPath("/about-us") as any}
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                {locale === "ar" ? "من نحن" : "About us"}
-              </Link>
-              <Link
-                href={getLocalizedPath("/volunteer") as any}
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                {locale === "ar" ? "تطوع" : "Volunteer"}
-              </Link>
-              <Link
-                href={getLocalizedPath("/contact-us") as any}
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                {locale === "ar" ? "اتصل بنا" : "Contact us"}
-              </Link>
-              <Link
-                href={getLocalizedPath("/blog") as any}
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                {locale === "ar" ? "المدونة" : "Blog"}
-              </Link>
-              <Link
-                href={getLocalizedPath("/our-projects") as any}
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                {locale === "ar" ? "مشاريعنا" : "Our Projects"}
-              </Link>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className="text-center mt-6">
-            <p className="text-gray-300 text-sm">
-              © {currentYear}{" "}
-              {locale === "ar" ? "آبار الرحمة" : "AL-Rahmah Wells"}.{" "}
-              {locale === "ar" ? "جميع الحقوق محفوظة" : "All rights reserved."}
-            </p>
-          </div>
-
-          {/* Large Logo */}
-          <div className="flex justify-center mt-8">
-            <div className="w-24 h-24 border-2 border-white/20 rounded-full flex items-center justify-center">
-              <div className="w-16 h-16 bg-white/10 rounded-full flex items-center justify-center">
-                <div className="w-8 h-8 bg-white/20 rounded-full"></div>
-              </div>
+            {/* Large Logo */}
+            <div className="flex justify-center mt-8">
+              <img
+                src="/logos/logo-half.png"
+                alt="White badge"
+                className="w-40"
+              />
             </div>
           </div>
         </div>

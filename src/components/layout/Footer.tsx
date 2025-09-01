@@ -19,7 +19,7 @@ export default function Footer() {
     <footer className="" dir={isRTL ? "rtl" : "ltr"}>
       {/* Top Section - Two Content Cards */}
       <div className="bg-gradient-to-t from-primary-dark to-primary-light">
-        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 pt-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16">
           <div className="grid lg:grid-cols-[1fr_1px_1fr] gap-4 sm:gap-8 bg-[#F4FAEE] border border-[#D6E0CB] rounded-[20px]">
             {/* Left Card: Walk with us */}
             <div className="px-4 py-8 sm:p-8">
@@ -76,15 +76,15 @@ export default function Footer() {
 
         {/* Middle Section - Main Mission Statement */}
         <div className="bg-primary-dark">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-18 pb-8">
             <div className="text-center mb-16 relative">
               <div className="relative z-10">
                 {/* Logo and Name */}
-                <div className="flex items-center justify-center mb-8 gap-2">
+                <div className="flex flex-col items-center justify-center mb-8 gap-2">
                   <img
                     src="/logos/logo-white.png"
                     alt="White badge"
-                    className="w-10"
+                    className="w-40 opacity-60"
                   />
                   <span className="text-3xl font-bold text-white">
                     {locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}
@@ -196,7 +196,7 @@ export default function Footer() {
         </div>
 
         <div className="bg-primary-dark">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Copyright */}
             <div className="text-center mt-6">
               <p className="text-[#86A78D] text-xl">
@@ -206,15 +206,6 @@ export default function Footer() {
                   ? "جميع الحقوق محفوظة"
                   : "All rights reserved."}
               </p>
-            </div>
-
-            {/* Large Logo */}
-            <div className="flex justify-center mt-8">
-              <img
-                src="/logos/logo-half.png"
-                alt="White badge"
-                className="w-40"
-              />
             </div>
           </div>
         </div>

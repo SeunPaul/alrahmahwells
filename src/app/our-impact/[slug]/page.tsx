@@ -26,7 +26,7 @@ export default async function ImpactStoryPage({
             {/* Title Block */}
             <h1
               data-aos="fade-up"
-              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed text-white mb-16 md:mb-32 text-center"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed text-[#C8F4D1] mb-16 md:mb-32 text-center"
             >
               {story.title[locale]}
             </h1>

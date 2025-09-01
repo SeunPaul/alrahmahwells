@@ -132,7 +132,7 @@ export default function FloatingNav() {
                   alt={locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}
                   className="w-13 h-13"
                 />
-                <div className="text-lg sm:text-xl font-bold text-primary-dark leading-5 text-nowrap">
+                <div className="sm:text-xl font-bold text-primary-dark leading-5 text-nowrap">
                   {locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}
                 </div>
               </div>

@@ -15,43 +15,35 @@ export default function WhoWeAreSection() {
       className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f0f5f0] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background Pattern - Mosque and Crescent Silhouettes */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 right-10 text-6xl text-primary-light">
-          🕌
-        </div>
-        <div className="absolute top-20 right-20 text-4xl text-primary-light">
-          ☪
-        </div>
-        <div className="absolute top-32 right-32 text-5xl text-primary-light">
-          🕌
-        </div>
-        <div className="absolute bottom-10 right-10 text-4xl text-primary-light">
-          ☪
-        </div>
-        <div className="absolute bottom-20 right-20 text-5xl text-primary-light">
-          🕌
-        </div>
-      </div>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Top Content */}
-        <div className="mb-16">
-          {/* Tag */}
-          <div className="mb-6">
-            <span className="inline-flex items-center px-4 py-2 bg-[#9CAF88] text-primary-dark rounded-full text-sm font-medium">
-              <span className="w-2 h-2 bg-secondary-light rounded-full mr-2"></span>
-              {locale === "ar" ? "تعرف علينا" : "LEARN ABOUT US"}
-            </span>
-          </div>
-
+        <div className="mb-16 relative">
+          <div
+            style={{ backgroundImage: "url('/illustrations/mecca.png')" }}
+            className="absolute inset-0 opacity-10 bg-contain bg-no-repeat bg-center"
+          />
           {/* Title and Content Grid */}
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Column - Title */}
             <div>
+              <p
+                data-aos="fade-up"
+                className="font-semibold leading-4 w-max py-3 px-6 bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-4 flex items-center justify-center space-x-3"
+              >
+                <span className="w-3 h-3 bg-secondary-light rounded-full"></span>
+                <span>{locale === "ar" ? "تعرف علينا" : "LEARN ABOUT US"}</span>
+              </p>
               <h2
                 data-aos="fade-right"
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark mb-8"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-light mb-8"
               >
                 {locale === "ar" ? "من نحن" : "WHO WE ARE"}
               </h2>
@@ -179,9 +171,9 @@ export default function WhoWeAreSection() {
           data-aos-delay="500"
           className="relative overflow-hidden rounded-2xl shadow-lg"
         >
-          <div className="aspect-[16/9]">
+          <div className="aspect-[16/6]">
             <img
-              src={ASSETS.IMAGES.HOME.HOME_3}
+              src="/images/borehole.jpg"
               alt={
                 locale === "ar"
                   ? "عملية حفر بئر في مجتمع ريفي"

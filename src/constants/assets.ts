@@ -25,8 +25,8 @@ export const ASSETS = {
       HOME_7: "/images/home-7.jpg",
     },
     ABOUT: {
-      PRAYING_WOMEN: "/images/about-praying-women.jpg",
-      STANDING_WOMEN: "/images/about-standing-women.jpg",
+      PRAYING_WOMEN: "/images/about-1.jpg",
+      STANDING_WOMEN: "/images/about-2.jpg",
     },
     BLOGS: "/images/blogs/",
     PROJECTS: "/images/projects/",

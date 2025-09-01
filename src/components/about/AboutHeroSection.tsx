@@ -7,7 +7,7 @@ import { ASSETS } from "@/constants/assets";
 
 export default function AboutHeroSection() {
   const pathname = usePathname();
-  
+
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
 
@@ -52,7 +52,7 @@ export default function AboutHeroSection() {
             >
               <div className="aspect-[4/3]">
                 <img
-                  src={ASSETS.IMAGES.HOME.HOME_1}
+                  src={ASSETS.IMAGES.ABOUT.PRAYING_WOMEN}
                   alt={
                     locale === "ar"
                       ? "نساء يصلين في وضع الجلوس"
@@ -71,7 +71,7 @@ export default function AboutHeroSection() {
             >
               <div className="aspect-[4/3]">
                 <img
-                  src={ASSETS.IMAGES.HOME.HOME_2}
+                  src={ASSETS.IMAGES.ABOUT.STANDING_WOMEN}
                   alt={
                     locale === "ar"
                       ? "نساء يبتسمن في الهواء الطلق"

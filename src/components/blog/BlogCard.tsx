@@ -17,7 +17,7 @@ export default function BlogCard({ post, locale, dir = "ltr" }: BlogCardProps) {
         <img
           src={post.image}
           alt={post.imageAlt[locale]}
-          className="w-full h-full object-cover rounded-xl transition-transform duration-300 hover:scale-105"
+          className="w-full h-full object-cover rounded-xl transition-transform duration-300"
         />
       </div>
 

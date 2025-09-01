@@ -104,9 +104,9 @@ export default function ImpactSection() {
         <div className="text-center mb-10">
           <p
             data-aos="fade-up"
-            className="font-semibold leading-4 w-max py-3 px-6 mx-auto bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-4 flex items-center justify-center"
+            className="font-semibold leading-4 w-max py-3 px-6 mx-auto bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-4 flex items-center justify-center space-x-3"
           >
-            <span className="w-3 h-3 bg-secondary-light rounded-full mr-3"></span>
+            <span className="w-3 h-3 bg-secondary-light rounded-full"></span>
             <span>
               {locale === "ar" ? "تأثيرنا بالأرقام" : "OUR IMPACT IN NUMBERS"}
             </span>

@@ -72,7 +72,7 @@ export default function RootLayout({
         <AOSProvider>
           <FloatingNav />
           <main>{children}</main>
-          {/* <Footer /> */}
+          <Footer />
         </AOSProvider>
       </body>
     </html>

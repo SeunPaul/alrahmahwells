@@ -31,20 +31,20 @@ export default function VisionSection() {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Vision Statement */}
         <div className="mb-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          {/* Title and Content Grid */}
+          <div className="grid lg:grid-cols-[3fr_4fr] gap-2 lg:gap-12 items-start">
             {/* Left Column - Title */}
-            <div>
+            <div className="relative">
+              {/* Orange accent line */}
+              <div className="w-34 h-1 bg-secondary-light mb-4"></div>
+
+              {/* Title */}
               <h2
                 data-aos="fade-right"
-                className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-dark mb-6"
+                className="text-3xl md:text-4xl lg:text-[56px] font-bold text-primary-light mb-8"
               >
                 {locale === "ar" ? "رؤيتنا" : "OUR VISION"}
               </h2>
-              <div
-                data-aos="fade-right"
-                data-aos-delay="200"
-                className="w-24 h-2 bg-[#d4a574] rounded-full"
-              ></div>
             </div>
 
             {/* Right Column - Vision Statement */}
@@ -72,11 +72,11 @@ export default function VisionSection() {
                     <span className="font-bold text-primary-dark">
                       human is denied water
                     </span>{" "}
-                    – the most{" "}
+                    - the most{" "}
                     <span className="font-bold text-primary-dark">
                       basic of divine rights
                     </span>{" "}
-                    – because of where they were born or how far they are from
+                    - because of where they were born or how far they are from
                     government attention.
                   </>
                 )}

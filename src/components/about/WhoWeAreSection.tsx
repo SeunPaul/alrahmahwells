@@ -23,7 +23,7 @@ export default function WhoWeAreSection() {
         }}
       />
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10 pt-20 md:pt-50 lg:pt-64">
         {/* Top Content */}
         <div className="mb-16 relative">
           <div
@@ -31,19 +31,19 @@ export default function WhoWeAreSection() {
             className="absolute inset-0 opacity-10 bg-contain bg-no-repeat bg-center"
           />
           {/* Title and Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-[3fr_4fr] gap-2 lg:gap-12 items-start">
             {/* Left Column - Title */}
             <div>
               <p
                 data-aos="fade-up"
-                className="font-semibold leading-4 w-max py-3 px-6 bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-4 flex items-center justify-center space-x-3"
+                className="font-semibold leading-4 w-max py-3 px-6 bg-[#EAEDE6] text-[#0E1534] rounded-lg mb-8 lg:mb-12 flex items-center justify-center space-x-3"
               >
                 <span className="w-3 h-3 bg-secondary-light rounded-full"></span>
                 <span>{locale === "ar" ? "تعرف علينا" : "LEARN ABOUT US"}</span>
               </p>
               <h2
                 data-aos="fade-right"
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-light mb-8"
+                className="text-4xl md:text-5xl lg:text-[56px] font-bold text-primary-light mb-8"
               >
                 {locale === "ar" ? "من نحن" : "WHO WE ARE"}
               </h2>

@@ -33,7 +33,7 @@ export default function AboutHeroSection() {
               <>
                 Faith-Led.
                 <br /> Halal-Certified.{" "}
-                <span className="block text-[#9CAF88]">
+                <span className="block text-[#B5FFC7]">
                   People-Centered.
                 </span>{" "}
                 Trans-generational impact

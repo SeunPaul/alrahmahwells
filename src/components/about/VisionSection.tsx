@@ -15,20 +15,20 @@ export default function VisionSection() {
       className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f8f7f4] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background Pattern - Large Crescent Moon */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/4 left-1/4 text-[20rem] text-primary-light transform -translate-x-1/2 -translate-y-1/2">
-          🌙
-        </div>
-        <div className="absolute top-1/3 right-1/4 text-6xl text-primary-light">
-          🕯️
-        </div>
-        <div className="absolute bottom-1/3 left-1/3 text-5xl text-primary-light">
-          🕯️
-        </div>
-      </div>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div
+        style={{ backgroundImage: "url('/illustrations/eid-transparent.png')" }}
+        className="absolute inset-0 opacity-10 bg-contain bg-no-repeat bg-center"
+      />
+
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Vision Statement */}
         <div className="mb-20">
           {/* Title and Content Grid */}
@@ -52,7 +52,7 @@ export default function VisionSection() {
               <p
                 data-aos="fade-up"
                 data-aos-delay="300"
-                className="text-2xl text-gray-700 leading-relaxed"
+                className="text-xl text-gray-700 leading-relaxed md:leading-[35px]"
               >
                 {locale === "ar" ? (
                   <>
@@ -86,53 +86,19 @@ export default function VisionSection() {
         </div>
 
         {/* Quote Boxes Container */}
-        <div className="relative min-h-[600px]">
-          {/* First Quote Box - Top Right */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="400"
-            className="bg-white/90 backdrop-blur-sm rounded-3xl p-10 shadow-xl border border-white/30 mb-8 lg:mb-0 lg:absolute lg:top-0 lg:right-0 lg:w-[450px]"
-          >
-            <div className="relative">
-              {/* Dashed line connector */}
-              <div className="absolute -top-6 -left-6 w-12 h-12 border-l-2 border-t-2 border-dashed border-[#d4a574]"></div>
-
-              <blockquote className="text-xl text-gray-700 leading-relaxed mb-6">
-                {locale === "ar" ? (
-                  <>
-                    &ldquo;يُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا
-                    وَيَتِيمًا وَأَسِيرًا، إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ
-                    اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا&rdquo;
-                  </>
-                ) : (
-                  <>
-                    &ldquo;They give food, out of love for Him, to the poor, the
-                    orphan, and the captive, [saying] &apos;We feed you for the
-                    sake of Allah alone. We seek from you neither reward nor
-                    thanks.&apos;&rdquo;
-                  </>
-                )}
-              </blockquote>
-
-              <cite className="text-base text-primary-dark font-semibold">
-                {locale === "ar"
-                  ? "– سورة الإنسان (٧٦:٨-٩)"
-                  : "– Surah Al-Insan (76:8-9)"}
-              </cite>
-            </div>
-          </div>
-
-          {/* Second Quote Box - Bottom Left */}
+        <div className="mb-5 sm:mb-20 sm:h-96 relative">
+          {/* First Quote Box - Bottom Left */}
           <div
             data-aos="fade-up"
             data-aos-delay="500"
-            className="bg-white/90 backdrop-blur-sm rounded-3xl p-10 shadow-xl border border-white/30 lg:absolute lg:bottom-0 lg:left-0 lg:w-[450px]"
+            className="sm:absolute left-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:p-10 border-2 border-[#D3B88A] sm:w-[60%] rotate-5 sm:translate-y-[250px] lg:translate-y-[180px] z-10"
+            style={{
+              backgroundImage: "url('/illustrations/noise.png')",
+              backgroundSize: 2000,
+            }}
           >
-            <div className="relative">
-              {/* Dashed line connector */}
-              <div className="absolute -bottom-6 -right-6 w-12 h-12 border-r-2 border-b-2 border-dashed border-[#d4a574]"></div>
-
-              <blockquote className="text-xl text-gray-700 leading-relaxed mb-6">
+            <div className="relative text-base md:text-lg text-center text-secondary-dark font-medium md:font-semibold leading-relaxed">
+              <div className="mb-4 sm:mb-8">
                 {locale === "ar" ? (
                   <>
                     &ldquo;مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا
@@ -144,25 +110,58 @@ export default function VisionSection() {
                     He will multiply for him many times over?&rdquo;
                   </>
                 )}
-              </blockquote>
-
-              {locale === "ar" && (
-                <div className="text-3xl text-primary-dark font-arabic mb-6 text-right leading-relaxed">
-                  مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا فَيُضْعِفَهُ
-                  لَهُ أَضْعَافًا كَثِيرَةً
-                </div>
-              )}
-
-              <cite className="text-base text-primary-dark font-semibold">
-                {locale === "ar"
-                  ? "– سورة البقرة (٢:٢٤٥)"
-                  : "– Surah Al-Baqarah (2:245)"}
-              </cite>
+              </div>
+              <div>
+                {locale === "ar" ? (
+                  <>
+                    Who is it that will lend to Allah a good loan which He will
+                    multiply for him many times over? - Surah Al-Baqarah (2:245)
+                  </>
+                ) : (
+                  <>
+                    مَّن ذَا ٱلَّذِي يُقْرِضُ ٱللَّهَ قَرْضٗا حَسَنٗا
+                    فَيُضَٰعِفَهُۥ لَهُۥٓ أَضْعَافٗا كَثِيرَةٗ <br /> — Surah
+                    Al-Baqarah (2:245)
+                  </>
+                )}
+              </div>
             </div>
           </div>
 
-          {/* Spacer for mobile layout */}
-          <div className="h-[600px] lg:hidden"></div>
+          {/* Second Quote Box - Top Right */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="sm:absolute right-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:p-10 border-2 border-[#D3B88A] sm:w-[60%] -rotate-3"
+            style={{
+              backgroundImage: "url('/illustrations/noise.png')",
+              backgroundSize: 2000,
+            }}
+          >
+            <div className="relative text-base md:text-lg text-center text-secondary-dark font-medium md:font-semibold leading-relaxed">
+              <div className="mb-2 sm:mb-8">
+                {locale === "ar" ? (
+                  <>
+                    &ldquo;يُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا
+                    وَيَتِيمًا وَأَسِيرًا، إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ
+                    اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا&rdquo;
+                  </>
+                ) : (
+                  <>
+                    &ldquo;They give food, out of love for Him, to the poor, the
+                    orphan, and the captive, [saying] &apos;We feed you for the
+                    sake of Allah alone. We seek from you neither reward nor
+                    thanks.&rdquo;
+                  </>
+                )}
+              </div>
+              <div>
+                {locale === "ar"
+                  ? "- سورة الإنسان (٧٦:٨-٩)"
+                  : "- Surah Al-Insan (76:8-9)"}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

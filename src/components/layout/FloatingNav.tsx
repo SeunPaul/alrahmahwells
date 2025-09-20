@@ -164,7 +164,11 @@ export default function FloatingNav() {
             <div className="flex items-center gap-2 md:gap-4">
               <div className="items-center gap-4 hidden md:flex">
                 <Link
-                  href={getLocalizedPath("/our-impact") as any}
+                  href={
+                    getLocalizedPath(
+                      "/our-impact/i-watched-a-7-year-old-helplessly-drink-from-a-swamp"
+                    ) as any
+                  }
                   className="px-4 py-2 bg-primary-light text-sm text-white rounded-3xl hover:bg-primary-dark transition-colors font-bold whitespace-nowrap"
                 >
                   {t("navigation.ourImpact")}
@@ -249,7 +253,11 @@ export default function FloatingNav() {
                 ))}
                 <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
                   <Link
-                    href={getLocalizedPath("/our-impact") as any}
+                    href={
+                      getLocalizedPath(
+                        "/our-impact/i-watched-a-7-year-old-helplessly-drink-from-a-swamp"
+                      ) as any
+                    }
                     className="px-4 py-2 bg-primary-light text-white rounded-3xl hover:bg-primary-dark transition-colors font-medium text-center"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >

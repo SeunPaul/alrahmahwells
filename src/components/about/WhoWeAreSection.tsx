@@ -54,7 +54,7 @@ export default function WhoWeAreSection() {
               <p
                 data-aos="fade-up"
                 data-aos-delay="200"
-                className="text-lg text-gray-700 leading-relaxed"
+                className="text-lg text-[#0D2F2B] leading-relaxed md:leading-[35px]"
               >
                 {locale === "ar" ? (
                   <>
@@ -83,7 +83,7 @@ export default function WhoWeAreSection() {
               <p
                 data-aos="fade-up"
                 data-aos-delay="300"
-                className="text-lg text-gray-700 leading-relaxed"
+                className="text-lg text-[#0D2F2B] leading-relaxed md:leading-[35px]"
               >
                 {locale === "ar" ? (
                   <>
@@ -123,7 +123,7 @@ export default function WhoWeAreSection() {
               <p
                 data-aos="fade-up"
                 data-aos-delay="400"
-                className="text-lg text-gray-700 leading-relaxed"
+                className="text-lg text-[#0D2F2B] leading-relaxed md:leading-[35px]"
               >
                 {locale === "ar" ? (
                   <>

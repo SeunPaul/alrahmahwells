@@ -25,7 +25,7 @@ export default function ProjectsSection({ isStory }: { isStory?: boolean }) {
 
   return (
     <section
-      className="pb-20 md:pt-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
+      className="pt-10 pb-20 md:pt-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div

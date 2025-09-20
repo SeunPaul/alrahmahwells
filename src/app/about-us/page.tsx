@@ -12,7 +12,6 @@ export default function AboutUs() {
       <VisionSection />
       <FaithSection />
       <ProjectsSection />
-      {/* Additional sections will be added here */}
     </div>
   );
 }

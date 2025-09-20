@@ -8,7 +8,7 @@ interface ProjectCardProps {
   description: string;
   imageSrc: string;
   imageAlt: string;
-  imagePosition: "left" | "right";
+  imagePosition: "left" | "right" | "top";
 }
 
 export default function ProjectCard({
@@ -21,6 +21,35 @@ export default function ProjectCard({
   const locale = useLocale();
   const isRTL = rtlLocales.includes(locale as Locale);
 
+  // Handle horizontal card layout (image on top)
+  if (imagePosition === "top") {
+    return (
+      <div className="bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+        {/* Image Section */}
+        <div className="relative">
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            className="w-full h-48 object-cover"
+          />
+          {/* Gradient overlay for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        </div>
+
+        {/* Content Section */}
+        <div className="p-6">
+          <h3 className="text-xl font-bold text-primary-dark mb-3 line-clamp-2 leading-tight">
+            {title}
+          </h3>
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-4">
+            {description}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // Handle legacy left/right layout for backward compatibility
   const isImageLeft = imagePosition === "left";
   const isRTLImageLeft = isRTL ? !isImageLeft : isImageLeft;
 

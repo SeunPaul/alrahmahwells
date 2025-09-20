@@ -9,7 +9,7 @@ export default function WhyJoinUs() {
 
   const reasons = [
     {
-      titleEn: "Halal‑Certified Mission",
+      titleEn: "Halal-Certified Mission",
       titleAr: "مهمة مُعتمدة شرعياً",
       textEn:
         "Work with a charity grounded in Islamic values, certified and fully compliant with faith‑based giving.",
@@ -42,13 +42,12 @@ export default function WhyJoinUs() {
 
   const roles = [
     {
-      titleEn: "On‑Ground Support",
+      titleEn: "On-Ground Support",
       titleAr: "الدعم الميداني",
       textEn:
-        "Help with community outreach, logistics, or on‑site borehole projects.",
+        "Help with community outreach, logistics, or on-site borehole projects.",
       textAr:
         "ساعد في التواصل المجتمعي، واللوجستيات، أو المشاريع الميدانية للآبار.",
-      color: "bg-[#33503d]",
     },
     {
       titleEn: "Faith Ambassadors",
@@ -56,59 +55,87 @@ export default function WhyJoinUs() {
       textEn:
         "Mobilize your mosque, school, or local community to support our cause.",
       textAr: "حرّك مسجدك أو مدرستك أو مجتمعك المحلي لدعم رسالتنا.",
-      color: "bg-[#2f4737]",
     },
     {
-      titleEn: "Digital Da’wah",
+      titleEn: "Digital Da'wah",
       titleAr: "الدعوة الرقمية",
       textEn:
-        "Use your personal social platforms to share our mission and inspire support. Every post may help someone get clean water — and earns you continuous rewards.",
+        "Use your personal social media platforms to share our mission, raise awareness, and inspire your followers to support the cause. Every post you make could be the reason someone gets clean water — and earns you continuous rewards.",
       textAr:
-        "استخدم منصاتك الشخصية لنشر رسالتنا وإلهام الدعم. كل منشور قد يكون سبباً لوصول ماءٍ نظيف إلى شخص — ويجري لك الأجر.",
-      color: "bg-[#2b3f31]",
+        "استخدم منصاتك الشخصية على وسائل التواصل الاجتماعي لمشاركة رسالتنا، وزيادة الوعي، وإلهام متابعيك لدعم القضية. كل منشور قد يكون سبباً في حصول شخص على ماء نظيف — ويجري لك الأجر المستمر.",
     },
   ];
 
   return (
     <section
-      className="py-16 md:py-20 bg-[#0f2b1f] text-white"
+      className="py-16 md:py-20 bg-primary-dark text-white"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-4xl font-extrabold mb-12">
+      <div className="max-w-8xl mx-auto pb-30 px-4 sm:px-6 lg:px-8 relative isolate">
+        <img
+          src="/illustrations/eid-transparent.png"
+          alt="Why join us Background"
+          className="absolute w-50 md:w-100 -top-15 right-0 -z-10"
+        />
+        <h2 className="text-center text-5xl md:text-6xl text-[#C8F4D1] font-bold mb-12">
           {locale === "ar" ? "لماذا تنضم إلينا" : "Why Join Us"}
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          {reasons.map((r, idx) => (
-            <div key={idx} className="">
-              <h3 className="text-xl font-semibold mb-2">
-                {locale === "ar" ? r.titleAr : r.titleEn}
-              </h3>
-              <p className="text-white/80">
-                {locale === "ar" ? r.textAr : r.textEn}
-              </p>
+        <div className="max-w-[1280px] mx-auto">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="relative overflow-x-scroll scrollbar-hide"
+          >
+            <style jsx>{`
+              .scrollbar-hide::-webkit-scrollbar {
+                display: none;
+              }
+            `}</style>
+            {/* Dashed Line */}
+            <div className="absolute top-8 left-0 right-0 h-0.5 border-t-2 border-dashed border-[#447650] hidden md:block md:w-320" />
+
+            {/* Entries */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-8 relative border-l-2 border-dashed border-[#447650] ml-4 pl-4 md:ml-0 md:pl-0 md:border-none md:w-320">
+              {reasons.map((r, index) => (
+                <div key={index} className="relative">
+                  {/* Timeline Node */}
+                  <div className="absolute top-2 -left-7 md:top-6 md:left-2 w-5 h-5 p-0.5 border bg-[#315238] border-[#659A71] rounded-full">
+                    <div className="bg-[#659A71] w-full h-full rounded-full z-10" />
+                  </div>
+
+                  {/* Content */}
+                  <div className="md:mt-15">
+                    <h3 className="text-2xl font-bold mb-4">
+                      {locale === "ar" ? r.titleAr : r.titleEn}
+                    </h3>
+                    <p className="text-[#C8F4D1] text-lg font-medium">
+                      {locale === "ar" ? r.textAr : r.textEn}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
-        <h3 className="text-center text-3xl md:text-4xl font-extrabold mb-10">
+        <h3 className="text-center text-4xl md:text-[56px] text-[#C8F4D1] font-bold max-w-150 mx-auto mt-25 mb-10">
           {locale === "ar"
             ? "أدوار التطوع التي يمكنك استكشافها"
             : "Volunteer Roles You Can Explore"}
         </h3>
 
-        <div className="space-y-6">
+        <div className=" max-w-5xl mx-auto space-y-6">
           {roles.map((r, idx) => (
             <div
               key={idx}
-              className={`${r.color} rounded-2xl px-6 md:px-10 py-6 md:py-8`}
+              className={`bg-[#416148] rounded-2xl px-6 md:px-10 py-6 md:py-8`}
             >
-              <div className="grid md:grid-cols-3 gap-6 items-center">
-                <h4 className="text-xl md:text-2xl font-semibold">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-center">
+                <h4 className="text-2xl md:text-3xl font-bold">
                   {locale === "ar" ? r.titleAr : r.titleEn}
                 </h4>
-                <p className="md:col-span-2 text-white/85">
+                <p className="md:col-span-2 text-white text-lg font-medium">
                   {locale === "ar" ? r.textAr : r.textEn}
                 </p>
               </div>

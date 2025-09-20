@@ -46,7 +46,9 @@ export default function AboutHeroSection() {
         <div
           data-aos="fade-left"
           data-aos-delay="200"
-          className="absolute overflow-hidden w-[45%] h-[200px] sm:h-[400px] md:w-[40%] md:h-[500px] lg:w-[36%] lg:h-[450px] rounded-2xl -bottom-10 md:-bottom-35 right-5 z-20"
+          className={`absolute overflow-hidden w-[45%] h-[200px] sm:h-[400px] md:w-[40%] md:h-[500px] lg:w-[36%] lg:h-[450px] rounded-2xl -bottom-10 md:-bottom-35 ${
+            isRTL ? "left-5" : "right-5"
+          } z-20`}
         >
           <img
             src={ASSETS.IMAGES.ABOUT.PRAYING_WOMEN}

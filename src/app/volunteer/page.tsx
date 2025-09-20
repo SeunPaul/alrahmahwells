@@ -10,15 +10,22 @@ export default function Volunteer() {
   return (
     <div className="min-h-screen bg-[#f7f9f2]">
       <VolunteerHero />
-      <section className="pb-12 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-10 md:py-16 px-4 sm:px-6 lg:px-8 isolate">
+        <div
+          className="absolute inset-0 -z-10"
+          style={{
+            backgroundImage: "url('/illustrations/noise.png')",
+            backgroundSize: "cover",
+          }}
+        />
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div className="grid md:grid-cols-[2fr_4fr] gap-15 items-center">
             <img
-              src="/illustrations/mecca.png"
+              src="/illustrations/kaaba.png"
               alt="Kaaba Illustration"
-              className="w-full h-full object-contain"
+              className="hidden md:block w-full h-full object-contain"
             />
-            <div className="text-gray-700 text-lg leading-relaxed">
+            <div className="text-[#0D2F2B] text-xl md:text-2xl leading-relaxed">
               <p>
                 Every Well we build, Every child we rescue from thirst and
                 diseases, Every prayer whispered in gratitude — it begins with

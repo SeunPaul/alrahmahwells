@@ -12,7 +12,7 @@ export default function VisionSection() {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f8f7f4] relative overflow-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f0f5f0] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div
@@ -91,12 +91,13 @@ export default function VisionSection() {
           <div
             data-aos="fade-up"
             data-aos-delay="500"
-            className="sm:absolute left-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:p-10 border-2 border-[#D3B88A] sm:w-[60%] rotate-5 sm:translate-y-[250px] lg:translate-y-[180px] z-10"
+            className="relative sm:absolute left-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:p-10 border-2 border-[#D3B88A] sm:w-[60%] rotate-5 sm:translate-y-[250px] lg:translate-y-[180px] z-10"
             style={{
               backgroundImage: "url('/illustrations/noise.png')",
               backgroundSize: 2000,
             }}
           >
+            <div className="absolute right-[100%] top-[50%] w-48 h-1 border-b-3 border-[#D3B88A] border-dashed" />
             <div className="relative text-base md:text-lg text-center text-secondary-dark font-medium md:font-semibold leading-relaxed">
               <div className="mb-4 sm:mb-8">
                 {locale === "ar" ? (
@@ -132,12 +133,13 @@ export default function VisionSection() {
           <div
             data-aos="fade-up"
             data-aos-delay="400"
-            className="sm:absolute right-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:p-10 border-2 border-[#D3B88A] sm:w-[60%] -rotate-3"
+            className="relative sm:absolute right-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:p-10 border-2 border-[#D3B88A] sm:w-[60%] -rotate-3"
             style={{
               backgroundImage: "url('/illustrations/noise.png')",
               backgroundSize: 2000,
             }}
           >
+            <div className="absolute left-[100%] top-[50%] w-48 h-1 border-b-3 border-[#D3B88A] border-dashed" />
             <div className="relative text-base md:text-lg text-center text-secondary-dark font-medium md:font-semibold leading-relaxed">
               <div className="mb-2 sm:mb-8">
                 {locale === "ar" ? (

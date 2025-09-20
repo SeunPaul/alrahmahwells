@@ -9,13 +9,20 @@ export default function VolunteerHero() {
 
   return (
     <section
-      className="pt-24 md:pt-32 pb-10 px-4 sm:px-6 lg:px-8"
+      className="pt-40 pb-10 px-4 sm:px-6 lg:px-8 relative isolate"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className="max-w-6xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-secondary-dark">
+      <div
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-5 lg:gap-15 items-start">
+          <div data-aos="fade-right">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-primary-light">
               {locale === "ar" ? (
                 <>
                   امنح وقتك. غيّر حياة.{" "}
@@ -24,26 +31,29 @@ export default function VolunteerHero() {
               ) : (
                 <>
                   Give Your Time. Change a Life.{" "}
-                  <span className="text-primary-light">
+                  <span className="text-secondary-light">
                     Earn Eternal Rewards.
                   </span>
                 </>
               )}
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-gray-700 max-w-xl">
+            <p className="mt-6 text-lg md:text-xl text-[#0D2F2B] max-w-xl font-medium">
               {locale === "ar"
                 ? "انضم إلى قضية موثقة شرعياً وكن إجابةً لدعاء أحدهم."
-                : "Join a halal‑certified cause and become the answer to someone’s dua."}
+                : "Join a halal-certified cause and become the answer to someone's dua."}
             </p>
           </div>
 
-          <div className="bg-[#f7f9f2] border border-[#dfe8cf] rounded-xl p-6 md:p-8">
-            <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+          <div
+            data-aos="fade-left"
+            className="text-[#0D2F2B] leading-relaxed font-medium text-lg md:text-xl"
+          >
+            <p className="">
               {locale === "ar"
                 ? "من نفّس عن مؤمن كربة من كرب الدنيا نفّس الله عنه كربة من كرب يوم القيامة."
                 : "Whoever removes a hardship for a believer in this world, Allah will remove a hardship for him on the Day of Judgment."}
             </p>
-            <p className="mt-4 text-sm md:text-base text-gray-600">
+            <p className="">
               {locale === "ar"
                 ? "— النبي محمد ﷺ (صحيح مسلم)"
                 : "— Prophet Muhammad ﷺ (Sahih Muslim)"}
@@ -51,9 +61,9 @@ export default function VolunteerHero() {
           </div>
         </div>
 
-        <div className="mt-10 md:mt-14 overflow-hidden rounded-2xl shadow">
+        <div className="mt-10 md:mt-14 overflow-hidden rounded-2xl max-w-6xl mx-auto max-h-96">
           <img
-            src="/images/home-6.jpg"
+            src="/images/volunteer.jpg"
             alt={
               locale === "ar" ? "متطوعون حول بئر" : "Volunteers around a well"
             }

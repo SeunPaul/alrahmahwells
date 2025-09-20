@@ -19,7 +19,7 @@ export default function Blog() {
             data-aos="fade-up"
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 "
           >
-            <span className="text-secondary-dark">
+            <span className="text-primary-dark">
               {locale === "ar" ? "اطلع على آخر" : "Check out our latest"}
             </span>
             <br />

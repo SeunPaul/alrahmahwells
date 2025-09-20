@@ -130,23 +130,107 @@ export default function ProjectsList() {
       data-aos="fade-up"
       data-aos-duration="800"
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        {projects.map((project, index) => (
-          <div
-            key={index}
-            data-aos="fade-up"
-            data-aos-duration="800"
-            data-aos-delay={200 + index * 100}
+      <div className="max-w-full">
+        <div className="px-4 sm:px-6 lg:px-8 mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary-dark">
+            {locale === "ar" ? "مشاريعنا" : "Our Projects"}
+          </h2>
+        </div>
+
+        {/* Horizontal Scroll Container */}
+        <div className="relative">
+          {/* Navigation Arrows */}
+          <button
+            className={`absolute top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-200 ${
+              isRTL ? "right-4" : "left-4"
+            }`}
+            onClick={() => {
+              const container = document.getElementById("projects-scroll");
+              if (container) {
+                container.scrollBy({
+                  left: isRTL ? 400 : -400,
+                  behavior: "smooth",
+                });
+              }
+            }}
           >
-            <ProjectCard
-              title={project.title}
-              description={project.description}
-              imageSrc={project.imageSrc}
-              imageAlt={project.imageAlt}
-              imagePosition={project.imagePosition}
-            />
+            <svg
+              className={`w-6 h-6 text-primary-dark ${
+                isRTL ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <button
+            className={`absolute top-1/2 -translate-y-1/2 z-10 bg-white/80 hover:bg-white rounded-full p-3 shadow-lg transition-all duration-200 ${
+              isRTL ? "left-4" : "right-4"
+            }`}
+            onClick={() => {
+              const container = document.getElementById("projects-scroll");
+              if (container) {
+                container.scrollBy({
+                  left: isRTL ? -400 : 400,
+                  behavior: "smooth",
+                });
+              }
+            }}
+          >
+            <svg
+              className={`w-6 h-6 text-primary-dark ${
+                isRTL ? "rotate-180" : ""
+              }`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+
+          {/* Scrollable Container */}
+          <div
+            id="projects-scroll"
+            className="flex gap-6 overflow-x-auto scrollbar-hide px-4 sm:px-6 lg:px-8 pb-4"
+            style={{
+              scrollSnapType: "x mandatory",
+              WebkitOverflowScrolling: "touch",
+            }}
+          >
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className="flex-none w-[350px] md:w-[400px]"
+                style={{ scrollSnapAlign: "start" }}
+                data-aos="fade-up"
+                data-aos-duration="800"
+                data-aos-delay={200 + index * 100}
+              >
+                <ProjectCard
+                  title={project.title}
+                  description={project.description}
+                  imageSrc={project.imageSrc}
+                  imageAlt={project.imageAlt}
+                  imagePosition="top"
+                />
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

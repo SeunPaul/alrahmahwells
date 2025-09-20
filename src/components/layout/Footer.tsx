@@ -123,7 +123,11 @@ export default function Footer() {
                     {locale === "ar" ? "تبرع الآن" : "Donate Now"}
                   </Link>
                   <Link
-                    href={getLocalizedPath("/our-impact") as any}
+                    href={
+                      getLocalizedPath(
+                        "/our-impact/i-watched-a-7-year-old-helplessly-drink-from-a-swamp"
+                      ) as any
+                    }
                     className="px-12 py-3 bg-white text-primary-light border-2 border-white rounded-[40px] font-semibold hover:bg-gray-100 transition-colors"
                   >
                     {locale === "ar" ? "شاهد تأثيرنا" : "See Our Impact"}

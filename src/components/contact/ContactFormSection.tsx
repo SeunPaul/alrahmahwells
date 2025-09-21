@@ -36,7 +36,7 @@ export default function ContactFormSection() {
 
   return (
     <section
-      className="pt-90 py-20 px-4 sm:px-6 lg:px-8 bg-[#FFFFFF] relative"
+      className="pt-30 sm:pt-50 md:pt-90 py-20 px-4 sm:px-6 lg:px-8 bg-[#FFFFFF] relative"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div
@@ -46,7 +46,7 @@ export default function ContactFormSection() {
           backgroundSize: "cover",
         }}
       />
-      <div className="absolute -top-30 inset-x-0">
+      <div className="absolute -top-30 inset-x-5">
         <div className="overflow-hidden rounded-2xl max-w-6xl mx-auto max-h-96">
           <img
             src="/images/volunteer.jpg"
@@ -102,7 +102,7 @@ export default function ContactFormSection() {
                 placeholder={
                   locale === "ar" ? "أدخل الاسم الكامل" : "Enter full name"
                 }
-                className="w-full px-4 py-3 border border-primary-light rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none transition-colors"
+                className="w-full px-4 py-3 border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none rounded-md transition-colors"
                 required
               />
             </div>
@@ -122,7 +122,7 @@ export default function ContactFormSection() {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="example@alrahmah.com"
-                className="w-full px-4 py-3 border border-primary-light rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none transition-colors"
+                className="w-full px-4 py-3 border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none rounded-md transition-colors"
                 required
               />
             </div>
@@ -142,7 +142,7 @@ export default function ContactFormSection() {
                 value={formData.subject}
                 onChange={handleInputChange}
                 placeholder={locale === "ar" ? "اكتب هنا" : "Write here"}
-                className="w-full px-4 py-3 border border-primary-light rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none transition-colors"
+                className="w-full px-4 py-3 border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none rounded-md transition-colors"
                 required
               />
             </div>
@@ -162,16 +162,16 @@ export default function ContactFormSection() {
                 onChange={handleInputChange}
                 rows={6}
                 placeholder={locale === "ar" ? "اكتب هنا" : "Write here"}
-                className="w-full px-4 py-3 border border-primary-light rounded-lg focus:ring-2 focus:ring-primary-light focus:border-primary-light outline-none transition-colors resize-none"
+                className="w-full px-4 py-3 border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none rounded-md transition-colors resize-none"
                 required
               />
             </div>
 
             {/* Submit Button */}
-            <div className="pt-4">
+            <div className="mt-6">
               <button
                 type="submit"
-                className="bg-primary-dark text-white py-4 px-16 rounded-full font-semibold text-lg hover:bg-primary-light transition-colors focus:ring-2 focus:ring-primary-light focus:ring-offset-2 outline-none"
+                className="bg-primary-dark hover:opacity-80 text-white font-semibold px-20 py-3 rounded-full transition-opacity cursor-pointer"
               >
                 {locale === "ar" ? "إرسال" : "Submit"}
               </button>

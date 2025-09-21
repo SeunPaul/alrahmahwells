@@ -148,7 +148,7 @@ export default function VolunteerForm() {
                 }
                 value={data.lastName}
                 onChange={handle}
-                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               />
             </div>
             <div>
@@ -162,7 +162,7 @@ export default function VolunteerForm() {
                 }
                 value={data.otherNames}
                 onChange={handle}
-                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               />
             </div>
             <div>
@@ -173,7 +173,7 @@ export default function VolunteerForm() {
                 name="country"
                 value={data.country}
                 onChange={handle}
-                className="w-full px-4 py-2.5 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2.5 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               >
                 <option value="">
                   {locale === "ar" ? "اختر الدولة" : "--select country--"}
@@ -193,7 +193,7 @@ export default function VolunteerForm() {
                 placeholder={locale === "ar" ? "المدينة" : "Enter city"}
                 value={data.city}
                 onChange={handle}
-                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               />
             </div>
             <div>
@@ -208,7 +208,7 @@ export default function VolunteerForm() {
                 }
                 value={data.email}
                 onChange={handle}
-                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               />
             </div>
             <div>
@@ -226,7 +226,7 @@ export default function VolunteerForm() {
                 }
                 value={data.phone}
                 onChange={handle}
-                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               />
             </div>
             <div>
@@ -244,7 +244,7 @@ export default function VolunteerForm() {
                 }
                 value={data.skills}
                 onChange={handle}
-                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               />
             </div>
             <div>
@@ -258,7 +258,7 @@ export default function VolunteerForm() {
                 }
                 value={data.type}
                 onChange={handle}
-                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+                className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
               />
             </div>
           </div>
@@ -275,7 +275,7 @@ export default function VolunteerForm() {
               value={data.note}
               onChange={handle}
               rows={5}
-              className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-2 focus:ring-primary-dark outline-none"
+              className="w-full px-4 py-2 rounded-md border border-[#C0CFAD] focus:ring-1 focus:ring-primary-dark outline-none"
             />
           </div>
 

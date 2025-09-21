@@ -8,24 +8,31 @@ import { HiHandRaised, HiBookOpen } from "react-icons/hi2";
 
 export default function ContactInfoSection() {
   const pathname = usePathname();
-  
+
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f0f5f0]"
+      className="pb-50 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative"
       dir={isRTL ? "rtl" : "ltr"}
     >
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
       <div className="max-w-6xl mx-auto">
         {/* Contact Info Container */}
         <div
           data-aos="fade-up"
-          className="bg-[#f5f5dc] rounded-3xl shadow-lg p-8 md:p-12"
+          className="bg-[#F4FAEE] border border-[#D6E0CB] rounded-3xl p-8 md:p-12"
         >
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-[2fr_3fr]">
             {/* Left Column - Our Global Office */}
-            <div>
+            <div className="pb-12 lg:pb-0 lg:pr-6">
               <div className="flex items-center mb-6">
                 <HiLocationMarker className="w-6 h-6 text-secondary-light mr-3" />
                 <h2 className="text-2xl md:text-3xl font-bold text-primary-dark">
@@ -64,17 +71,17 @@ export default function ContactInfoSection() {
                 <div className="flex items-center">
                   <HiMail className="w-5 h-5 text-primary-dark mr-3" />
                   <a
-                    href="mailto:info@manywatersfoundation.org"
+                    href="mailto:info@alrahmahwells.org"
                     className="text-primary-dark hover:text-primary-light transition-colors underline"
                   >
-                    info@manywatersfoundation.org
+                    info@alrahmahwells.org
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Right Column - Partner With Us */}
-            <div>
+            <div className="border-t pt-12 lg:pt-0 lg:pl-12 lg:border-t-0 lg:border-l border-[#D6E0CB]">
               <div className="flex items-center mb-6">
                 <HiHandRaised className="w-6 h-6 text-secondary-light mr-3" />
                 <h2 className="text-2xl md:text-3xl font-bold text-primary-dark">
@@ -119,10 +126,10 @@ export default function ContactInfoSection() {
                   <div className="flex items-center">
                     <HiMail className="w-5 h-5 text-primary-dark mr-3" />
                     <a
-                      href="mailto:partnerships@manywatersfoundation.org"
+                      href="mailto:partnerships@alrahmahwells.org"
                       className="text-primary-dark hover:text-primary-light transition-colors underline"
                     >
-                      partnerships@manywatersfoundation.org
+                      partnerships@alrahmahwells.org
                     </a>
                   </div>
                 </div>

@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function ContactFormSection() {
   const pathname = usePathname();
-  
+
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
 
@@ -36,36 +36,25 @@ export default function ContactFormSection() {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#faf9f6] relative overflow-hidden"
+      className="pt-90 py-20 px-4 sm:px-6 lg:px-8 bg-[#FFFFFF] relative"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background Pattern - Subtle Speckles */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-20 left-20 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-32 left-32 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-16 left-40 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-24 left-60 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-40 left-80 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-60 left-20 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-80 left-40 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-100 left-60 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-30 right-30 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-40 right-40 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-50 right-50 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-60 right-60 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-70 right-70 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-80 right-80 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-90 right-90 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-100 right-100 w-1 h-1 bg-primary-light rounded-full"></div>
-
-        {/* Large decorative pattern in bottom right */}
-        <div className="absolute bottom-0 right-0 w-64 h-64 opacity-5">
-          <div className="absolute bottom-0 right-0 w-32 h-32 border-2 border-primary-light rounded-full"></div>
-          <div className="absolute bottom-8 right-8 w-16 h-16 border-2 border-primary-light rounded-full"></div>
-          <div className="absolute bottom-16 right-16 w-8 h-8 border-2 border-primary-light rounded-full"></div>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+      <div className="absolute -top-30 inset-x-0">
+        <div className="overflow-hidden rounded-2xl max-w-6xl mx-auto max-h-96">
+          <img
+            src="/images/volunteer.jpg"
+            alt={
+              locale === "ar" ? "متطوعون حول بئر" : "Volunteers around a well"
+            }
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
 
@@ -73,19 +62,19 @@ export default function ContactFormSection() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <h2
-            data-aos="fade-down"
-            className="text-4xl md:text-5xl font-bold text-primary-dark mb-4"
+            data-aos="fade-up"
+            className="text-4xl md:text-5xl font-bold text-primary-light mb-4"
           >
             {locale === "ar" ? "أرسل لنا رسالة" : "Send Us A Message"}
           </h2>
           <p
-            data-aos="fade-down"
+            data-aos="fade-up"
             data-aos-delay="200"
-            className="text-lg text-gray-700"
+            className="text-lg text-[#0D2F2B] font-semibold"
           >
             {locale === "ar"
               ? "سيرد عليك شخص من فريقنا خلال ٢٤-٤٨ ساعة، إن شاء الله."
-              : "A human from our team will reply within 24–48 hours, inshaAllah."}
+              : "A human from our team will reply within 24-48 hours, inshaAllah."}
           </p>
         </div>
 
@@ -93,7 +82,7 @@ export default function ContactFormSection() {
         <div
           data-aos="fade-up"
           data-aos-delay="300"
-          className="bg-white rounded-3xl shadow-lg p-8 md:p-12"
+          className="bg-white border border-[#EEF1E9] max-w-2xl mx-auto rounded-3xl p-8 md:p-12"
         >
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Full Name Field */}
@@ -182,7 +171,7 @@ export default function ContactFormSection() {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full bg-primary-dark text-white py-4 px-8 rounded-lg font-semibold text-lg hover:bg-primary-light transition-colors focus:ring-2 focus:ring-primary-light focus:ring-offset-2 outline-none"
+                className="bg-primary-dark text-white py-4 px-16 rounded-full font-semibold text-lg hover:bg-primary-light transition-colors focus:ring-2 focus:ring-primary-light focus:ring-offset-2 outline-none"
               >
                 {locale === "ar" ? "إرسال" : "Submit"}
               </button>

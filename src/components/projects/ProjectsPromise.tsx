@@ -13,17 +13,14 @@ export default function ProjectsPromise() {
       className="py-20 bg-[#0f2b1f] text-white relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 text-6xl">☪</div>
-        <div className="absolute top-40 right-20 text-4xl">⭐</div>
-        <div className="absolute bottom-20 left-40 text-5xl">☪</div>
-        <div className="absolute bottom-40 right-40 text-3xl">⭐</div>
-      </div>
+      <div
+        style={{ backgroundImage: "url('/illustrations/mecca.png')" }}
+        className="absolute inset-0 opacity-10 bg-contain bg-no-repeat bg-center"
+      />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h2
-          className="text-4xl md:text-5xl font-bold mb-8"
+          className="text-4xl md:text-5xl font-bold mb-8 text-[#C8F4D1]"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="200"
@@ -33,7 +30,7 @@ export default function ProjectsPromise() {
             : "Be an instrument of Allah's Mercy. Build a legacy that outlives you"}
         </h2>
         <p
-          className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto"
+          className="text-xl md:text-2xl mb-12 max-w-3xl mx-auto text-[#C8F4D1]"
           data-aos="fade-up"
           data-aos-duration="800"
           data-aos-delay="400"
@@ -45,7 +42,7 @@ export default function ProjectsPromise() {
 
         <Link
           href={locale === "ar" ? "/ar/donate" : "/donate"}
-          className="inline-block bg-[#D49B44] hover:bg-[#B8860B] text-white font-bold text-lg px-8 py-4 rounded-lg transition-colors duration-300"
+          className="inline-block bg-secondary-light hover:bg-[#B8860B] text-white font-bold text-lg px-8 py-3 rounded-full transition-colors duration-300"
           data-aos="zoom-in"
           data-aos-duration="800"
           data-aos-delay="600"

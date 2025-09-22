@@ -9,23 +9,38 @@ export default function ProjectsTrust() {
 
   return (
     <section
-      className="py-20 bg-[#F8F8F8] relative"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div
-            data-aos="fade-right"
-            data-aos-duration="800"
-            data-aos-delay="200"
-          >
-            <div className="w-16 h-1 bg-[#D49B44] mb-4"></div>
-            <h3 className="text-3xl md:text-4xl font-bold text-[#2F4F4F]">
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+      <div className="max-w-6xl mx-auto relative z-10">
+        {/* Promise Statement */}
+
+        {/* Title and Content Grid */}
+        <div className="grid lg:grid-cols-[3fr_4fr] gap-2 lg:gap-12 items-start">
+          {/* Left Column - Title */}
+          <div className="relative">
+            {/* Orange accent line */}
+            <div className="w-34 h-1 bg-secondary-light mb-4"></div>
+
+            {/* Title */}
+            <h2
+              data-aos="fade-right"
+              className="text-3xl md:text-4xl lg:text-[56px] font-bold text-primary-light mb-8"
+            >
               {locale === "ar" ? "وعدنا" : "OUR PROMISE"}
-            </h3>
+            </h2>
           </div>
+
+          {/* Right Column - Promise Statement */}
           <div
-            className="text-lg text-[#333333] leading-relaxed"
+            className="text-xl text-[#0D2F2B] leading-relaxed md:leading-[35px]"
             data-aos="fade-left"
             data-aos-duration="800"
             data-aos-delay="400"
@@ -39,7 +54,7 @@ export default function ProjectsTrust() {
               {locale === "ar"
                 ? "هذه المشاريع دليل على أنه يمكنك الوثوق بنا لتحويل رحمتك إلى تغيير دائم."
                 : "These projects are proof that "}
-              <span className="font-bold text-[#D49B44]">
+              <span className="font-bold text-secondary-dark">
                 {locale === "ar" ? "يمكنك الوثوق بنا" : "you can trust us"}
               </span>
               {locale === "ar"

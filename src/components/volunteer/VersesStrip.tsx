@@ -23,7 +23,7 @@ export default function VersesStrip() {
         <div className="mb-5 sm:mb-20 sm:h-96 relative">
           {/* First Quote Box - Bottom Left */}
           <div
-            data-aos="fade-up"
+            data-aos="fade-right"
             data-aos-delay="500"
             className="relative mb-10 sm:absolute left-0 bg-[#fff] rounded-[20px] p-4 sm:p-10 border-2 border-[#C0D793] sm:w-[60%] rotate-5 sm:translate-y-[200px] lg:translate-y-[150px] z-10"
             style={{
@@ -41,8 +41,8 @@ export default function VersesStrip() {
                   </>
                 ) : (
                   <>
-                    And establish prayer and give zakah and obey the Messenger —
-                    that you may receive mercy.”
+                    &ldquo;And establish prayer and give zakah and obey the
+                    Messenger — that you may receive mercy.&rdquo;
                   </>
                 )}
               </div>
@@ -50,7 +50,7 @@ export default function VersesStrip() {
                 {locale === "ar" ? (
                   <>— سورة النور (٢٤:٥٦)</>
                 ) : (
-                  <>&gt; — Surah An-Nur (24:56)</>
+                  <>— Surah An-Nur (24:56)</>
                 )}
               </div>
             </div>
@@ -58,7 +58,7 @@ export default function VersesStrip() {
 
           {/* Second Quote Box - Top Right */}
           <div
-            data-aos="fade-up"
+            data-aos="fade-left"
             data-aos-delay="400"
             className="relative sm:absolute right-0 bg-[#fff] rounded-[20px] p-4 sm:p-10 border-2 border-[#C0D793] sm:w-[60%] -rotate-3"
             style={{
@@ -77,16 +77,16 @@ export default function VersesStrip() {
                   </>
                 ) : (
                   <>
-                    &ldquo;“Woe to those who pray, but are heedless of their
+                    &ldquo;Woe to those who pray, but are heedless of their
                     prayer — those who make a show [of worship] and refuse small
-                    kindnesses.”&rdquo;
+                    kindnesses.&rdquo;
                   </>
                 )}
               </div>
               <div>
                 {locale === "ar"
-                  ? "> — سورة الإنسان (٧٦:٨-٩)"
-                  : "> — Surah Al-Maʿūn (107:4-7)"}
+                  ? "— سورة الإنسان (٧٦:٨-٩)"
+                  : "— Surah Al-Maʿūn (107:4-7)"}
               </div>
             </div>
           </div>

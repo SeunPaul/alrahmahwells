@@ -12,8 +12,6 @@ export default function ProjectsPromise() {
     <section
       className="py-20 bg-[#0f2b1f] text-white relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
-      data-aos="fade-up"
-      data-aos-duration="800"
     >
       {/* Background decorative elements */}
       <div className="absolute inset-0 opacity-5">

@@ -36,21 +36,32 @@ export default function VersesStrip() {
               <div className="mb-4 sm:mb-8">
                 {locale === "ar" ? (
                   <>
-                    وَأَنْ لَا تُؤْثِرُواْ فِي الْحَدِيثِ لِيَسْتَخْفُواْ عَنْهُ
-                    مَن لَيْسَ لَهُ عِلْمٌ إِلَّا الْبَلَاغُ الْمُبِينُ
+                    إِنَّ ٱلۡمُصَّدِّقِينَ وَٱلۡمُصَّدِّقَـٰتِ وَأَقۡرَضُواْ
+                    ٱللَّهَ قَرۡضًا حَسَنًا يُضَـٰعَفُ لَهُمۡ وَلَهُمۡ أَجۡرٞ
+                    كَرِيمٞ
                   </>
                 ) : (
                   <>
-                    And establish prayer and give zakah and obey the Messenger —
-                    that you may receive mercy.”
+                    &ldquo;Indeed, those who give charity, men and women… it
+                    will be multiplied for them, and they will have a noble
+                    reward.&rdquo;
                   </>
                 )}
               </div>
               <div>
                 {locale === "ar" ? (
-                  <>— سورة النور (٢٤:٥٦)</>
+                  <>
+                    Indeed, those who give charity, men and women… it will be
+                    multiplied for them, and they will have a noble reward.
+                    <br />— Surah Al-Hadid (57:18)
+                  </>
                 ) : (
-                  <>&gt; — Surah An-Nur (24:56)</>
+                  <>
+                    إِنَّ ٱلۡمُصَّدِّقِينَ وَٱلۡمُصَّدِّقَـٰتِ وَأَقۡرَضُواْ
+                    ٱللَّهَ قَرۡضًا حَسَنًا يُضَـٰعَفُ لَهُمۡ وَلَهُمۡ أَجۡرٞ
+                    كَرِيمٞ
+                    <br />— Surah Al-Hadid (57:18)
+                  </>
                 )}
               </div>
             </div>
@@ -71,22 +82,26 @@ export default function VersesStrip() {
               <div className="mb-2 sm:mb-8">
                 {locale === "ar" ? (
                   <>
-                    &ldquo;فَوَيْلٌ لِّلْمُصَلِّينَ، الَّذِينَ هُمْ عَن
-                    صَلَاتِهِمْ سَاهُونَ، الَّذِينَ هُمْ يُرَاءُونَ،
-                    وَيَمْنَعُونَ الْمَاعُونَ&rdquo;
+                    إِنَّ ٱللَّهَ مَعَ ٱلَّذِينَ ٱتَّقَوا۟ وَٱلَّذِينَ هُم
+                    مُّحْسِنُونَ
                   </>
                 ) : (
-                  <>
-                    &ldquo;“Woe to those who pray, but are heedless of their
-                    prayer — those who make a show [of worship] and refuse small
-                    kindnesses.”&rdquo;
-                  </>
+                  <>&ldquo;Indeed, Allah is with those who do good.&rdquo;</>
                 )}
               </div>
               <div>
-                {locale === "ar"
-                  ? "> — سورة الإنسان (٧٦:٨-٩)"
-                  : "> — Surah Al-Maʿūn (107:4-7)"}
+                {locale === "ar" ? (
+                  <>
+                    Indeed, Allah is with those who do good.
+                    <br /> — Surah An-Nahl (16:128)
+                  </>
+                ) : (
+                  <>
+                    إِنَّ ٱللَّهَ مَعَ ٱلَّذِينَ ٱتَّقَوا۟ وَٱلَّذِينَ هُم
+                    مُّحْسِنُونَ
+                    <br /> — Surah An-Nahl (16:128)
+                  </>
+                )}
               </div>
             </div>
           </div>

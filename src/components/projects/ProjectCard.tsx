@@ -24,24 +24,24 @@ export default function ProjectCard({
   // Handle horizontal card layout (image on top)
   if (imagePosition === "top") {
     return (
-      <div className="bg-white rounded-2xl border border-[#E5E7EB] overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+      <div className="overflow-hidden h-full">
         {/* Image Section */}
-        <div className="relative">
+        <div className="h-72 w-full rounded-2xl relative overflow-hidden">
           <img
             src={imageSrc}
             alt={imageAlt}
-            className="w-full h-48 object-cover"
+            className="w-full h-full object-cover"
           />
           {/* Gradient overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
 
         {/* Content Section */}
-        <div className="p-6">
-          <h3 className="text-xl font-bold text-primary-dark mb-3 line-clamp-2 leading-tight">
+        <div className="py-6">
+          <h3 className="text-xl font-bold text-primary-light mb-3 line-clamp-2 leading-tight">
             {title}
           </h3>
-          <p className="text-gray-600 text-sm leading-relaxed line-clamp-4">
+          <p className="text-[#0D2F1C] text-sm leading-relaxed">
             {description}
           </p>
         </div>

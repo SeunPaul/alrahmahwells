@@ -102,8 +102,8 @@ export default function VisionSection() {
               <div className="mb-4 sm:mb-8">
                 {locale === "ar" ? (
                   <>
-                    &ldquo;مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا
-                    فَيُضْعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً&rdquo;
+                    مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا
+                    فَيُضْعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً
                   </>
                 ) : (
                   <>
@@ -115,8 +115,9 @@ export default function VisionSection() {
               <div>
                 {locale === "ar" ? (
                   <>
-                    Who is it that will lend to Allah a good loan which He will
-                    multiply for him many times over? - Surah Al-Baqarah (2:245)
+                    &ldquo;Who is it that will lend to Allah a good loan which
+                    He will multiply for him many times over?&rdquo; <br />-
+                    Surah Al-Baqarah (2:245)
                   </>
                 ) : (
                   <>
@@ -144,9 +145,9 @@ export default function VisionSection() {
               <div className="mb-2 sm:mb-8">
                 {locale === "ar" ? (
                   <>
-                    &ldquo;يُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا
-                    وَيَتِيمًا وَأَسِيرًا، إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ
-                    اللَّهِ لَا نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا&rdquo;
+                    يُطْعِمُونَ الطَّعَامَ عَلَىٰ حُبِّهِ مِسْكِينًا وَيَتِيمًا
+                    وَأَسِيرًا، إِنَّمَا نُطْعِمُكُمْ لِوَجْهِ اللَّهِ لَا
+                    نُرِيدُ مِنكُمْ جَزَاءً وَلَا شُكُورًا
                   </>
                 ) : (
                   <>

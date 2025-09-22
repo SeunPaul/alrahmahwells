@@ -49,7 +49,7 @@ export default function ContactFormSection() {
       <div className="absolute -top-30 inset-x-5">
         <div className="overflow-hidden rounded-2xl max-w-6xl mx-auto max-h-96">
           <img
-            src="/images/volunteer.jpg"
+            src="/images/contact.jpg"
             alt={
               locale === "ar" ? "متطوعون حول بئر" : "Volunteers around a well"
             }

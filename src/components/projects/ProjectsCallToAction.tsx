@@ -9,24 +9,63 @@ export default function ProjectsCallToAction() {
 
   return (
     <section
-      className="py-16 bg-[#f7f9f2] relative overflow-hidden"
+      className="py-16 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
-      data-aos="fade-up"
-      data-aos-duration="800"
     >
-      {/* Background decorative elements */}
-      <div className="absolute top-10 right-10 opacity-10">
-        <div className="text-8xl text-gray-400">☪</div>
-      </div>
-      <div className="absolute bottom-10 right-4 opacity-5">
-        <div className="text-6xl text-gray-400">🕯️</div>
-      </div>
-      <div className="absolute top-1/2 right-0 opacity-5">
-        <div className="flex flex-col space-y-2">
-          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-          <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+        {/* Quote Boxes Container */}
+        <div className="sm:h-96 relative">
+          {/* First Quote Box - Bottom Left */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className="relative sm:absolute left-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:p-10 border-2 border-[#D3B88A] sm:w-[60%] rotate-3 z-10"
+            style={{
+              backgroundImage: "url('/illustrations/noise.png')",
+              backgroundSize: 2000,
+            }}
+          >
+            <div className="absolute right-[100%] top-[50%] w-48 h-1 border-b-3 border-[#D3B88A] border-dashed" />
+            <div className="absolute left-[100%] top-[50%] w-full h-1 border-b-3 border-[#D3B88A] border-dashed" />
+            <div className="relative text-base md:text-lg text-center text-secondary-dark font-medium md:font-semibold leading-relaxed">
+              <div className="mb-4 sm:mb-8">
+                {locale === "ar" ? (
+                  <>
+                    مَن ذَا الَّذِي يُقْرِضُ اللَّهَ قَرْضًا حَسَنًا
+                    فَيُضْعِفَهُ لَهُ أَضْعَافًا كَثِيرَةً
+                  </>
+                ) : (
+                  <>
+                    &ldquo;Who is it that will lend to Allah a good loan which
+                    He will multiply for him many times over?&rdquo;
+                  </>
+                )}
+              </div>
+              <div>
+                {locale === "ar" ? (
+                  <>
+                    &ldquo;Who is it that will lend to Allah a good loan which
+                    He will multiply for him many times over?&rdquo; <br />-
+                    Surah Al-Baqarah (2:245)
+                  </>
+                ) : (
+                  <>
+                    مَّن ذَا ٱلَّذِي يُقْرِضُ ٱللَّهَ قَرْضٗا حَسَنٗا
+                    فَيُضَٰعِفَهُۥ لَهُۥٓ أَضْعَافٗا كَثِيرَةٗ <br /> — Surah
+                    Al-Baqarah (2:245)
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

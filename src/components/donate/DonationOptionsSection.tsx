@@ -7,7 +7,7 @@ import { ASSETS } from "@/constants/assets";
 
 export default function DonationOptionsSection() {
   const pathname = usePathname();
-  
+
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
 
@@ -145,15 +145,13 @@ export default function DonationOptionsSection() {
         <div
           data-aos="fade-up"
           data-aos-delay="1400"
-          className="relative overflow-hidden rounded-2xl shadow-lg"
+          className="relative overflow-hidden"
         >
-          <div className="aspect-[16/9]">
+          <div className="mt-10 md:mt-14 overflow-hidden rounded-2xl max-w-6xl mx-auto max-h-110">
             <img
-              src={ASSETS.IMAGES.HOME.HOME_4}
+              src="/images/donate.jpg"
               alt={
-                locale === "ar"
-                  ? "أطفال يجمعون الماء من الصنبور"
-                  : "Children collecting water from tap"
+                locale === "ar" ? "متطوعون حول بئر" : "Volunteers around a well"
               }
               className="w-full h-full object-cover"
             />

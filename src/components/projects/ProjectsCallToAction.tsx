@@ -50,12 +50,12 @@ export default function ProjectsCallToAction() {
                 {locale === "ar" ? (
                   <>
                     &ldquo;Indeed, the mercy of Allah is near to the doers of
-                    good.&rdquo; <br />- Surah Al-A'rāf (7:56)
+                    good.&rdquo; <br />- Surah Al-A&apos;rāf (7:56)
                   </>
                 ) : (
                   <>
                     ٱنَّ رَحۡمَتَ ٱللَّهِ قَرِيبٌۭ مِّنَ ٱلۡمُحۡسِنِينَ
-                    <br /> — Surah Al-A'rāf (7:56)
+                    <br /> — Surah Al-A&apos;rāf (7:56)
                   </>
                 )}
               </div>

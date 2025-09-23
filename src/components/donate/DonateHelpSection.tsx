@@ -3,6 +3,7 @@
 import { getLocaleFromPathname } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function DonateHelpSection() {
   const pathname = usePathname();
@@ -103,9 +104,12 @@ export default function DonateHelpSection() {
 
         {/* Call to Action Button */}
         <div data-aos="fade-up" data-aos-delay="400">
-          <button className="bg-[#D99201] hover:bg-[#B8780D] text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+          <Link
+            href={locale === "ar" ? "/ar/contact-us" : "/contact-us"}
+            className="bg-[#D99201] hover:bg-[#B8780D] text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
             {locale === "ar" ? "تواصل معنا" : "Contact Us"}
-          </button>
+          </Link>
         </div>
       </div>
     </section>

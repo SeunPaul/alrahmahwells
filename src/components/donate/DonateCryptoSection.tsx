@@ -1,13 +1,16 @@
 "use client";
 
+import { useState } from "react";
 import { getLocaleFromPathname } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
+import CryptoDonationForm from "./CryptoDonationForm";
 
 export default function DonateCryptoSection() {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
+  const [showCryptoForm, setShowCryptoForm] = useState(false);
 
   const reasons = [
     {
@@ -199,7 +202,10 @@ export default function DonateCryptoSection() {
 
             {/* Call to Action Button */}
             <div data-aos="fade-up" data-aos-delay="1000">
-              <button className="bg-[#D99201] hover:bg-[#B8780D] text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <button
+                onClick={() => setShowCryptoForm(true)}
+                className="bg-[#D99201] hover:bg-[#B8780D] text-white px-12 py-4 rounded-full text-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
                 {locale === "ar"
                   ? "تبرع بالعملات المشفرة الآن"
                   : "Donate In Crypto Now"}
@@ -208,6 +214,11 @@ export default function DonateCryptoSection() {
           </div>
         </div>
       </div>
+
+      {/* Crypto Donation Form Modal */}
+      {showCryptoForm && (
+        <CryptoDonationForm onClose={() => setShowCryptoForm(false)} />
+      )}
     </section>
   );
 }

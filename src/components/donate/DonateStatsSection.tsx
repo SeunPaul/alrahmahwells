@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { getLocaleFromPathname } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
@@ -11,44 +12,37 @@ export default function DonateStatsSection() {
 
   return (
     <section
-      className="py-16 bg-[#F5F5DC] relative overflow-hidden"
+      className="pb-16 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background Pattern */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0"
         style={{
           backgroundImage: "url('/illustrations/noise.png')",
           backgroundSize: "cover",
         }}
       />
-
-      {/* Background Number Pattern */}
       <div
-        className="absolute inset-0 opacity-5"
-        style={{
-          backgroundImage: "url('/illustrations/numbers-bg.png')",
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-        }}
+        style={{ backgroundImage: "url('/illustrations/eid-transparent.png')" }}
+        className="absolute inset-0 opacity-10 bg-contain bg-no-repeat bg-center"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main Stats Content */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-[2fr_3fr] gap-2 mb-16">
           {/* Left Side - Large Number */}
-          <div className="text-center lg:text-left">
+          <div className="text-left">
             <div data-aos="fade-up" className="mb-8">
-              <div className="text-[120px] md:text-[160px] lg:text-[200px] font-bold text-[#58761B] leading-none">
+              <div className="text-[60px] md:text-[80px] lg:text-[100px] font-bold text-primary-light leading-none">
                 16
               </div>
-              <div className="text-xl md:text-2xl lg:text-3xl text-[#58761B] font-medium -mt-4">
+              <div className="text-lg md:text-xl text-[#0D2F2B] font-medium">
                 {locale === "ar"
                   ? "قرية أخرى لا تزال تنتظر"
                   : "more villages still wait."}
               </div>
-              <div className="text-lg md:text-xl text-gray-700 mt-2">
+              <div className="text-lg md:text-xl text-[#0D2F2B] font-medium">
                 {locale === "ar"
                   ? "عطشى. تصلي. تأمل."
                   : "Thirsting. Praying. Hoping."}
@@ -58,7 +52,7 @@ export default function DonateStatsSection() {
 
           {/* Right Side - Description */}
           <div data-aos="fade-up" data-aos-delay="200">
-            <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
+            <div className="space-y-2 md:space-y-6 text-lg md:text-xl text-[#0D2F2B] leading-loose">
               <p>
                 {locale === "ar" ? (
                   <>
@@ -72,9 +66,9 @@ export default function DonateStatsSection() {
                 ) : (
                   <>
                     In 2025, our goal is to provide clean, portable,
-                    solar-powered wells to{" "}
+                    solar-powered wells to 20{" "}
                     <span className="font-bold text-primary-dark">
-                      20 abandoned communities
+                      abandoned communities
                     </span>{" "}
                     in West Africa.
                   </>
@@ -118,50 +112,72 @@ export default function DonateStatsSection() {
                   </>
                 )}
               </p>
+
+              <p>
+                {locale === "ar" ? (
+                  <>
+                    &ldquo;إن أحب الأعمال إلى الله التي تجلب الراحة لنفس
+                    أخرى.&rdquo; — النبي محمد ﷺ
+                  </>
+                ) : (
+                  <>
+                    &ldquo;The most beloved of deeds to Allah are those that
+                    bring relief to another soul.&rdquo; — Prophet Muhammad ﷺ
+                  </>
+                )}
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Prophet Quote */}
-        <div className="text-center mb-16">
-          <div
-            data-aos="fade-up"
-            data-aos-delay="400"
-            className="max-w-4xl mx-auto"
-          >
-            <blockquote className="text-xl md:text-2xl lg:text-3xl font-medium text-primary-dark mb-4 leading-relaxed">
-              {locale === "ar" ? (
-                <>
-                  &ldquo;إن أحب الأعمال إلى الله التي تجلب الراحة لنفس
-                  أخرى.&rdquo;
-                </>
-              ) : (
-                <>
-                  &ldquo;The most beloved of deeds to Allah are those that bring
-                  relief to another soul.&rdquo;
-                </>
-              )}
-            </blockquote>
-            <cite className="text-lg md:text-xl text-gray-600">
-              {locale === "ar" ? "— النبي محمد ﷺ" : "— Prophet Muhammad ﷺ"}
-            </cite>
-          </div>
-        </div>
-
-        {/* Quote Boxes */}
-        <div className="relative mb-16">
-          {/* First Quote Box - Left */}
+        {/* Quote Boxes Container */}
+        <div className="mb-5 sm:mb-20 sm:h-96 relative">
+          {/* First Quote Box - Bottom Left */}
           <div
             data-aos="fade-up"
             data-aos-delay="500"
-            className="relative mb-10 lg:absolute left-0 bg-white rounded-[20px] p-6 lg:p-8 border-2 border-[#D99201] lg:w-[45%] rotate-2 lg:translate-y-8 z-10 shadow-lg"
+            className="relative sm:absolute left-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:py-8 sm:px-10 border-2 border-[#D3B88A] sm:w-[60%] rotate-[2deg] sm:translate-y-[200px] lg:translate-y-[160px] z-10"
             style={{
               backgroundImage: "url('/illustrations/noise.png')",
-              backgroundSize: 1500,
+              backgroundSize: 2000,
             }}
           >
-            <div className="text-base md:text-lg text-center text-[#905A01] font-medium leading-relaxed">
-              <div className="mb-4">
+            <div className="absolute right-[100%] top-[50%] w-48 h-1 border-b-3 border-[#D3B88A] border-dashed" />
+            <div className="text-base md:text-lg text-center text-secondary-dark font-medium md:font-semibold leading-relaxed">
+              <div className="mb-8">
+                {locale === "ar" ? (
+                  <>
+                    &ldquo;ليس بمؤمن من بات شبعان وجاره جائع إلى جنبه وهو
+                    يعلم.&rdquo;
+                  </>
+                ) : (
+                  <>
+                    &ldquo;He is not a believer whose stomach is filled while
+                    the neighbor to his side goes hungry.&rdquo;
+                  </>
+                )}
+              </div>
+              <div className="text-sm md:text-base">
+                {locale === "ar"
+                  ? "— سنن الكبرى، البيهقي"
+                  : "> — Sunan al-Kubra, Bayhaqi"}
+              </div>
+            </div>
+          </div>
+
+          {/* Second Quote Box - Top Right */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="relative sm:absolute right-0 bg-[#F7FBF2] rounded-[20px] p-4 sm:py-8 sm:px-10 border-2 border-[#D3B88A] sm:w-[60%] -rotate-3"
+            style={{
+              backgroundImage: "url('/illustrations/noise.png')",
+              backgroundSize: 2000,
+            }}
+          >
+            <div className="absolute left-[100%] top-[50%] w-48 h-1 border-b-3 border-[#D3B88A] border-dashed" />
+            <div className="text-base md:text-lg text-center text-secondary-dark font-medium md:font-semibold leading-relaxed">
+              <div className="mb-8">
                 {locale === "ar" ? (
                   <>
                     &ldquo;الرحماء يرحمهم الرحمن. ارحموا من في الأرض يرحمكم من
@@ -182,102 +198,79 @@ export default function DonateStatsSection() {
               </div>
             </div>
           </div>
-
-          {/* Second Quote Box - Right */}
-          <div
-            data-aos="fade-up"
-            data-aos-delay="600"
-            className="relative lg:absolute right-0 bg-white rounded-[20px] p-6 lg:p-8 border-2 border-[#D99201] lg:w-[55%] -rotate-1 lg:translate-y-32 shadow-lg"
-            style={{
-              backgroundImage: "url('/illustrations/noise.png')",
-              backgroundSize: 1500,
-            }}
-          >
-            <div className="text-base md:text-lg text-center text-[#905A01] font-medium leading-relaxed">
-              <div className="mb-4">
-                {locale === "ar" ? (
-                  <>
-                    &ldquo;ليس بمؤمن من بات شبعان وجاره جائع إلى جنبه وهو
-                    يعلم.&rdquo;
-                  </>
-                ) : (
-                  <>
-                    &ldquo;He is not a believer whose stomach is filled while
-                    the neighbor to his side goes hungry.&rdquo;
-                  </>
-                )}
-              </div>
-              <div className="text-sm md:text-base">
-                {locale === "ar"
-                  ? "— سنن الكبرى، البيهقي"
-                  : "> — Sunan al-Kubra, Bayhaqi"}
-              </div>
-            </div>
-          </div>
         </div>
 
-        {/* Photo Gallery */}
-        <div className="mt-32 lg:mt-48">
-          <div
-            data-aos="fade-up"
-            data-aos-delay="700"
-            className="flex flex-wrap justify-center gap-4 lg:gap-6"
-          >
-            {/* Photo 1 */}
-            <div className="transform rotate-3 hover:rotate-0 transition-transform duration-300">
-              <div className="w-48 h-64 lg:w-56 lg:h-72 bg-white p-3 shadow-lg rounded-lg">
-                <img
-                  src="/images/survival-1.png"
-                  alt={
-                    locale === "ar"
-                      ? "طفل يحمل دلو ماء"
-                      : "Child carrying water bucket"
-                  }
-                  className="w-full h-full object-cover rounded"
-                />
-              </div>
+        {/* Marquee Image Grid */}
+        <div className="max-w-6xl mx-auto overflow-hidden mt-8 pb-1">
+          <div data-aos="fade-up" data-aos-delay="400">
+            <div
+              className="flex gap-2 items-center max-w-none animate-marquee"
+              style={{
+                animation: "marquee 20s linear infinite",
+                width: "max-content",
+              }}
+            >
+              {/* Repeat images twice for seamless marquee */}
+              {[...Array(2)].map((_, idx) => (
+                <React.Fragment key={idx}>
+                  {/* Image 1 - Child with container on head */}
+                  <div className="relative transform transition-transform duration-300">
+                    <img
+                      src="/images/survival-1.png"
+                      alt={
+                        locale === "ar"
+                          ? "طفل يحمل حاوية على رأسه"
+                          : "Child carrying container on head"
+                      }
+                      className="h-80 sm:h-100"
+                    />
+                  </div>
+                  {/* Image 2 - Child in water */}
+                  <div className="relative transform transition-transform duration-300">
+                    <img
+                      src="/images/survival-2.png"
+                      alt={locale === "ar" ? "طفل في الماء" : "Child in water"}
+                      className="h-90 sm:h-120"
+                    />
+                  </div>
+                  {/* Image 3 - Two children with basins */}
+                  <div className="relative transform transition-transform duration-300">
+                    <img
+                      src="/images/survival-3.png"
+                      alt={
+                        locale === "ar"
+                          ? "طفلان يحملان أحواض"
+                          : "Two children carrying basins"
+                      }
+                      className="h-90 sm:h-120"
+                    />
+                  </div>
+                  {/* Image 4 - Child with metal pot */}
+                  <div className="relative transform transition-transform duration-300">
+                    <img
+                      src="/images/survival-4.png"
+                      alt={
+                        locale === "ar"
+                          ? "طفل يحمل وعاء معدني"
+                          : "Child carrying metal pot"
+                      }
+                      className="h-80 sm:h-100"
+                    />
+                  </div>
+                </React.Fragment>
+              ))}
             </div>
-
-            {/* Photo 2 */}
-            <div className="transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-              <div className="w-48 h-64 lg:w-56 lg:h-72 bg-white p-3 shadow-lg rounded-lg">
-                <img
-                  src="/images/survival-2.png"
-                  alt={
-                    locale === "ar"
-                      ? "امرأة تجلب الماء"
-                      : "Woman fetching water"
-                  }
-                  className="w-full h-full object-cover rounded"
-                />
-              </div>
-            </div>
-
-            {/* Photo 3 */}
-            <div className="transform rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div className="w-48 h-64 lg:w-56 lg:h-72 bg-white p-3 shadow-lg rounded-lg">
-                <img
-                  src="/images/survival-3.png"
-                  alt={
-                    locale === "ar"
-                      ? "أطفال يشربون الماء"
-                      : "Children drinking water"
-                  }
-                  className="w-full h-full object-cover rounded"
-                />
-              </div>
-            </div>
-
-            {/* Photo 4 */}
-            <div className="transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-              <div className="w-48 h-64 lg:w-56 lg:h-72 bg-white p-3 shadow-lg rounded-lg">
-                <img
-                  src="/images/survival-4.png"
-                  alt={locale === "ar" ? "طفلة تبتسم" : "Smiling child"}
-                  className="w-full h-full object-cover rounded"
-                />
-              </div>
-            </div>
+            {/* Marquee animation keyframes */}
+            <style jsx>{`
+              @keyframes marquee {
+                0% {
+                  transform: translateX(0%);
+                }
+                100% {
+                  transform: translateX(-50%);
+                }
+              }
+            `}</style>
           </div>
         </div>
       </div>

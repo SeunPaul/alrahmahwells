@@ -7,16 +7,20 @@ import { usePathname } from "next/navigation";
 
 interface CryptoDonationFormProps {
   onClose: () => void;
+  initialAmount?: number;
 }
 
 export default function CryptoDonationForm({
   onClose,
+  initialAmount,
 }: CryptoDonationFormProps) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
 
-  const [donationAmount, setDonationAmount] = useState("");
+  const [donationAmount, setDonationAmount] = useState(
+    initialAmount?.toString() || ""
+  );
   const [selectedCrypto, setSelectedCrypto] = useState("usdt");
   const [donorName, setDonorName] = useState("");
   const [donorEmail, setDonorEmail] = useState("");

@@ -5,7 +5,13 @@ import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
 import { ASSETS } from "@/constants/assets";
 
-export default function DonationOptionsSection() {
+interface DonationOptionsSectionProps {
+  onDonateClick?: (amount: number | string) => void;
+}
+
+export default function DonationOptionsSection({
+  onDonateClick,
+}: DonationOptionsSectionProps) {
   const pathname = usePathname();
 
   const locale = getLocaleFromPathname(pathname);
@@ -24,32 +30,33 @@ export default function DonationOptionsSection() {
   ];
 
   const handleDonation = (amount: number | string) => {
-    // Handle donation logic here
-    console.log("Donation amount:", amount);
+    if (onDonateClick) {
+      onDonateClick(amount);
+    } else {
+      // Fallback behavior - just log for now
+      console.log("Donation amount:", amount);
+    }
   };
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f0f5f0] relative overflow-hidden"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#F0F6E5] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Background Pattern - Subtle Texture */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-10 left-10 w-2 h-2 bg-primary-light rounded-full"></div>
-        <div className="absolute top-20 left-20 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-32 left-32 w-2 h-2 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-2 h-2 bg-primary-light rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-primary-light rounded-full"></div>
-        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-primary-light rounded-full"></div>
-      </div>
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16">
           <h2
-            data-aos="fade-down"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark mb-8"
+            data-aos="fade-up"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-light mb-8 max-w-4xl mx-auto leading-tight"
           >
             {locale === "ar"
               ? "تبرعك يفعل أكثر من مجرد إعطاء الماء"
@@ -57,9 +64,9 @@ export default function DonationOptionsSection() {
           </h2>
 
           <div
-            data-aos="fade-down"
+            data-aos="fade-up"
             data-aos-delay="200"
-            className="space-y-4 text-lg md:text-xl text-gray-700 max-w-4xl mx-auto"
+            className="space-y-1 text-lg md:text-xl text-[#0D2F2B] font-medium max-w-4xl mx-auto"
           >
             <p>
               {locale === "ar"
@@ -79,11 +86,9 @@ export default function DonationOptionsSection() {
               ) : (
                 <>
                   This is not just water. This is{" "}
-                  <span className="font-bold text-primary-dark">
-                    Rahmah (mercy)
-                  </span>
-                  . This is{" "}
-                  <span className="font-bold text-primary-dark">
+                  <span className="font-bold text-primary-dark">Rahmah</span>{" "}
+                  (mercy). This is{" "}
+                  <span className="font-bold text-secondary-dark">
                     Sadaqah Jāriyah
                   </span>
                   .
@@ -105,15 +110,22 @@ export default function DonationOptionsSection() {
               key={index}
               data-aos="fade-up"
               data-aos-delay={400 + index * 100}
-              className="bg-[#f5f5dc] rounded-xl p-4 shadow-lg border border-white/20 hover:shadow-xl transition-shadow"
+              className="relative bg-[#EDF4E5] rounded-xl p-4 border border-[#C0CFAD]"
             >
+              <div
+                className="absolute inset-0 -z-10 opacity-5"
+                style={{
+                  backgroundImage: "url('/illustrations/numbers-bg.png')",
+                  backgroundSize: 1000,
+                }}
+              />
               <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-primary-light mb-4">
                   {item.amount}
                 </h3>
                 <button
                   onClick={() => handleDonation(item.value)}
-                  className="w-full bg-secondary-light text-white py-2 px-4 rounded-lg font-semibold text-sm md:text-base hover:bg-secondary-dark transition-colors"
+                  className="bg-secondary-light text-white py-1.5 px-4 rounded-[24px] font-semibold text-xs md:text-sm hover:opacity-80 transition-colors"
                 >
                   {locale === "ar" ? "تبرع الآن" : "Donate Now"}
                 </button>
@@ -125,7 +137,7 @@ export default function DonationOptionsSection() {
           <div
             data-aos="fade-up"
             data-aos-delay="1300"
-            className="bg-primary-dark rounded-xl p-4 shadow-lg border border-white/20 hover:shadow-xl transition-shadow"
+            className="bg-primary-light rounded-xl p-4"
           >
             <div className="text-center">
               <h3 className="text-lg md:text-xl font-bold text-white mb-4">
@@ -133,7 +145,7 @@ export default function DonationOptionsSection() {
               </h3>
               <button
                 onClick={() => handleDonation("custom")}
-                className="w-full bg-white text-primary-dark py-2 px-4 rounded-lg font-semibold text-sm md:text-base hover:bg-gray-100 transition-colors"
+                className="bg-white text-secondary-light py-1.5 px-4 rounded-[24px] font-semibold text-xs md:text-sm hover:opacity-80 transition-colors"
               >
                 {locale === "ar" ? "تبرع الآن" : "Donate Now"}
               </button>
@@ -147,7 +159,7 @@ export default function DonationOptionsSection() {
           data-aos-delay="1400"
           className="relative overflow-hidden"
         >
-          <div className="mt-10 md:mt-14 overflow-hidden rounded-2xl max-w-6xl mx-auto max-h-110">
+          <div className="overflow-hidden rounded-2xl max-w-6xl mx-auto max-h-110">
             <img
               src="/images/donate.jpg"
               alt={

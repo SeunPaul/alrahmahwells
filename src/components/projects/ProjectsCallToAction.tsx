@@ -19,6 +19,10 @@ export default function ProjectsCallToAction() {
           backgroundSize: "cover",
         }}
       />
+      <div
+        style={{ backgroundImage: "url('/illustrations/eid-transparent.png')" }}
+        className="absolute inset-0 opacity-10 bg-contain bg-no-repeat bg-center"
+      />
 
       <div className="max-w-6xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         {/* Quote Boxes Container */}

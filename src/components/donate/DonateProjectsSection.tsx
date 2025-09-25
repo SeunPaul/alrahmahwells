@@ -17,7 +17,13 @@ interface ProjectCard {
   progress: number;
 }
 
-export default function DonateProjectsSection() {
+interface DonateProjectsSectionProps {
+  onDonateClick?: (amount: number | string) => void;
+}
+
+export default function DonateProjectsSection({
+  onDonateClick,
+}: DonateProjectsSectionProps) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
@@ -42,7 +48,7 @@ export default function DonateProjectsSection() {
         locale === "ar"
           ? "التوعية: مياه نظيفة، رعاية طبية مجانية، توزيع القرآن"
           : "Outreach: Clean water, free medical outreach, Qur'an distribution",
-      image: "/images/survival-1.png",
+      image: "/images/contact.jpg",
       progress: 52,
     },
     {
@@ -59,7 +65,7 @@ export default function DonateProjectsSection() {
         locale === "ar"
           ? "التوعية: مياه نظيفة، تجديد المسجد"
           : "Outreach: Clean water, mosque renovation",
-      image: "/images/survival-2.png",
+      image: "/images/home-5.jpg",
       progress: 100,
     },
     {
@@ -77,7 +83,7 @@ export default function DonateProjectsSection() {
         locale === "ar"
           ? "التوعية: مياه نظيفة، مواد تعليمية، مأوى مدرسي"
           : "Outreach: Clean water, learning materials, school shelter",
-      image: "/images/survival-3.png",
+      image: "/images/home-6.jpg",
       progress: 50.7,
     },
     {
@@ -94,7 +100,7 @@ export default function DonateProjectsSection() {
         locale === "ar"
           ? "التوعية: مياه نظيفة، علاج الأمراض، هدايا القرآن"
           : "Outreach: Clean water, disease treatment, Qur'an gifts",
-      image: "/images/survival-4.png",
+      image: "/images/home-7.jpg",
       progress: 37.4,
     },
     {
@@ -111,7 +117,7 @@ export default function DonateProjectsSection() {
         locale === "ar"
           ? "التوعية: مياه نظيفة، مستلزمات تعليمية"
           : "Outreach: Clean water, educational supplies",
-      image: "/images/survival-1.png",
+      image: "/images/impact.jpg",
       progress: 26,
     },
     {
@@ -128,7 +134,7 @@ export default function DonateProjectsSection() {
         locale === "ar"
           ? "التوعية: مياه نظيفة، بناء مسجد"
           : "Outreach: Clean water, mosque construction",
-      image: "/images/survival-2.png",
+      image: "/images/volunteer.jpg",
       progress: 64.4,
     },
   ];
@@ -147,8 +153,18 @@ export default function DonateProjectsSection() {
 
   const handleDonate = (projectId: string) => {
     const amount = donationAmounts[projectId];
-    console.log(`Donating ${amount} to project ${projectId}`);
-    // Handle donation logic here
+    if (amount && onDonateClick) {
+      // Parse the amount to a number if it's a valid number, otherwise pass as string
+      const numericAmount = parseFloat(amount.replace(/[^0-9.-]/g, ""));
+      if (!isNaN(numericAmount) && numericAmount > 0) {
+        onDonateClick(numericAmount);
+      } else {
+        onDonateClick(amount); // Pass as string for custom amounts
+      }
+    } else {
+      // Fallback behavior
+      console.log(`Donating ${amount} to project ${projectId}`);
+    }
   };
 
   const getStatusColor = (status: string) => {
@@ -179,7 +195,18 @@ export default function DonateProjectsSection() {
   };
 
   return (
-    <section className="py-16 bg-[#F8F9FA]" dir={isRTL ? "rtl" : "ltr"}>
+    <section
+      className="relative py-16 bg-[#F0F6E5]"
+      dir={isRTL ? "rtl" : "ltr"}
+    >
+      {/* Background Pattern */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "url('/illustrations/noise.png')",
+          backgroundSize: "cover",
+        }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -188,29 +215,35 @@ export default function DonateProjectsSection() {
               key={project.id}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="bg-[#EDF4E5] border border-[#C0CFAD] rounded-xl overflow-hidden p-3"
             >
+              <div
+                className="absolute inset-0 -z-10 opacity-5"
+                style={{
+                  backgroundImage: "url('/illustrations/numbers-bg.png')",
+                  backgroundSize: 1000,
+                }}
+              />
               {/* Project Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-xl"
                 />
-                <div className="absolute inset-0 bg-black/20" />
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
+              <div className="py-4">
                 {/* Title */}
-                <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+                <h3 className="text-xl font-bold text-[#0D2F2B] mb-2 line-clamp-2">
                   {project.title}
                 </h3>
 
                 {/* Location */}
-                <div className="flex items-center text-[#D99201] text-sm font-medium mb-4">
+                <div className="flex items-center text-primary-light text-sm font-medium mb-4">
                   <svg
-                    className="w-4 h-4 mr-1"
+                    className="w-4 h-4 mr-1 text-secondary-light"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -267,19 +300,16 @@ export default function DonateProjectsSection() {
                 </div>
 
                 {/* Outreach Description */}
-                <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                <p className="text-sm text-[#0D2F2B] font-medium mb-4 line-clamp-2">
                   {project.outreach}
                 </p>
 
                 {/* Donation Section */}
                 <div className="space-y-3">
                   {project.status === "Completed" ? (
-                    <button
-                      disabled
-                      className="w-full py-2 px-4 bg-green-100 text-green-700 rounded-lg font-semibold cursor-not-allowed"
-                    >
+                    <div className="w-full text-center text-sm text-secondary-light font-medium border-t border-dashed border-t-secondary-light mt-10 py-6">
                       {locale === "ar" ? "التبرع مغلق" : "Donation Closed"}
-                    </button>
+                    </div>
                   ) : (
                     <>
                       <input
@@ -307,76 +337,6 @@ export default function DonateProjectsSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Pagination */}
-        <div className="flex justify-center items-center space-x-2">
-          {/* Previous Button */}
-          <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-            disabled={currentPage === 1}
-            className={`p-2 rounded-lg ${
-              currentPage === 1
-                ? "text-gray-400 cursor-not-allowed"
-                : "text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          {/* Page Numbers */}
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-            <button
-              key={page}
-              onClick={() => setCurrentPage(page)}
-              className={`w-10 h-10 rounded-lg font-semibold ${
-                currentPage === page
-                  ? "bg-primary-dark text-white"
-                  : "text-gray-600 hover:bg-gray-100"
-              }`}
-            >
-              {page}
-            </button>
-          ))}
-
-          {/* Next Button */}
-          <button
-            onClick={() =>
-              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-            }
-            disabled={currentPage === totalPages}
-            className={`p-2 rounded-lg ${
-              currentPage === totalPages
-                ? "text-gray-400 cursor-not-allowed"
-                : "text-gray-600 hover:bg-gray-100"
-            }`}
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </section>

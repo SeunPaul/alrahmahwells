@@ -86,7 +86,7 @@ export default function DonateCryptoGuideSection() {
     >
       {/* Background Pattern */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0"
         style={{
           backgroundImage: "url('/illustrations/noise.png')",
           backgroundSize: "cover",
@@ -99,32 +99,28 @@ export default function DonateCryptoGuideSection() {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Side - Main Title */}
             <div data-aos="fade-up">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-dark mb-4 leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-light mb-4 leading-tight">
                 {locale === "ar" ? (
                   <>
                     كيفية التبرع
                     <br />
-                    <span className="text-primary-dark">
+                    <span className="text-primary-light">
                       باستخدام العملات المشفرة في
                     </span>
+                    <span className="text-secondary-light">3</span>
                     <br />
-                    <span className="text-[#D99201] text-7xl md:text-8xl lg:text-9xl">
-                      3
-                    </span>
-                    <br />
-                    <span className="text-[#D99201]">خطوات بسيطة</span>
+                    <span className="text-secondary-light">خطوات بسيطة</span>
                   </>
                 ) : (
                   <>
                     How to Donate
                     <br />
-                    <span className="text-primary-dark">Using Crypto in</span>
+                    <span className="text-primary-light">
+                      Using Crypto in
+                    </span>{" "}
+                    <span className="text-secondary-light">3</span>
                     <br />
-                    <span className="text-[#D99201] text-7xl md:text-8xl lg:text-9xl">
-                      3
-                    </span>
-                    <br />
-                    <span className="text-[#D99201]">Simple Steps</span>
+                    <span className="text-secondary-light">Simple Steps</span>
                   </>
                 )}
               </h2>
@@ -173,14 +169,17 @@ export default function DonateCryptoGuideSection() {
               key={index}
               data-aos="fade-up"
               data-aos-delay={300 + index * 100}
-              className="bg-[#F4FAEE] rounded-2xl p-8 relative overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
-              style={{
-                backgroundImage: "url('/illustrations/noise.png')",
-                backgroundSize: 1500,
-              }}
+              className="bg-[#EDF4E5] border border-[#DCE5D1] rounded-2xl p-8 relative overflow-hidden"
             >
+              <div
+                className="absolute inset-0 -z-10 opacity-5"
+                style={{
+                  backgroundImage: "url('/illustrations/numbers-bg.png')",
+                  backgroundSize: 1000,
+                }}
+              />
               {/* Step Number */}
-              <div className="absolute bottom-0 right-0 text-[200px] text-gray-200 font-bold leading-none opacity-30 -mb-8 -mr-4">
+              <div className="absolute bottom-0 right-5 text-[100px] text-[#90A16D] font-bold leading-none opacity-30 -mb-8 -mr-4">
                 {step.number}
               </div>
 

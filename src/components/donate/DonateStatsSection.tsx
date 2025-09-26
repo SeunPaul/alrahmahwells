@@ -1,14 +1,81 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getLocaleFromPathname } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
+
+// Custom hook for counting animation with intersection observer
+function useCountUp(end: number, duration: number = 2000, delay: number = 0) {
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const elementRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasStarted) {
+            setHasStarted(true);
+
+            const timer = setTimeout(() => {
+              const startTime = Date.now();
+              const startValue = 0;
+
+              const updateCount = () => {
+                const currentTime = Date.now();
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                // Easing function for smooth animation
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const currentCount = Math.floor(
+                  startValue + (end - startValue) * easeOutQuart
+                );
+
+                setCount(currentCount);
+
+                if (progress < 1) {
+                  requestAnimationFrame(updateCount);
+                } else {
+                  setCount(end);
+                }
+              };
+
+              requestAnimationFrame(updateCount);
+            }, delay);
+
+            return () => clearTimeout(timer);
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the element is visible
+        rootMargin: "0px 0px -100px 0px", // Start slightly before the element comes into view
+      }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      if (elementRef.current) {
+        observer.unobserve(elementRef.current);
+      }
+    };
+  }, [end, duration, delay, hasStarted]);
+
+  return { count, elementRef };
+}
 
 export default function DonateStatsSection() {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
+
+  // Use the custom hook for smooth counting animation
+  const { count, elementRef } = useCountUp(16, 2000, 0);
 
   return (
     <section
@@ -34,15 +101,18 @@ export default function DonateStatsSection() {
           {/* Left Side - Large Number */}
           <div className="text-left">
             <div data-aos="fade-up" className="mb-8">
-              <div className="text-[60px] md:text-[80px] lg:text-[100px] font-bold text-primary-light leading-none">
-                16
+              <div
+                ref={elementRef}
+                className="text-[100px] lg:text-[120px] font-bold text-primary-light leading-none"
+              >
+                {count}
               </div>
-              <div className="text-lg md:text-xl text-[#0D2F2B] font-medium">
+              <div className="text-xl md:text-2xl text-[#0D2F2B] font-semibold">
                 {locale === "ar"
                   ? "قرية أخرى لا تزال تنتظر"
                   : "more villages still wait."}
               </div>
-              <div className="text-lg md:text-xl text-[#0D2F2B] font-medium">
+              <div className="text-xl md:text-2xl text-[#0D2F2B] font-semibold">
                 {locale === "ar"
                   ? "عطشى. تصلي. تأمل."
                   : "Thirsting. Praying. Hoping."}

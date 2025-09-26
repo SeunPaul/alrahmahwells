@@ -53,7 +53,7 @@ export default function FaithSection() {
                 </>
               ) : (
                 <>
-                  At the soul of Wells of Mercy Foundation is Islam. We are
+                  At the soul of Al-Rahmah Wells Charity is Islam. We are
                   inspired by{" "}
                   <span className="font-bold">
                     Quranic principles of mercy, compassion, and Sadaqah Jariyah

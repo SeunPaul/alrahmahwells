@@ -26,8 +26,8 @@ export default function DonateCryptoSection({
           : "Global Reach Without Borders",
       description:
         locale === "ar"
-          ? "تزيل العملات المشفرة حواجز الجغرافيا وتبادل العملات والأنظمة المصرفية. سواء كنت في لاغوس أو لندن، الرياض أو ريو، تصل تبرعاتك إلينا فوراً وبدون حدود – لا تأخير مصرفي، لا وسطاء، لا رسوم إضافية."
-          : "Crypto removes the barriers of geography, currency exchange, and banking systems. Whether you're in Lagos or London, Riyadh or Rio, your donation reaches us instantly and without limits – no bank delays, no middlemen, no extra charges.",
+          ? "تزيل العملات المشفرة حواجز الجغرافيا وتبادل العملات والأنظمة المصرفية. سواء كنت في الشرق الأوسط، أوروبا، آسيا أو أفريقيا، تصل تبرعاتك إلينا فوراً وبدون حدود - لا تأخير مصرفي، لا وسطاء، لا رسوم إضافية."
+          : "Crypto removes the barriers of geography, currency exchange, and banking systems. Whether you're in the Middle East, Europe, Asia or Africa, your donation reaches us instantly and without limits - no bank delays, no middlemen, no extra charges.",
     },
     {
       title:
@@ -36,7 +36,7 @@ export default function DonateCryptoSection({
           : "Freedom from Corruption & Hidden Cuts",
       description:
         locale === "ar"
-          ? "الأنظمة التقليدية غالباً ما تأتي مع أيدي كثيرة في الوعاء – رسوم، وسطاء، وأحياناً حتى فساد. مع العملات المشفرة، تذهب تبرعاتك مباشرة إلى القضية، وليس إلى جيوب الأطراف الثالثة."
+          ? "الأنظمة التقليدية غالباً ما تأتي مع أيدي كثيرة في الوعاء - رسوم، وسطاء، وأحياناً حتى فساد. مع العملات المشفرة، تذهب تبرعاتك مباشرة إلى القضية، وليس إلى جيوب الأطراف الثالثة."
           : "Traditional systems often come with too many hands in the pot - fees, intermediaries, and sometimes even corruption. With crypto, your donation goes straight to the cause, not into the pockets of third parties.",
     },
     {
@@ -60,8 +60,8 @@ export default function DonateCryptoSection({
     {
       title:
         locale === "ar"
-          ? "إنه المستقبل – ونحن نستخدمه للخير"
-          : "It's the Future – and We're Using It for Good",
+          ? "إنه المستقبل - ونحن نستخدمه للخير"
+          : "It's the Future - and We're Using It for Good",
       description:
         locale === "ar"
           ? "كثير من الناس يرون العملات المشفرة مجرد تقنية. نحن نراها أداة للرحمة. طريقة لمحاربة الظلم، تجاوز البيروقراطية، وتمكين الناس العاديين من إحداث تأثير بدون تأخير."
@@ -86,7 +86,7 @@ export default function DonateCryptoSection({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header Section */}
         <div className="mb-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-12 items-start">
             {/* Left Side - Main Title */}
             <div data-aos="fade-up">
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
@@ -101,16 +101,16 @@ export default function DonateCryptoSection({
               <p className="text-lg md:text-xl text-[#C8F4D1] leading-relaxed">
                 {locale === "ar" ? (
                   <>
-                    في مؤسسة آبار الرحمة، مهمتنا عاجلة – وحاجتنا للعمل بسرعة
+                    في مؤسسة آبار الرحمة، مهمتنا عاجلة - وحاجتنا للعمل بسرعة
                     أيضاً. اخترنا العملات المشفرة لأنها تسمح لنا بالتحرك بسرعة
                     أكبر، والوصول إلى أبعد، والبقاء شفافين تماماً. إليك لماذا
                     تبنينا هذه التقنية القوية:
                   </>
                 ) : (
                   <>
-                    At Al-Rahmah Wells Foundation, our mission is urgent – and
-                    so is our need to act fast. We chose cryptocurrency because
-                    it allows us to move faster, reach farther, and stay fully
+                    At Al-Rahmah Wells Charity, our mission is urgent - and so
+                    is our need to act fast. We chose cryptocurrency because it
+                    allows us to move faster, reach farther, and stay fully
                     transparent. Here&apos;s why we&apos;ve embraced this
                     powerful technology:
                   </>

@@ -115,7 +115,7 @@ export const blogPosts: BlogPost[] = [
     sections: [
       {
         content: {
-          en: "At Al-Rahmah Wells Foundation, we focus on solar-powered wells because they offer a sustainable, long-term solution to the water crisis. While the need for clean water is urgent, providing a lasting, dependable source is crucial. Solar-powered wells give communities access to clean water without relying on costly, unreliable energy sources.",
+          en: "At Al-Rahmah Wells Charity, we focus on solar-powered wells because they offer a sustainable, long-term solution to the water crisis. While the need for clean water is urgent, providing a lasting, dependable source is crucial. Solar-powered wells give communities access to clean water without relying on costly, unreliable energy sources.",
           ar: "في مؤسسة آبار الرحمة، نركز على الآبار التي تعمل بالطاقة الشمسية لأنها توفر حلاً مستداماً وطويل الأمد لأزمة المياه. على الرغم من أن الحاجة إلى المياه النظيفة هي حاجة حرجة، إلا أن توفير مصدر موثوق ومستقر هو أمر حاسم. تعطي الآبار التي تعمل بالطاقة الشمسية للمجتمعات وصولاً إلى المياه النظيفة دون الاعتماد على مصادر الطاقة المكلفة وغير الموثوق بها.",
         },
         type: "text",

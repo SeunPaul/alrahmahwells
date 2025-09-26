@@ -44,15 +44,15 @@ export default function ContactInfoSection() {
                 {/* Organization Name */}
                 <div>
                   <h3 className="text-xl font-semibold text-primary-dark mb-2">
-                    {locale === "ar" ? "مؤسسة الرحمة" : "Al-Rahmah Foundation"}
+                    {locale === "ar" ? "مؤسسة الرحمة" : "Al-Rahmah Charity"}
                   </h3>
                 </div>
 
                 {/* Locations */}
                 <div className="text-gray-700 text-lg">
                   {locale === "ar"
-                    ? "الرياض، المملكة العربية السعودية | لاغوس، نيجيريا"
-                    : "Riyadh, Saudi Arabia | Lagos, Nigeria"}
+                    ? "الرياض، المملكة العربية السعودية"
+                    : "Riyadh, Saudi Arabia"}
                 </div>
 
                 {/* Phone Numbers */}

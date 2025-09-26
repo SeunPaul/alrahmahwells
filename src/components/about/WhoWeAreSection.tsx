@@ -12,7 +12,7 @@ export default function WhoWeAreSection() {
 
   return (
     <section
-      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f0f5f0] relative overflow-hidden"
+      className="pt-20 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#f0f5f0] relative overflow-hidden"
       dir={isRTL ? "rtl" : "ltr"}
     >
       <div
@@ -73,7 +73,7 @@ export default function WhoWeAreSection() {
                     <span className="font-semibold text-primary-dark">
                       civilization stops and survival begins
                     </span>
-                    , &apos;Al-Rahmah Wells Foundation&apos; was birthed after
+                    , &apos;Al-Rahmah Wells Charity&apos; was birthed after
                     witnessing first-hand the unimaginable thirst and suffering
                     of those forgotten by the world and untouched by mercy.
                   </>
@@ -103,7 +103,7 @@ export default function WhoWeAreSection() {
                 ) : (
                   <>
                     <span className="font-semibold text-primary-dark">
-                      Al-Rahmah Wells Foundation
+                      Al-Rahmah Wells Charity
                     </span>{" "}
                     is a faith-driven, humanitarian non-profit organization
                     committed to delivering{" "}
@@ -171,7 +171,7 @@ export default function WhoWeAreSection() {
           data-aos-delay="500"
           className="relative overflow-hidden rounded-2xl shadow-lg"
         >
-          <div className="aspect-[16/6]">
+          <div className="aspect-[16/12] sm:aspect-[16/6]">
             <img
               src="/images/borehole.jpg"
               alt={

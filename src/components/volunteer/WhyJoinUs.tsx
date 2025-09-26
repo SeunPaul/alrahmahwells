@@ -132,7 +132,7 @@ export default function WhyJoinUs() {
               className={`bg-[#416148] rounded-2xl px-6 md:px-10 py-6 md:py-8`}
             >
               <div className="grid md:grid-cols-3 gap-4 md:gap-6 items-center">
-                <h4 className="text-2xl md:text-3xl font-bold">
+                <h4 className="text-2xl md:text-3xl font-bold text-[#C8F4D1]">
                   {locale === "ar" ? r.titleAr : r.titleEn}
                 </h4>
                 <p className="md:col-span-2 text-white text-lg font-medium">

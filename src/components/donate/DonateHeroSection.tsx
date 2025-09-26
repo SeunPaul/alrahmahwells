@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { getLocaleFromPathname } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
@@ -9,6 +10,37 @@ export default function DonateHeroSection() {
 
   const locale = getLocaleFromPathname(pathname);
   const isRTL = rtlLocales.includes(locale as Locale);
+
+  const itemsEn = [
+    "2000+ lives touched",
+    "20+ years legacy",
+    "sponsored umrah/Hajj",
+    "jannah earned",
+  ];
+
+  const itemsAr = [
+    "٢٠٠٠+ حياة متأثرة",
+    "أكثر من ٢٠ سنة من الإرث",
+    "عُمرة/حَج مكفولان",
+    "الجنة تُنال",
+  ];
+
+  const items = locale === "ar" ? itemsAr : itemsEn;
+
+  const [index, setIndex] = useState(0);
+  const [isExiting, setIsExiting] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsExiting(true);
+      const timeout = setTimeout(() => {
+        setIndex((prev) => (prev + 1) % items.length);
+        setIsExiting(false);
+      }, 800);
+      return () => clearTimeout(timeout);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [items.length]);
 
   return (
     <section
@@ -30,8 +62,14 @@ export default function DonateHeroSection() {
             {locale === "ar" ? "تبرع واحد =" : "ONE DONATION ="}
           </h1>
           {/* Second Line */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-            {locale === "ar" ? "٢٠٠٠+ حياة متأثرة" : "2000+ LIVES TOUCHED"}
+          <h1
+            className={`text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight transition-all duration-500 ease-out ${
+              isExiting
+                ? "opacity-0 translate-y-4"
+                : "opacity-100 translate-y-0"
+            }`}
+          >
+            {items[index]}
           </h1>
         </div>
       </div>

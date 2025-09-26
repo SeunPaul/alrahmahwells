@@ -216,7 +216,7 @@ export const impactStories: ImpactStory[] = [
       },
       {
         content: {
-          en: "That was the birth of Al-Rahmah Wells Foundation.",
+          en: "That was the birth of Al-Rahmah Wells Charity.",
           ar: "كانت تلك ولادة مؤسسة آبار الرحمة.",
         },
         type: "text",

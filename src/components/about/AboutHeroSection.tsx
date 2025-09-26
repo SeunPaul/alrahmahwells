@@ -21,7 +21,7 @@ export default function AboutHeroSection() {
         <div className="absolute inset-0 z-30 pt-40 px-4 sm:px-6 lg:px-8">
           <h1
             data-aos="fade-right"
-            className="text-4xl md:text-5xl lg:text-[56px] font-bold leading-tight mb-8 w-full sm:w-[400px] md:w-[500px] lg:w-[700px]"
+            className="text-4xl md:text-5xl lg:text-[55px] font-bold leading-tight mb-8 w-full sm:w-[400px] md:w-[500px] lg:w-[700px]"
           >
             {locale === "ar" ? (
               <>
@@ -36,7 +36,7 @@ export default function AboutHeroSection() {
                 <span className="block text-[#B5FFC7]">
                   People-Centered.
                 </span>{" "}
-                Trans-generational impact
+                Trans-generational Impact
               </>
             )}
           </h1>

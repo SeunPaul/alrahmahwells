@@ -42,6 +42,16 @@ export default function CryptoDonationForm({
       label: "ETH (Ethereum)",
       description: locale === "ar" ? "سريع وآمن" : "Fast & Secure",
     },
+    {
+      value: "sol",
+      label: "SOL (Solana)",
+      description: locale === "ar" ? "سريع جداً" : "Ultra Fast",
+    },
+    {
+      value: "xrp",
+      label: "XRP (Ripple)",
+      description: locale === "ar" ? "منخفض التكلفة" : "Low Cost",
+    },
   ];
 
   const handleDonation = async () => {

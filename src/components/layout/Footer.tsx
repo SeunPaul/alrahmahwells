@@ -205,7 +205,7 @@ export default function Footer() {
             <div className="text-center mt-6">
               <p className="text-[#86A78D] text-xl">
                 © {currentYear}{" "}
-                {locale === "ar" ? "آبار الرحمة" : "AL-Rahmah Wells"}.{" "}
+                {locale === "ar" ? "آبار الرحمة" : "Al-Rahmah Wells"}.{" "}
                 {locale === "ar"
                   ? "جميع الحقوق محفوظة"
                   : "All rights reserved."}

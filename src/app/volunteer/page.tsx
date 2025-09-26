@@ -32,10 +32,10 @@ export default function Volunteer() {
                 someone like you who chose to serve.
               </p>
               <p className="mt-6">
-                <strong>Al-Rahmah Wells Foundation</strong> isn&apos;t just
-                about charity. It&apos;s a movement of believers answering a
-                divine call to restore dignity and faith in forgotten lands. And
-                now, we invite you to become a part of that call.
+                <strong>Al-Rahmah Wells Charity</strong> isn&apos;t just about
+                charity. It&apos;s a movement of believers answering a divine
+                call to restore dignity and faith in forgotten lands. And now,
+                we invite you to become a part of that call.
               </p>
             </div>
           </div>

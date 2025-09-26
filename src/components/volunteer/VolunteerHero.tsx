@@ -46,7 +46,7 @@ export default function VolunteerHero() {
 
           <div
             data-aos="fade-left"
-            className="text-[#0D2F2B] leading-relaxed font-medium text-lg md:text-xl"
+            className="text-[#0D2F2B] leading-relaxed font-medium text-lg md:text-xl italic"
           >
             <p className="">
               {locale === "ar"

@@ -79,7 +79,7 @@ export default function DonateCryptoSection({
         className="absolute inset-0 opacity-10"
         style={{
           backgroundImage: "url('/illustrations/lines.png')",
-          backgroundSize: "cover",
+          backgroundSize: "contain",
         }}
       />
 

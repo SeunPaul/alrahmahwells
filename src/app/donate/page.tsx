@@ -30,9 +30,9 @@ export default function Donate() {
   return (
     <div className="min-h-screen">
       <DonateHeroSection />
-      <DonationOptionsSection onDonateClick={handleDonationClick} />
-      <DonateStatsSection />
       <DonateProjectsSection onDonateClick={handleDonationClick} />
+      <DonateStatsSection />
+      <DonationOptionsSection onDonateClick={handleDonationClick} />
       <DonateCryptoSection
         onDonateClick={() => {
           setCryptoFormAmount(undefined); // No pre-filled amount for crypto section button

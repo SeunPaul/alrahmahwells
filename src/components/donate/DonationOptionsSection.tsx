@@ -52,52 +52,6 @@ export default function DonationOptionsSection({
       />
 
       <div className="max-w-6xl mx-auto relative z-10">
-        {/* Header Section */}
-        <div className="text-center mb-16">
-          <h2
-            data-aos="fade-up"
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-light mb-8 max-w-4xl mx-auto leading-tight"
-          >
-            {locale === "ar"
-              ? "تبرعك يفعل أكثر من مجرد إعطاء الماء"
-              : "Your Donation Does More Than Give Water"}
-          </h2>
-
-          <div
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="space-y-1 text-lg md:text-xl text-[#0D2F2B] font-medium max-w-4xl mx-auto"
-          >
-            <p>
-              {locale === "ar"
-                ? "إنه يحيي الإيمان. يمنع الأمراض. يتيح الوضوء والصلاة والاتصال بالله."
-                : "It revives faith. It prevents diseases. It enables wudu, salah, and connection to Allah."}
-            </p>
-            <p>
-              {locale === "ar" ? (
-                <>
-                  هذا ليس مجرد ماء. هذا{" "}
-                  <span className="font-bold text-primary-dark">رحمة</span>. هذا{" "}
-                  <span className="font-bold text-primary-dark">
-                    صدقة جارية
-                  </span>
-                  .
-                </>
-              ) : (
-                <>
-                  This is not just water. This is{" "}
-                  <span className="font-bold text-primary-dark">Rahmah</span>{" "}
-                  (mercy). This is{" "}
-                  <span className="font-bold text-secondary-dark">
-                    Sadaqah Jāriyah
-                  </span>
-                  .
-                </>
-              )}
-            </p>
-          </div>
-        </div>
-
         {/* Donation Options Grid */}
         <div
           data-aos="fade-up"

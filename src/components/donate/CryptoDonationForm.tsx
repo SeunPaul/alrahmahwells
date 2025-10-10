@@ -21,40 +21,10 @@ export default function CryptoDonationForm({
   const [donationAmount, setDonationAmount] = useState(
     initialAmount?.toString() || ""
   );
-  const [selectedCrypto, setSelectedCrypto] = useState("usdt");
   const [donorName, setDonorName] = useState("");
   const [donorEmail, setDonorEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
 
-  const cryptoOptions = [
-    {
-      value: "usdt",
-      label: "USDT (Tether)",
-      description: locale === "ar" ? "مستقر وآمن" : "Stable & Safe",
-    },
-    {
-      value: "btc",
-      label: "BTC (Bitcoin)",
-      description: locale === "ar" ? "الأكثر شعبية" : "Most Popular",
-    },
-    {
-      value: "eth",
-      label: "ETH (Ethereum)",
-      description: locale === "ar" ? "سريع وآمن" : "Fast & Secure",
-    },
-    {
-      value: "sol",
-      label: "SOL (Solana)",
-      description: locale === "ar" ? "سريع جداً" : "Ultra Fast",
-    },
-    {
-      value: "xrp",
-      label: "XRP (Ripple)",
-      description: locale === "ar" ? "منخفض التكلفة" : "Low Cost",
-    },
-  ];
-
-  const handleDonation = async () => {
+  const handleDonation = () => {
     if (!donationAmount || !donorEmail) {
       alert(
         locale === "ar"
@@ -64,48 +34,20 @@ export default function CryptoDonationForm({
       return;
     }
 
-    setIsLoading(true);
+    // Get the donation link from environment variable
+    const donationLink = process.env.NEXT_PUBLIC_NOWPAYMENTS_DONATION_LINK;
 
-    try {
-      // Create donation data
-      const donationData = {
-        amount: parseFloat(donationAmount),
-        currency: selectedCrypto.toUpperCase(),
-        donor_name: donorName,
-        donor_email: donorEmail,
-        description:
-          locale === "ar"
-            ? "تبرع لآبار الرحمة - مياه نظيفة للمجتمعات المنسية"
-            : "Donation to Al-Rahmah Wells - Clean water for forgotten communities",
-      };
-
-      // Call your API endpoint to create payment
-      const response = await fetch("/api/create-crypto-payment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(donationData),
-      });
-
-      const result = await response.json();
-
-      if (result.success && result.payment_url) {
-        // Redirect to NOWPayments
-        window.location.href = result.payment_url;
-      } else {
-        throw new Error(result.error || "Payment creation failed");
-      }
-    } catch (error) {
-      console.error("Donation error:", error);
+    if (!donationLink) {
       alert(
         locale === "ar"
-          ? "حدث خطأ في إنشاء التبرع. يرجى المحاولة مرة أخرى."
-          : "Error creating donation. Please try again."
+          ? "رابط التبرع غير متوفر حالياً. يرجى المحاولة لاحقاً."
+          : "Donation link is not available at the moment. Please try again later."
       );
-    } finally {
-      setIsLoading(false);
+      return;
     }
+
+    // Redirect directly to the donation link
+    window.location.href = donationLink;
   };
 
   return (
@@ -158,58 +100,6 @@ export default function CryptoDonationForm({
               min="1"
               step="0.01"
             />
-          </div>
-
-          {/* Cryptocurrency Selection */}
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
-              {locale === "ar"
-                ? "اختر العملة المشفرة"
-                : "Select Cryptocurrency"}{" "}
-              *
-            </label>
-            <div className="space-y-2">
-              {cryptoOptions.map((option) => (
-                <label
-                  key={option.value}
-                  className={`flex items-center p-3 border rounded-lg cursor-pointer transition-colors ${
-                    selectedCrypto === option.value
-                      ? "border-primary-dark bg-primary-dark/5"
-                      : "border-gray-300 hover:border-gray-400"
-                  }`}
-                >
-                  <input
-                    type="radio"
-                    name="crypto"
-                    value={option.value}
-                    checked={selectedCrypto === option.value}
-                    onChange={(e) => setSelectedCrypto(e.target.value)}
-                    className="sr-only"
-                  />
-                  <div className="flex-1">
-                    <div className="font-medium text-gray-900">
-                      {option.label}
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      {option.description}
-                    </div>
-                  </div>
-                  {selectedCrypto === option.value && (
-                    <svg
-                      className="w-5 h-5 text-primary-dark"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                  )}
-                </label>
-              ))}
-            </div>
           </div>
 
           {/* Donor Information */}
@@ -281,37 +171,10 @@ export default function CryptoDonationForm({
             </button>
             <button
               onClick={handleDonation}
-              disabled={isLoading || !donationAmount || !donorEmail}
+              disabled={!donationAmount || !donorEmail}
               className="flex-1 px-6 py-3 bg-primary-dark text-white rounded-lg hover:bg-primary-dark/90 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
-              {isLoading ? (
-                <div className="flex items-center justify-center">
-                  <svg
-                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                  {locale === "ar" ? "جاري المعالجة..." : "Processing..."}
-                </div>
-              ) : locale === "ar" ? (
-                "تبرع الآن"
-              ) : (
-                "Donate Now"
-              )}
+              {locale === "ar" ? "تبرع الآن" : "Donate Now"}
             </button>
           </div>
         </div>

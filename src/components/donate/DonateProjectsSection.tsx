@@ -137,6 +137,252 @@ export default function DonateProjectsSection({
       image: "/images/volunteer.jpg",
       progress: 64.4,
     },
+    {
+      id: "7",
+      title:
+        locale === "ar" ? "بئر يعمل بالطاقة الشمسية" : "Solar-Powered Well",
+      location: locale === "ar" ? "غبارنجا، ليبيريا" : "Gbarnga, Liberia",
+      goal: 8500,
+      raised: 5800,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة بعد سنوات من استخدام مياه المستنقعات"
+          : "Outreach: Clean water after years of using swamp water",
+      image: "/images/borehole.jpg",
+      progress: 68.2,
+    },
+    {
+      id: "8",
+      title:
+        locale === "ar"
+          ? "بئر + توزيع القرآن"
+          : "Borehole + Qur'an Distribution",
+      location: locale === "ar" ? "كيدوغو، السنغال" : "Kédougou, Senegal",
+      goal: 14000,
+      raised: 14000,
+      status: "Completed",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، توزيع القرآن"
+          : "Outreach: Clean water, Qur'an distribution",
+      image: "/images/home-5.jpg",
+      progress: 100,
+    },
+    {
+      id: "9",
+      title: locale === "ar" ? "بئر + معسكر طبي" : "Well + Medical Camp",
+      location: locale === "ar" ? "كوسانار، السنغال" : "Koussanar, Senegal",
+      goal: 19500,
+      raised: 3400,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، معسكر طبي"
+          : "Outreach: Clean water, medical camp",
+      image: "/images/home-6.jpg",
+      progress: 35.8,
+    },
+    {
+      id: "10",
+      title:
+        locale === "ar"
+          ? "مياه نظيفة + بناء مدرسة إسلامية"
+          : "Clean Water + Islamic School Build",
+      location: locale === "ar" ? "مونروفيا، ليبيريا" : "Monrovia, Liberia",
+      goal: 35000,
+      raised: 17500,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، بناء مدرسة إسلامية"
+          : "Outreach: Clean water, Islamic school construction",
+      image: "/images/home-7.jpg",
+      progress: 50,
+    },
+    {
+      id: "11",
+      title: locale === "ar" ? "بئر شمسي" : "Solar Borehole Well",
+      location: locale === "ar" ? "ميدوغوري، نيجيريا" : "Maiduguri, Nigeria",
+      goal: 9800,
+      raised: 9800,
+      status: "Completed",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة لمخيم النازحين"
+          : "Outreach: Clean water for IDP camp with 2,000+ people",
+      image: "/images/impact.jpg",
+      progress: 100,
+    },
+    {
+      id: "12",
+      title:
+        locale === "ar"
+          ? "بئر شمسي + مأوى تعليمي"
+          : "Solar Borehole Well + Learning Shelter",
+      location:
+        locale === "ar" ? "بانفورا، بوركينا فاسو" : "Banfora, Burkina Faso",
+      goal: 29000,
+      raised: 7366,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، مأوى تعليمي"
+          : "Outreach: Clean water, learning shelter",
+      image: "/images/volunteer.jpg",
+      progress: 25.4,
+    },
+    {
+      id: "13",
+      title: locale === "ar" ? "مسجد + حملة قرآن" : "Mosque + Quran Drive",
+      location: locale === "ar" ? "أغاديز، النيجر" : "Agadez, Niger",
+      goal: 13500,
+      raised: 10395,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: بناء مسجد، توزيع القرآن"
+          : "Outreach: Mosque construction, Qur'an distribution",
+      image: "/images/contact.jpg",
+      progress: 77,
+    },
+    {
+      id: "14",
+      title: locale === "ar" ? "بئر + مساعدة طبية" : "Borehole + Medical Aid",
+      location:
+        locale === "ar" ? "مقاطعة لوفا، ليبيريا" : "Lofa County, Liberia",
+      goal: 16200,
+      raised: 7452,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، مساعدة طبية"
+          : "Outreach: Clean water, medical aid",
+      image: "/images/home-5.jpg",
+      progress: 46,
+    },
+    {
+      id: "15",
+      title: locale === "ar" ? "مشروع مياه شمسي" : "Solar Water Project",
+      location: locale === "ar" ? "سيكاسو، مالي" : "Sikasso, Mali",
+      goal: 9000,
+      raised: 9000,
+      status: "Completed",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة تعمل 24/7 بالطاقة الشمسية"
+          : "Outreach: Clean water running 24/7 powered by solar",
+      image: "/images/home-6.jpg",
+      progress: 100,
+    },
+    {
+      id: "18",
+      title:
+        locale === "ar"
+          ? "بئر شمسي + مستلزمات مدرسة قرآنية"
+          : "Solar Borehole + Qur'anic School Supplies",
+      location: locale === "ar" ? "كوتونو، بنين" : "Cotonou, Benin",
+      goal: 13000,
+      raised: 6721,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، مستلزمات مدرسة قرآنية"
+          : "Outreach: Clean water, Qur'anic school supplies",
+      image: "/images/home-7.jpg",
+      progress: 51.7,
+    },
+    {
+      id: "19",
+      title: locale === "ar" ? "بئر شمسي فقط" : "Solar Well Only",
+      location: locale === "ar" ? "كانيفينغ، غامبيا" : "Kanifing, The Gambia",
+      goal: 8000,
+      raised: 3300,
+      status: "Ongoing",
+      outreach:
+        locale === "ar" ? "التوعية: مياه نظيفة" : "Outreach: Clean water",
+      image: "/images/impact.jpg",
+      progress: 41.25,
+    },
+    {
+      id: "20",
+      title:
+        locale === "ar"
+          ? "مشروع مياه + توعية طبية"
+          : "Water Project + Medical Outreach",
+      location:
+        locale === "ar"
+          ? "بوبو ديولاسو، بوركينا فاسو"
+          : "Bobo-Dioulasso, Burkina Faso",
+      goal: 13000,
+      raised: 7306,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، توعية طبية"
+          : "Outreach: Clean water, medical outreach",
+      image: "/images/volunteer.jpg",
+      progress: 56.2,
+    },
+    {
+      id: "21",
+      title: locale === "ar" ? "بناء مسجد" : "Mosque Construction",
+      location: locale === "ar" ? "أتاكبامي، توغو" : "Atakpamé, Togo",
+      goal: 15500,
+      raised: 13685,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: بناء مسجد"
+          : "Outreach: Mosque construction",
+      image: "/images/contact.jpg",
+      progress: 88.3,
+    },
+    {
+      id: "22",
+      title: locale === "ar" ? "بئر + قرآن مجاني" : "Borehole + Free Qur'ans",
+      location: locale === "ar" ? "كايا، بوركينا فاسو" : "Kaya, Burkina Faso",
+      goal: 9700,
+      raised: 4995,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، قرآن مجاني"
+          : "Outreach: Clean water, free Qur'ans",
+      image: "/images/home-5.jpg",
+      progress: 51.5,
+    },
+    {
+      id: "23",
+      title:
+        locale === "ar"
+          ? "مشروع مياه + مستلزمات مدرسية"
+          : "Water Project + School Stationery",
+      location: locale === "ar" ? "شمال غانا" : "Northern Ghana",
+      goal: 11000,
+      raised: 5995,
+      status: "Ongoing",
+      outreach:
+        locale === "ar"
+          ? "التوعية: مياه نظيفة، مستلزمات مدرسية"
+          : "Outreach: Clean water, school stationery",
+      image: "/images/home-6.jpg",
+      progress: 54.5,
+    },
+    {
+      id: "24",
+      title: locale === "ar" ? "بناء مسجد" : "Mosque Construction",
+      location: locale === "ar" ? "سوكوتو، نيجيريا" : "Sokoto, Nigeria",
+      goal: 14000,
+      raised: 14000,
+      status: "Completed",
+      outreach:
+        locale === "ar"
+          ? "التوعية: بناء مسجد جميل"
+          : "Outreach: Beautiful mosque construction",
+      image: "/images/home-7.jpg",
+      progress: 100,
+    },
   ];
 
   const itemsPerPage = 6;
@@ -196,20 +442,66 @@ export default function DonateProjectsSection({
 
   return (
     <section
-      className="relative py-16 bg-[#F0F6E5]"
+      className="relative py-16 bg-[#F0F6E5] isolate"
       dir={isRTL ? "rtl" : "ltr"}
     >
       {/* Background Pattern */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 -z-10"
         style={{
           backgroundImage: "url('/illustrations/noise.png')",
           backgroundSize: "cover",
         }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h2
+            data-aos="fade-up"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-light mb-8 max-w-4xl mx-auto leading-tight"
+          >
+            {locale === "ar"
+              ? "تبرعك يفعل أكثر من مجرد إعطاء الماء"
+              : "Your Donation Does More Than Give Water"}
+          </h2>
+
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="space-y-1 text-lg md:text-xl text-[#0D2F2B] font-medium max-w-4xl mx-auto"
+          >
+            <p>
+              {locale === "ar"
+                ? "إنه يحيي الإيمان. يمنع الأمراض. يتيح الوضوء والصلاة والاتصال بالله."
+                : "It revives faith. It prevents diseases. It enables wudu, salah, and connection to Allah."}
+            </p>
+            <p>
+              {locale === "ar" ? (
+                <>
+                  هذا ليس مجرد ماء. هذا{" "}
+                  <span className="font-bold text-primary-dark">رحمة</span>. هذا{" "}
+                  <span className="font-bold text-primary-dark">
+                    صدقة جارية
+                  </span>
+                  .
+                </>
+              ) : (
+                <>
+                  This is not just water. This is{" "}
+                  <span className="font-bold text-primary-dark">Rahmah</span>{" "}
+                  (mercy). This is{" "}
+                  <span className="font-bold text-secondary-dark">
+                    Sadaqah Jāriyah
+                  </span>
+                  .
+                </>
+              )}
+            </p>
+          </div>
+        </div>
+
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {currentProjects.map((project, index) => (
             <div
               key={project.id}
@@ -338,6 +630,47 @@ export default function DonateProjectsSection({
             </div>
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-center items-center space-x-2 mt-8">
+            <button
+              onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {locale === "ar" ? "السابق" : "Previous"}
+            </button>
+
+            <div className="flex space-x-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (page) => (
+                  <button
+                    key={page}
+                    onClick={() => setCurrentPage(page)}
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      currentPage === page
+                        ? "bg-primary-dark text-white"
+                        : "text-gray-700 hover:bg-gray-100"
+                    }`}
+                  >
+                    {page}
+                  </button>
+                )
+              )}
+            </div>
+
+            <button
+              onClick={() =>
+                setCurrentPage(Math.min(totalPages, currentPage + 1))
+              }
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 rounded-lg border border-gray-300 text-gray-700 hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              {locale === "ar" ? "التالي" : "Next"}
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

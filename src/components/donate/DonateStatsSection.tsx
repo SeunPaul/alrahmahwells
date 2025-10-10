@@ -183,7 +183,7 @@ export default function DonateStatsSection() {
                 )}
               </p>
 
-              <p>
+              <p className="font-bold">
                 {locale === "ar" ? (
                   <>
                     &ldquo;إن أحب الأعمال إلى الله التي تجلب الراحة لنفس

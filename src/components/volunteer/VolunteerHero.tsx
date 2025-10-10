@@ -51,7 +51,7 @@ export default function VolunteerHero() {
             <p className="">
               {locale === "ar"
                 ? "من نفّس عن مؤمن كربة من كرب الدنيا نفّس الله عنه كربة من كرب يوم القيامة."
-                : "Whoever removes a hardship for a believer in this world, Allah will remove a hardship for him on the Day of Judgment."}
+                : "Whoever removes hardship for a believer in this world, Allah will remove hardship for him on the Day of Judgment."}
             </p>
             <p className="">
               {locale === "ar"

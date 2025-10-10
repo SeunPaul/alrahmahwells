@@ -30,9 +30,9 @@ export default function ArabicDonate() {
   return (
     <div className="min-h-screen" dir="rtl">
       <DonateHeroSection />
-      <DonationOptionsSection onDonateClick={handleDonationClick} />
-      <DonateStatsSection />
       <DonateProjectsSection onDonateClick={handleDonationClick} />
+      <DonateStatsSection />
+      <DonationOptionsSection onDonateClick={handleDonationClick} />
       <DonateCryptoSection
         onDonateClick={() => {
           setCryptoFormAmount(undefined); // No pre-filled amount for crypto section button

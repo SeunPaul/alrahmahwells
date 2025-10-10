@@ -44,7 +44,9 @@ export default function ContactInfoSection() {
                 {/* Organization Name */}
                 <div>
                   <h3 className="text-xl font-semibold text-primary-dark mb-2">
-                    {locale === "ar" ? "مؤسسة الرحمة" : "Al-Rahmah Charity"}
+                    {locale === "ar"
+                      ? "مؤسسة الرحمة"
+                      : "Al-Rahmah Wells Charity"}
                   </h3>
                 </div>
 
@@ -52,7 +54,7 @@ export default function ContactInfoSection() {
                 <div className="text-gray-700 text-lg">
                   {locale === "ar"
                     ? "الرياض، المملكة العربية السعودية"
-                    : "Riyadh, Saudi Arabia"}
+                    : "Jeddah, Saudi Arabia"}
                 </div>
 
                 {/* Phone Numbers */}
@@ -71,10 +73,10 @@ export default function ContactInfoSection() {
                 <div className="flex items-center">
                   <HiMail className="w-5 h-5 text-primary-dark mr-3" />
                   <a
-                    href="mailto:info@alrahmahwells.org"
+                    href="mailto:hello@alrahmahwells.org"
                     className="text-primary-dark hover:text-primary-light transition-colors underline"
                   >
-                    info@alrahmahwells.org
+                    hello@alrahmahwells.org
                   </a>
                 </div>
               </div>
@@ -126,10 +128,10 @@ export default function ContactInfoSection() {
                   <div className="flex items-center">
                     <HiMail className="w-5 h-5 text-primary-dark mr-3" />
                     <a
-                      href="mailto:partnerships@alrahmahwells.org"
+                      href="mailto:hello@alrahmahwells.org"
                       className="text-primary-dark hover:text-primary-light transition-colors underline"
                     >
-                      partnerships@alrahmahwells.org
+                      hello@alrahmahwells.org
                     </a>
                   </div>
                 </div>

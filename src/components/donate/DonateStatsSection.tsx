@@ -107,12 +107,12 @@ export default function DonateStatsSection() {
               >
                 {count}
               </div>
-              <div className="text-xl md:text-2xl text-[#0D2F2B] font-semibold">
+              <div className="text-2xl md:text-3xl text-[#0D2F2B] font-semibold">
                 {locale === "ar"
                   ? "قرية أخرى لا تزال تنتظر"
-                  : "more villages still wait."}
+                  : "More Villages Still Wait."}
               </div>
-              <div className="text-xl md:text-2xl text-[#0D2F2B] font-semibold">
+              <div className="text-2xl md:text-3xl text-[#0D2F2B] font-semibold">
                 {locale === "ar"
                   ? "عطشى. تصلي. تأمل."
                   : "Thirsting. Praying. Hoping."}

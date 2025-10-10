@@ -13,10 +13,10 @@ export default function DonateHeroSection() {
   const isRTL = rtlLocales.includes(locale as Locale);
 
   const itemsEn = [
-    "2000+ lives touched",
-    "20+ years legacy",
-    "sponsored umrah/Hajj",
-    "jannah earned",
+    "2000+ Lives Touched",
+    "20+ Years Legacy",
+    "Sponsored Umrah/Hajj",
+    "Jannah Earned",
   ];
 
   const itemsAr = [

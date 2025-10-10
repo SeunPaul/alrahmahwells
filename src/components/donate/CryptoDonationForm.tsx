@@ -35,7 +35,8 @@ export default function CryptoDonationForm({
     }
 
     // Get the donation link from environment variable
-    const donationLink = process.env.NEXT_PUBLIC_NOWPAYMENTS_DONATION_LINK;
+    const donationLink =
+      "https://nowpayments.io/donation?api_key=d1cbfbbd-9d68-44c5-b0bb-145d524accbf";
 
     if (!donationLink) {
       alert(

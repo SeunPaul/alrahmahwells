@@ -1,11 +1,28 @@
 "use client";
 
+import { useRef } from "react";
 import { useLocale } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 
 export default function RecognitionSection() {
   const locale = useLocale();
   const isRTL = rtlLocales.includes(locale as Locale);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 400;
+      const targetScroll =
+        direction === "left"
+          ? scrollContainerRef.current.scrollLeft - scrollAmount
+          : scrollContainerRef.current.scrollLeft + scrollAmount;
+
+      scrollContainerRef.current.scrollTo({
+        left: targetScroll,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const recognitions = [
     {
@@ -102,9 +119,51 @@ export default function RecognitionSection() {
           </div>
         </div>
       </div>
-      <div className="max-w-[1440px] mx-auto">
+      <div className="max-w-[1440px] mx-auto relative px-16">
+        {/* Navigation Arrows */}
+        <button
+          onClick={() => scroll("left")}
+          className="absolute -left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white border-2 border-primary-light text-primary-dark p-2.5 rounded-full shadow-lg transition-all duration-200 hover:scale-110 hidden md:block"
+          aria-label={locale === "ar" ? "السابق" : "Previous"}
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+
+        <button
+          onClick={() => scroll("right")}
+          className="absolute -right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white border-2 border-primary-light text-primary-dark p-2.5 rounded-full shadow-lg transition-all duration-200 hover:scale-110 hidden md:block"
+          aria-label={locale === "ar" ? "التالي" : "Next"}
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+
         {/* Recognition Timeline */}
         <div
+          ref={scrollContainerRef}
           data-aos="fade-up"
           data-aos-delay="400"
           className="relative overflow-x-scroll scrollbar-hide"

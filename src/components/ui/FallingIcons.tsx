@@ -7,13 +7,11 @@ interface FallingIcon {
   id: number;
   icon: string;
   alt: string;
-  type: string;
   x: number;
   y: number;
   delay: number;
   duration: number;
   size: number;
-  rotation: number;
 }
 
 export default function FallingIcons() {
@@ -134,23 +132,9 @@ export default function FallingIcons() {
   };
 
   const iconOptions = [
-    { src: "/icons/halal-badge.png", alt: "Halal badge", type: "image" },
-    { src: "/icons/mecca-badge.png", alt: "Mecca badge", type: "image" },
-    { src: "/icons/penny-badge.png", alt: "Penny badge", type: "image" },
-    { src: "/illustrations/kaaba.png", alt: "Kaaba", type: "image" },
-    { src: "/illustrations/mecca.png", alt: "Mecca", type: "image" },
-    {
-      src: "/illustrations/eid.png",
-      alt: "Eid celebration",
-      type: "image",
-    },
-    { src: "/logos/logo.png", alt: "Al Rahmah logo", type: "image" },
-    // { src: "moon", alt: "Crescent moon", type: "svg" },
-    // { src: "star", alt: "Star", type: "svg" },
-    // { src: "mosque", alt: "Mosque", type: "svg" },
-    // { src: "prayer", alt: "Prayer hands", type: "svg" },
-    // { src: "dhikr", alt: "Dhikr beads", type: "svg" },
-    // { src: "quran", alt: "Quran", type: "svg" },
+    { src: "/icons/fall-1.png", alt: "fall-1" },
+    { src: "/icons/fall-2.png", alt: "fall-2" },
+    { src: "/icons/fall-3.png", alt: "fall-3" },
   ];
 
   useEffect(() => {
@@ -161,27 +145,25 @@ export default function FallingIcons() {
         id,
         icon: iconOption.src,
         alt: iconOption.alt,
-        type: iconOption.type,
         x: Math.random() * 100, // Random horizontal position
         y: -100, // Start further above the viewport
         delay: Math.random() * 3, // Random delay before starting (0-3 seconds)
         duration: 6 + Math.random() * 6, // Random fall duration (6-12 seconds)
         size: 25 + Math.random() * 40, // Random size (25-65px) - larger icons
-        rotation: Math.random() * 360, // Random initial rotation
       };
     };
 
     // Create initial icons - more icons for better visibility
-    const initialIcons = Array.from({ length: 12 }, (_, i) => createIcon(i));
+    const initialIcons = Array.from({ length: 40 }, (_, i) => createIcon(i));
     setIcons(initialIcons);
 
     // Add new icons more frequently
     const interval = setInterval(() => {
       setIcons((prev) => {
         const newIcon = createIcon(Date.now());
-        return [...prev.slice(-20), newIcon]; // Keep more icons on screen
+        return [...prev.slice(-40), newIcon]; // Keep even more icons on screen
       });
-    }, 800); // More frequent creation
+    }, 500); // More frequent creation
 
     return () => clearInterval(interval);
   }, []);
@@ -197,32 +179,19 @@ export default function FallingIcons() {
             top: `${icon.y}px`,
             animationDelay: `${icon.delay}s`,
             animationDuration: `${icon.duration}s`,
-            transform: `rotate(${icon.rotation}deg)`,
           }}
         >
-          {icon.type === "svg" ? (
-            <div
-              className="opacity-60 hover:opacity-80 transition-opacity duration-300"
-              style={{
-                filter:
-                  "drop-shadow(0 0 12px rgba(239, 219, 179, 0.6)) brightness(1.2)",
-              }}
-            >
-              {renderSVGIcon(icon.icon, icon.size)}
-            </div>
-          ) : (
-            <Image
-              src={icon.icon}
-              alt={icon.alt}
-              width={icon.size}
-              height={icon.size}
-              className="opacity-60 hover:opacity-80 transition-opacity duration-300"
-              style={{
-                filter:
-                  "drop-shadow(0 0 12px rgba(239, 219, 179, 0.6)) brightness(1.2)",
-              }}
-            />
-          )}
+          <Image
+            src={icon.icon}
+            alt={icon.alt}
+            width={icon.size}
+            height={icon.size}
+            className="opacity-60 hover:opacity-80 transition-opacity duration-300"
+            style={{
+              filter:
+                "drop-shadow(0 0 12px rgba(239, 219, 179, 0.6)) brightness(1.2)",
+            }}
+          />
         </div>
       ))}
     </div>

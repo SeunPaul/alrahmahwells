@@ -25,6 +25,7 @@ const config: Config = {
         sans: ["Gilroy", "system-ui", "sans-serif"],
         gilroy: ["Gilroy", "system-ui", "sans-serif"],
         arabic: ["var(--font-arabic)", "system-ui", "sans-serif"],
+        playfair: ["var(--font-playfair)", "serif"],
       },
     },
     screens: {

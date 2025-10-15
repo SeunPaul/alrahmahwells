@@ -29,9 +29,6 @@ export default function DonateProjectsSection({
   const isRTL = rtlLocales.includes(locale as Locale);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [donationAmounts, setDonationAmounts] = useState<{
-    [key: string]: string;
-  }>({});
 
   const projects: ProjectCard[] = [
     {
@@ -390,26 +387,9 @@ export default function DonateProjectsSection({
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentProjects = projects.slice(startIndex, startIndex + itemsPerPage);
 
-  const handleDonationAmountChange = (projectId: string, amount: string) => {
-    setDonationAmounts((prev) => ({
-      ...prev,
-      [projectId]: amount,
-    }));
-  };
-
-  const handleDonate = (projectId: string) => {
-    const amount = donationAmounts[projectId];
-    if (amount && onDonateClick) {
-      // Parse the amount to a number if it's a valid number, otherwise pass as string
-      const numericAmount = parseFloat(amount.replace(/[^0-9.-]/g, ""));
-      if (!isNaN(numericAmount) && numericAmount > 0) {
-        onDonateClick(numericAmount);
-      } else {
-        onDonateClick(amount); // Pass as string for custom amounts
-      }
-    } else {
-      // Fallback behavior
-      console.log(`Donating ${amount} to project ${projectId}`);
+  const handleDonate = () => {
+    if (onDonateClick) {
+      onDonateClick("custom");
     }
   };
 
@@ -603,27 +583,12 @@ export default function DonateProjectsSection({
                       {locale === "ar" ? "التبرع مغلق" : "Donation Closed"}
                     </div>
                   ) : (
-                    <>
-                      <input
-                        type="text"
-                        placeholder={
-                          locale === "ar"
-                            ? "$ أدخل تبرعك"
-                            : "$ Enter your donation"
-                        }
-                        value={donationAmounts[project.id] || ""}
-                        onChange={(e) =>
-                          handleDonationAmountChange(project.id, e.target.value)
-                        }
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-dark focus:border-transparent text-sm"
-                      />
-                      <button
-                        onClick={() => handleDonate(project.id)}
-                        className="w-full py-2 px-4 bg-[#D99201] hover:bg-[#B8780D] text-white rounded-lg font-semibold transition-colors duration-200"
-                      >
-                        {locale === "ar" ? "تبرع الآن" : "Donate Now"}
-                      </button>
-                    </>
+                    <button
+                      onClick={handleDonate}
+                      className="w-full py-2 px-4 bg-[#D99201] hover:bg-[#B8780D] text-white rounded-lg font-semibold transition-colors duration-200"
+                    >
+                      {locale === "ar" ? "تبرع الآن" : "Donate Now"}
+                    </button>
                   )}
                 </div>
               </div>

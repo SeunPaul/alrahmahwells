@@ -26,6 +26,7 @@ export default function RecognitionSection() {
 
   const recognitions = [
     {
+      image: "/illustrations/Ksrelief.png",
       title: locale === "ar" ? "اعتراف كسريف" : "KSRelief Acknowledgement",
       description:
         locale === "ar"
@@ -33,6 +34,7 @@ export default function RecognitionSection() {
           : "Acknowledged by King Salman Humanitarian Aid & Relief Center (2024) for our ongoing commitment to clean to clean water initiatives",
     },
     {
+      image: "/illustrations/SaudiMinistry.png",
       title:
         locale === "ar"
           ? "اعتراف وزارة السعودية"
@@ -43,6 +45,7 @@ export default function RecognitionSection() {
           : "Listed by the Saudi Ministry of Human Resources and Social Development (2023) as a compliant charitable entity under national humanitarian standards.",
     },
     {
+      image: "/illustrations/ZakatImpact.png",
       title:
         locale === "ar" ? "اعتراف تأثير الزكاة" : "Zakat Impact Recognition",
       description:
@@ -51,6 +54,7 @@ export default function RecognitionSection() {
           : "Recognized for excellence in Zakat-Driven impact by Saudi Charitable Excellence Awards (2024)",
     },
     {
+      image: "/illustrations/GlobalHumanitarianLeadersNetwork.png",
       title:
         locale === "ar"
           ? "شبكة القادة الإنسانيين العالمية"
@@ -61,6 +65,7 @@ export default function RecognitionSection() {
           : "Named an Emerging impact organization in clean water access by the Global Humanitarian Leaders Network",
     },
     {
+      image: "/illustrations/UNSDGContribution.png",
       title:
         locale === "ar"
           ? "شبكة القادة الإنسانيين العالمية"
@@ -119,7 +124,7 @@ export default function RecognitionSection() {
           </div>
         </div>
       </div>
-      <div className="max-w-[1440px] mx-auto relative px-16">
+      <div className="max-w-[1440px] mx-auto relative md:px-16">
         {/* Navigation Arrows */}
         <button
           onClick={() => scroll("left")}
@@ -187,7 +192,7 @@ export default function RecognitionSection() {
 
                 {/* Content */}
                 <div className="md:mt-15">
-                  <img src={"/logos/logo.svg"} className="w-15 mb-5" />
+                  <img src={recognition.image} className="w-35 sm:w-40 mb-5" />
                   <h4 className="text-lg font-bold text-primary-dark mb-2">
                     {recognition.title}
                   </h4>

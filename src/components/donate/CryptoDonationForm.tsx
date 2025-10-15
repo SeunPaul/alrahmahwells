@@ -97,7 +97,7 @@ export default function CryptoDonationForm({
               value={donationAmount}
               onChange={(e) => setDonationAmount(e.target.value)}
               placeholder={locale === "ar" ? "أدخل المبلغ" : "Enter amount"}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-dark focus:border-transparent"
+              className="text-black dark:text-black placeholder:text-gray-500 dark:placeholder:text-gray-500 w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary-dark focus:border-transparent"
               min="1"
               step="0.01"
             />

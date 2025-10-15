@@ -51,14 +51,14 @@ export default function ContactInfoSection() {
                 </div>
 
                 {/* Locations */}
-                <div className="text-gray-700 text-lg">
+                <div className="text-gray-700 text-lg font-bold">
                   {locale === "ar"
                     ? "الرياض، المملكة العربية السعودية"
                     : "Jeddah, Saudi Arabia"}
                 </div>
 
                 {/* Phone Numbers */}
-                <div className="space-y-3">
+                <div className="space-y-3 font-bold">
                   <div className="flex items-center">
                     <HiPhone className="w-5 h-5 text-primary-dark mr-3" />
                     <span className="text-gray-700">+966 XXX XXX XXXX</span>
@@ -70,7 +70,7 @@ export default function ContactInfoSection() {
                 </div>
 
                 {/* Email */}
-                <div className="flex items-center">
+                <div className="flex items-center font-bold">
                   <HiMail className="w-5 h-5 text-primary-dark mr-3" />
                   <a
                     href="mailto:hello@alrahmahwells.org"

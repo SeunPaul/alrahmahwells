@@ -102,7 +102,7 @@ export default async function ImpactStoryPage({
         </div>
       </section>
 
-      <ProjectsSection isStory={true} />
+      <ProjectsSection isStory={true} excludeSlug={story.slug} />
     </div>
   );
 }

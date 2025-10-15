@@ -90,7 +90,11 @@ export default function MissionSection() {
               </Link>
 
               <Link
-                href={getLocalizedPath("/our-impact") as any}
+                href={
+                  getLocalizedPath(
+                    "/our-impact/i-watched-a-7-year-old-helplessly-drink-from-a-swamp"
+                  ) as any
+                }
                 className="px-8 py-3 bg-primary-light text-white rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-center"
               >
                 {locale === "ar" ? "شاهد تأثيرنا" : "See Our Impact"}

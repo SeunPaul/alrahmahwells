@@ -36,7 +36,7 @@ export default function Footer() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="email"
-                  placeholder="example@alrahmah.com"
+                  placeholder="Your email here"
                   className="flex-1 px-4 py-3 rounded-[40px] bg-[#EDF4E5] border border-[#C0CFAD] text-gray-700 placeholder-[#969D8E] outline-0"
                 />
                 <button className="px-6 py-3 bg-secondary-light hover:bg-secondary-dark text-white rounded-[40px] font-semibold transition-colors">
@@ -60,9 +60,11 @@ export default function Footer() {
                   ? "يمكن أن تشعر الحياة بالغموض - عدم اليقين، الألم، أو الصراعات الصامتة التي لا تستطيع شرحها لأي شخص. في آبار الرحمة، نؤمن أنه لا يجب أن يعاني أي روح وحده. أرسل لنا طلبك بخصوصية، سنرفع حاجتك إلى الله في الصلاة، وستحصل على الإجابات التي تبحث عنها خلال 48 ساعة إن شاء الله."
                   : "Life can feel overwhelming - uncertainty, pain, or silent struggles you can't explain to anyone. At Al-Rahmah Wells, we believe no soul should suffer alone. Send us your request privately, we'll raise your need to Allah in prayer, and you'll get the answers you seek within 48 hours Inshā' Allāh."}
               </p>
-              <button className="px-6 py-3 bg-primary-light hover:bg-[#4a6218] text-white rounded-[40px] font-semibold transition-colors">
-                {locale === "ar" ? "أرسل رسالة الآن" : "Send a message now"}
-              </button>
+              <a href="mailto:hello@alrahmahwells.org">
+                <button className="px-6 py-3 bg-primary-light hover:bg-[#4a6218] text-white rounded-[40px] font-semibold transition-colors">
+                  {locale === "ar" ? "أرسل رسالة الآن" : "Send a message now"}
+                </button>
+              </a>
             </div>
           </div>
         </div>

@@ -62,7 +62,10 @@ export default function DonateHeroSection() {
         {/* Main Impact Message */}
         <div data-aos="fade-up" className="space-y-4">
           {/* First Line */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#EFDBB3] leading-[0.5]">
+          <h1
+            className="font-playfair text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#EFDBB3] leading-[1]"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
             {locale === "ar" ? "تبرع واحد =" : "ONE DONATION ="}
           </h1>
           {/* Second Line */}

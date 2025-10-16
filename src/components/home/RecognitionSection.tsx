@@ -192,7 +192,7 @@ export default function RecognitionSection() {
 
                 {/* Content */}
                 <div className="md:mt-15">
-                  <img src={recognition.image} className="w-35 sm:w-40 mb-5" />
+                  <img src={recognition.image} className="w-21 sm:w-24 mb-5" />
                   <h4 className="text-lg font-bold text-primary-dark mb-2">
                     {recognition.title}
                   </h4>

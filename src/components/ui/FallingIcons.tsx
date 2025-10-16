@@ -19,12 +19,6 @@ interface FloatingIcon {
 export default function FallingIcons() {
   const [icons, setIcons] = useState<FloatingIcon[]>([]);
 
-  const iconOptions = [
-    { src: "/icons/fall-1.png", alt: "fall-1" },
-    { src: "/icons/fall-2.png", alt: "fall-2" },
-    { src: "/icons/fall-3.png", alt: "fall-3" },
-  ];
-
   useEffect(() => {
     // Helper function to get a random edge point
     const getRandomEdgePoint = () => {
@@ -44,8 +38,6 @@ export default function FallingIcons() {
     };
 
     const createIcon = (id: number): FloatingIcon => {
-      const iconOption =
-        iconOptions[Math.floor(Math.random() * iconOptions.length)];
       const start = {
         x: Math.random() * 100,
         y: Math.random() * 100,
@@ -54,8 +46,8 @@ export default function FallingIcons() {
 
       return {
         id,
-        icon: iconOption.src,
-        alt: iconOption.alt,
+        icon: "/icons/fall-1.png",
+        alt: "fall-1.png",
         startX: start.x,
         startY: start.y,
         endX: end.x,
@@ -67,7 +59,7 @@ export default function FallingIcons() {
     };
 
     // Initialize icons
-    const initialIcons = Array.from({ length: 50 }, (_, i) => createIcon(i));
+    const initialIcons = Array.from({ length: 30 }, (_, i) => createIcon(i));
     setIcons(initialIcons);
   }, []);
 

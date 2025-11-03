@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { getLocaleFromPathname } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
 import { usePathname } from "next/navigation";
-import FallingIcons from "@/components/ui/FallingIcons";
 
 export default function DonateHeroSection() {
   const pathname = usePathname();
@@ -48,9 +47,6 @@ export default function DonateHeroSection() {
       className="bg-gradient-to-t from-[#1A3F22] to-[#58761B] flex items-center justify-center relative overflow-hidden pt-42 pb-20 md:pb-32 md:pt-54"
       dir={isRTL ? "rtl" : "ltr"}
     >
-      {/* Animated falling Islamic icons */}
-      <FallingIcons />
-
       <div
         className="absolute inset-0 opacity-10"
         style={{

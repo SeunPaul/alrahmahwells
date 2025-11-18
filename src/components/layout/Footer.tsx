@@ -3,10 +3,15 @@
 import Link from "next/link";
 import { useLocale } from "@/i18n/utils";
 import { rtlLocales, type Locale } from "@/i18n/config";
+import { useState, useTransition, type TransitionStartFunction } from "react";
 
 export default function Footer() {
   const locale = useLocale();
   const isRTL = rtlLocales.includes(locale as Locale);
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+  const [isPending, startTransition] = useTransition();
 
   const getLocalizedPath = (path: string): string => {
     if (locale === "en") return path;
@@ -33,16 +38,55 @@ export default function Footer() {
                   ? "كل مشروع هو شهادة أمل، دليل على أن الله رحيم بالفعل بالمحرومين، ونحن سعداء أن نكون أدوات رحمته لهم. امشِ معنا ونحن نشارك القصص المؤثرة وراء كل معجزة جعلها كل تبرع ممكنة."
                   : "Every project is a testimony of hope, a proof that Allah is indeed merciful to the less privileged, and we're happy to be instruments of His Mercy to them. Walk with us as we share the touching stories behind every Miracle each donation made possible."}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <form
+                className="flex flex-col sm:flex-row gap-3"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  handleSubscriptionSubmit({
+                    email,
+                    locale,
+                    setStatus,
+                    setMessage,
+                    startTransition,
+                    setEmail,
+                  });
+                }}
+              >
                 <input
                   type="email"
-                  placeholder="Your email here"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={
+                    locale === "ar"
+                      ? "أدخل بريدك الإلكتروني"
+                      : "Your email here"
+                  }
                   className="flex-1 px-4 py-3 rounded-[40px] bg-[#EDF4E5] border border-[#C0CFAD] text-gray-700 placeholder-[#969D8E] outline-0"
+                  required
                 />
-                <button className="px-6 py-3 bg-secondary-light hover:bg-secondary-dark text-white rounded-[40px] font-semibold transition-colors">
-                  {locale === "ar" ? "اشترك" : "Subscribe"}
+                <button
+                  type="submit"
+                  disabled={isPending}
+                  className="px-6 py-3 bg-secondary-light hover:bg-secondary-dark text-white rounded-[40px] font-semibold transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  {isPending
+                    ? locale === "ar"
+                      ? "جارٍ الاشتراك..."
+                      : "Subscribing..."
+                    : locale === "ar"
+                    ? "اشترك"
+                    : "Subscribe"}
                 </button>
-              </div>
+              </form>
+              {message && (
+                <p
+                  className={`mt-3 text-sm ${
+                    status === "success" ? "text-green-600" : "text-red-600"
+                  }`}
+                >
+                  {message}
+                </p>
+              )}
             </div>
 
             {/* divider */}
@@ -218,4 +262,66 @@ export default function Footer() {
       </div>
     </footer>
   );
+}
+
+interface SubmitHandlerProps {
+  email: string;
+  locale: string;
+  setStatus: (status: "idle" | "success" | "error") => void;
+  setMessage: (message: string) => void;
+  startTransition: TransitionStartFunction;
+  setEmail: (value: string) => void;
+}
+
+function handleSubscriptionSubmit({
+  email,
+  locale,
+  setStatus,
+  setMessage,
+  startTransition,
+  setEmail,
+}: SubmitHandlerProps) {
+  if (!email) {
+    setStatus("error");
+    setMessage(
+      locale === "ar"
+        ? "يرجى إدخال بريد إلكتروني صالح."
+        : "Please enter a valid email."
+    );
+    return;
+  }
+
+  setStatus("idle");
+  setMessage("");
+
+  startTransition(async () => {
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed");
+      }
+
+      setEmail("");
+      setStatus("success");
+      setMessage(
+        locale === "ar"
+          ? "تم اشتراكك بنجاح! تحقق من بريدك الإلكتروني."
+          : "You are subscribed! Please check your email."
+      );
+    } catch (error) {
+      setStatus("error");
+      setMessage(
+        locale === "ar"
+          ? "حدث خطأ أثناء الاشتراك. حاول مرة أخرى."
+          : "Unable to subscribe right now. Please try again."
+      );
+    }
+  });
 }
